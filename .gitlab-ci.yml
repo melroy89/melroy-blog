@@ -1,0 +1,28 @@
+image: registry.gitlab.com/pages/hugo:latest
+
+stages:
+  - build
+
+test-build:
+  stage: build
+  rules:
+    - if: "$CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH"
+  script:
+    - hugo --minify
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - public
+#build-and-deploy:
+#  stage: build
+#  rules:
+#    - if: '$CI_PROJECT_NAMESPACE == "melroy" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+#  script:
+#    - hugo -e production --minify
+#  environment:
+#    name: production
+#    url: https://blog.melroy.org
+#  artifacts:
+#    expire_in: 3 months
+#    paths:
+#      - public

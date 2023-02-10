@@ -1,0 +1,3 @@
+<link rel="stylesheet" href="{{ $.Site.BaseURL }}/css/custom.css">
+{{ if .Params.katex}}{{ partial "katex.html" . }}{{ end }}
+{{ if .Params.modal}}{{ partial "modal.html" . }}{{ end }}

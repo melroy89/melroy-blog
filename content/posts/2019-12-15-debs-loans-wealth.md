@@ -1,0 +1,94 @@
+---
+title: "Debts, loans and wealthy (Part: 1 / 2)"
+author: Melroy van den Berg
+type: post
+date: -001-11-30T00:00:00+00:00
+draft: true
+url: /?p=3594
+categories:
+  - Finance
+---
+
+**Update Melroy:** Move to MoneyTips?
+
+After reading several (best selling) books like Money Master The Game and The Intelligent Investor. Plus I read articles and watched interviews from Ray Dalio, Warren Buffet and Dave Ramsay to name a few investors. And, hack why not, I even follow some brokers. I would like to share my knowledge, the truth and a strategy, myths and more.
+
+This story is split into 3 parts, to keep the articles readable and keep your attention 🙂.
+
+I will not give you x steps order to become financial independent. I hate all those claims like: "Within those 5 steps you become rich". Instead the key is investing in **yourself** by gaining all the **knowledge** you can find on the planet. Process the knowledge and apply it. In these series of articles I intended to do just that; by giving you the knowledge, understanding and hopefully the motivation to do the same.
+
+_Disclaimer:_ I'm not a financial advisor, nor broker of any kind. I'm just a software programmer who's also passionate about our **monetary** system, where we all are currently living in. Don't believe me, emulate the Billionaires instead.
+
+## The Money System
+
+The current system as we now know, is no longer linked to the scarcity of the gold supply (also known as the gold standard). Instead most of the money is just virtual money. Sure, we still have gold reserves at the banks, but central banks have the ability to make unlimited amount of money without regret.
+
+The central bank (a.k.a. reserve bank or monetary authority) is a centralized monopoly system, that oversees their commercial banking system (like Rabobank or ING).
+
+### Central banks
+
+The central bank in Europe is called the European Central Bank (**ECB**). Since the last financial crisis from around 2010, the ECB tries to "print" more money. Also known as "fiat money". This is basically done by giving money away to the commercial banks. ECB also lowered the interest rate to almost zero. As as result the banks themselves also lower their interest rates. With the intention to give the economy a "boost".
+
+Meaning that both company as well as citizens start spending again, buying cars, starts investing and asking for loans. Since the interest rates are so low people may spend the money faster, rather than saving it. It's up to you to judge how well this system and strategy works from the ECB.
+
+### Work & Debts
+
+When you work, you basically convert your precious time you have on this planet to money.
+
+You want a house, you want to study and/or buy a car. Which you often can't afford.  
+In that case you will go to the bank to ask for money, you don't have. The commercial bank will validate your creditworthy. Once everything seems alright (from the bank point-of-view! **Not** in your own benefit), you will go into debt(s). This includes study loans, car payments, mortgage and more.
+
+From the moment you have a debt you are **broke.** Not only you have belongings you actually could not afford, but you also need to pay interest rate. Although maybe 2% nowadays seems a smaller percentage. On a bigger loan like a mortgage on top of compound interest, people have actually no clue how much they are really paying over the years.
+
+### Missing personal strategy
+
+In the meanwhile, you may live pay-check by pay-check, all the money you receive from your income gets spend to the household, mortgage, gas, groceries, new laptop, new cloths, etc. You may also pay pension so you can stop working at an age of 72 years (in my case); conform the government rules. Hopefully I'm still alive, healthy and can "finally enjoy" life..?
+
+This is the system 99.9% of the people are used to and currently living in. Well, I personally do not like this strategy. Not only I do not like the current plan most of the people are following (do they have a plan?). This strategy also limits my ability to be and become my greater self.  
+Changing the world into a better place. Express my creativity and execute my ideas with passion, that I think is import. And all this without conflicting with my personal values and standards [e.g. like driving a gasoline car daily, I don't like doing].
+
+## Before we start
+
+Now you are more aware of who you are and how you are connected to this **monetary system**. Hopefully you have (realistic) dreams, ideas and goals in your live to what you want to achieve/become.
+
+### Struggles
+
+You really need to feel the need to change. I personally can not fully help you with that, by only writing these blog articles. Also if you struggle with addiction or depressions, you properly first need to deal with those "mind-limiting" show-stoppers in your life.
+
+**Alcohol** (**coffee**?) addiction, **gaming**, **Facebook**, **YouTube, food, gambling, work** addiction as well as **smoking** are almost in all cases a way to get out of reality. A way to escape the real world, a way to not thinking or dealing with your personal feelings, personal life, personal setbacks in life. Start forgiving others and yourself. Embrace change. Don't start blaming. Find people around you who you want to be/become. Talk with a friend/family who is close to you and can be trusted.
+
+Accept reality, don't be afraid, do not feel embarrassed, look for people who are willing to help you. If you do not break your addiction (or any other bad behaviour that limits you to become your best version) in one day or another, you will regret it later. At the end you can see your past as a lesson and not a curse. Do not waste your live by your addiction(s). So it's up to you:
+
+> Suffer the pain of discipline or suffer the pain of regret
+
+I think its very important to deal with those personal issues first. Actually it's a must, in order to be able to fully execute the story I write down in this article and upcoming onces with passion and energy. Of-course you can still read it all :). For sure these articles will give you grip, vision and purpose. I hope&#8230; but what do I know, right? Haha 😇
+
+### Alignment
+
+If you are living together or/and you are married. In all those cases it's very important to be aligned with each other. I still hear way too often that people are living together, have civil partnership or are married \_for years. _And still living their own lives, having their own bank account and savings account. You need to understand that your money is your partner's money, and his/her money is your money also. You really need to deal the money flow together. Start treating your income as joint income. The same is applicable to the expenses and savings. It's no longer you and me, it's "us" from now onwards.
+
+Understand the joint effort is key in order to achieve your goals and the goals of your partner. Meaning if you want to change your expenses today, or create a strategy, involve **each other**. Discuss and share your plans and ideas with your partner. Try to convince with respect (pull, listen, _**not**_ push).
+
+Why you want to change your current life? Why is this needed? What you want to achieve? Understand each other, and create a single plan together, compromise when needed. Bottom line: have a common goal. And stick to the plan!
+
+### Joined Venture
+
+No bigger frustration could be that your wife is buying expensive shoes while you try to save money, or visa versa, while the husband suddenly bought a way too expensive car, without approval, and you are trying to save money for a needed washing machine that is broken. **Not** **combining** your **finances** is basically living your own life and the other person living his/her own life separated. While again, together you are able to achieve so much more.
+
+Equally important, **both parties** should be involved in the personal finance. Learn finances if you haven't it already, by start reading these articles for example. Be fully transparent to each other, do not hide debts or loans from each other. You are steering together and therefore the responsibility of managing your finances (both in a good or bad direction) is shared between you and your partner. In all cases, at all times!
+
+## Incomes, Expenses & Debts
+
+We start with understanding your current situation. Most likely you (if applicable: together with your partner) have debts, in come cases you won't even admit or identified the debts yet&#8230;
+
+Therefore the it's key to start with creating a good overview of your current household, your incomes, your expenses and your debts. In my eyes debts are not only your **study loan** or a **personal** **loan** for a car, **credit cards** (especially relevant for people from the USA). Debts are also the **mortgage** on your home. In fact you could consider a **subscription** for mobile phone you could not effort buying or a **lease** **car** you are driving, you could not effort buying in cash truncated debts as well.
+
+To be clear: your house you're currently living is NOT your investment, it could be, but actually as long as you live in the house, it's just a house. A place you call home, a place you feel safe. The house market could move up and fall down, you never know, you also never know when you need to sell your house. However, if you start buying a second house to rent, that would be an investment. Or flipping houses would be considered investing (although not advised as investment, but more like a business).
+
+### Money tracking
+
+Tools to create a overview of your income/expenses and debts do exists, however Excel ([template example](https://www.vertex42.com/ExcelTemplates/money-management-template.html)) or paper could be just enough for you. Or take a look at [EveryDollar](https://www.everydollar.com/) or [MijnGeldZaken](https://www.mijngeldzaken.nl/) or what your bank is offering already. In the end it should help you, by giving you a better insides of your money flow. Not only what your income (as input) but also the expenses (as output) together with the amount for paying off debt including the interest rates (as output).
+
+The following Important expenses you should **track for sure** are: mortgage plus associated insurance(s), gas, water and electricity bills, car payments including maintenance, fuel costs, depreciation and car taxes, groceries, general shopping (clothing, electronic devices, home furnishing), subscriptions on magazines, Internet, phones. Last but not least your health insurance of both parties.
+
+## Summary

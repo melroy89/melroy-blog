@@ -1,0 +1,23 @@
+.bg-top {
+  background-position: top left;
+}
+.image,
+pre,
+aside div {
+  border-radius: 5px;
+}
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th {
+  background: #ddd;
+}
+tr:nth-child(even) {
+  background: #eee;
+}
