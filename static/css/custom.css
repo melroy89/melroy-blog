@@ -6,6 +6,10 @@ pre,
 aside div {
   border-radius: 5px;
 }
+.code,
+code {
+  word-break: break-word;
+}
 .image {
   display: block;
   margin-left: auto;
