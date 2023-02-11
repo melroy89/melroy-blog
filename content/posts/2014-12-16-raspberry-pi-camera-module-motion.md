@@ -31,7 +31,7 @@ tags:
 
 In deze tutorial leg ik uit hoe je de **Raspberry Pi** kunt opzetten / configureren met de **Camera Module.** Deze module is niet standaard inbegrepen bij aanschaf van de Raspberry Pi.
 
-Ik leg ook uit welke **software** je het beste kunt gebruiken voor het detecteren van beweging. Verder bespreek ik stap voor stap hoe je het beste je **netwerk** kunt configureren. Ik sluit af met een lijstje met handige commando`s die je zeker gaan helpen tijdens het project.
+Ik leg ook uit welke **software** je het beste kunt gebruiken voor het detecteren van beweging. Verder bespreek ik stap voor stap hoe je het beste je **netwerk** kunt configureren. Ik sluit af met een lijstje met handige commando's die je zeker gaan helpen tijdens het project.
 
 Kortom, een mooi projectje voor in het weekend! 🙂
 
@@ -61,7 +61,7 @@ Veranderd sdxxx naar het apparaat wat je SD kaart moet zijn. Zet er geen getal a
 
 ### Optie #2 - Automatisch via script
 
-Een alternatief is door gebruik te maken van mijn eigen installatie script, zie: [install_raspbian.sh](https://raw.githubusercontent.com/MelroysBlog/linux-scripts/master/install_raspbian.sh). Dit script is onderdeel van de [Linux Script repo](https://github.com/MelroysBlog/linux-scripts) op Gihub.com, onderdeel van [MelroysBlog](https://github.com/MelroysBlog) account.
+Een alternatief is door gebruik te maken van mijn eigen installatie script, zie: [install_raspbian.sh](https://raw.githubusercontent.com/MelroysBlog/linux-scripts/master/install_raspbian.sh). Dit script is onderdeel van de [Linux Script repo](https://github.com/MelroysBlog/linux-scripts) op Gihub.com, onderdeel van [Melroy's Blog](https://github.com/MelroysBlog) account.
 
 Sla dit bestand op dezelfde locatie op als waar je download staat. En maakt deze uitvoerbaar via: `sudo chmod +x install_raspbian.sh`
 
@@ -93,7 +93,7 @@ Herstart eth0 interface via:
 
 ```sh
 sudo ifdown eth0
-sudo ifup eth0`
+sudo ifup eth0
 ```
 
 Controleren van de netwerk instellingen kan met _ifconfig_ commando (zonder parameters).
@@ -208,7 +208,7 @@ Zonder reboot kun je MotionEye starten via: `sudo systemctl start motioneye`
 
 Stoppen kan weer via: `sudo systemctl stop motioneye`
 
-Als alles goed is gedaan, kun je nu verbinden met de MotionEye webserver via: [http://localhost:80](http://localhost).  
+Als alles goed is gedaan, kun je nu verbinden met de MotionEye webserver via: [http://localhost](http://localhost).  
 Of remote, via je eigen PC bijvoorbeeld, ga dan naar (verander eventueel het IP adres naar de gene die jij gebruikt hebt):  
 [http://192.168.0.80](http://192.168.0.80)
 
@@ -340,7 +340,7 @@ En voeg of vervang de volgende regel toe aan dit bestand (voor OpenDNS): `namese
 
 En sla het bestand op. Op dit moment is OpenDNS altijd geconfigureerde als eerste DNS server, ongeacht welk netwerk interface je gebruikt.
 
-## Handige Commando`s
+## Handige Commando's
 
 Indien je informatie wilt opvragen over de interface kunt je gebruik maken van (of het achterhaalde commando ifconfig): `ip addr`
 
@@ -357,14 +357,14 @@ Je kunt ook per interface "opbrengen" via:
 
 ```sh
 sudo ifdown eth0
-sudo ifup eth0`
+sudo ifup eth0
 ```
 
 Vraag je je af welke WiFi access points er in de buurt zijn, gebruik: `sudo iwlist wlan0 scan`
 
 Wilt je controleren of je nu echt bent **verbonden** bent met je WiFi Access Point? Maak handig gebruik van het iwconfig commando:
 
-```
+```sh
 sudo iwconfig 2>&1 | grep ESSID
 wlan0     IEEE 802.11bgn  ESSID:"Melroy_Dennis_HQ"  Nickname:"rtl_wifi"
 ```
