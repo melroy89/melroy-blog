@@ -46,7 +46,7 @@ Postfix is een open-source mail server afkomstig van [IBM research](http://www.r
 
 Sendmail is een oude mail server. De eerste versie dateert uit de jaren 80. In die tijd was nog niet voorzien wat het internet zou worden, zoals we het nu kennen.
 
-Postfix bied daarom een mooi alternatief, echter wel compatibel met Sendmail. Daarnaast bied Postfix meer veiligheid, snelheid, <span id="result_box" class="short_text" lang="nl"><span class="hps alt-edited">soliditeit en <span id="result_box" class="short_text" lang="nl"><span class="hps">flexibiliteit dan Sendmail</span></span>. Het wordt daarom aanbevolen om eerder Postfix te gebruiken dan Sendmail als mail server.<br /> </span></span>
+Postfix bied daarom een mooi alternatief, echter wel compatibel met Sendmail. Daarnaast bied Postfix meer veiligheid, snelheid, soliditeit en flexibiliteit dan Sendmail. Het wordt daarom aanbevolen om eerder Postfix te gebruiken dan Sendmail als mail server.
 
 ## How-to
 

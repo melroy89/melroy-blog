@@ -138,11 +138,11 @@ _Note #2:_ Op het moment van publiceren is de Jiayu S4 nog niet uitgebracht.
 _Note #3:_ de Elephone Vowney is nu in Pre-sale.  
 _Note #4:_ De UMI Iron & UMI Iron Pro is expres niet omgekomen omdat hun sjoemelen met hun specificaties. Kortom zijn niet betrouwbaar.
 
-Opmerking is het merk Asus. Ze willen blijkbaar mee doen met de prijzenoorlog in de smartphone wereld<span class="item-price">. De Asus Zenfone 2 is een zeer degelijk toestel.</span>
+Opmerking is het merk Asus. Ze willen blijkbaar mee doen met de prijzenoorlog in de smartphone wereld. De Asus Zenfone 2 is een zeer degelijk toestel.
 
 ## Garantie
 
-![](/images/2015/11/garantie.png)
+![Garantie](/images/2015/11/garantie.png)
 
 Net als Nederland, kent China ook gewoon garantie. Als je het toestel in Nederland koopt, kun je voor garantie terug naar de desbetreffende (web)winkel. Mocht je het echter via eBay/Pandawill/etc. kopen of te wel bij een Chinese leverancier. Dan moet je op dat moment ook de garantie met hun afwikkelen. Kortom je garantie moet je dan 8000km verder op halen. Het opsturen van je toestel naar China kost ook geld en het kan behoorlijk lang duren voordat je deze weer terug heb na reparatie. Het kan ook zijn dat je nogmaals import kosten moet betalen bij de douane. In sommige gevallen kun je dezelfde toestellen wel via een Nederlandse webshop kopen, dan ben je wel duurder uit (misschien minder risico?). Het is een keuze.
 
@@ -170,7 +170,7 @@ Mijn keuze is gevallen op de **_Elephone Vowney Lite_** gemaakt van metaal. Goe
 
 Een andere goede optie is de **_Jiayu S3 Advanced_**, het is Android 4.4, maar met een firmware update krijg je deze naar Android 5.1 (Lollipop). Ook 1080p scherm. De 3100mAh accu is vervangbaar. Deze S3 Advanced versie beschik over 3GB RAM en NFC in tegenstelling tot de S3 Basic. Daarnaast heeft dit toestel dus een 13 Megapixel camera, dual-sim, Gorilla Glass, en 4G. Verkrijgbaar in het zwart en wit.
 
-![](/images/2015/11/JiaYu-S3.png "Jiayu S3 Advanced (zwart)")
+![Jiayu](/images/2015/11/JiaYu-S3.png "Jiayu S3 Advanced (zwart)")
 
 Mocht je geen NFC ondersteuning willen hebben; dan voldoet de _Jiayu S3 Basic_ (hoewel het prijs verschil minimaal is met de Advanced) en de _Zopo Speed 7 Plus_ die ook **geen** NFC aanbied, maar wel goede specificaties heeft. In alle gevallen zit je rond de 200 euro.
 

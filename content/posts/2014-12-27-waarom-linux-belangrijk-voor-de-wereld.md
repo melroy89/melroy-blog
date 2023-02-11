@@ -37,7 +37,7 @@ tags:
   - Windows
 ---
 
-Veel mensen kennen helaas het besturingssysteem **GNU/Linux** niet eens. Of men heeft er ooit van gehoord, maar weet niet exact wat het inhoudt.  Sommige mensen denken dat het enkel bedoeld is voor techneuten/nerds (wat gedeeltelijk waar is 😛 ). Maar wat maakt Linux nu zo **belangrijk** voor de wereld?
+Veel mensen kennen helaas het besturingssysteem **GNU/Linux** niet eens. Of men heeft er ooit van gehoord, maar weet niet exact wat het inhoudt.  Sommige mensen denken dat het enkel bedoeld is voor techneuten/nerds (wat gedeeltelijk waar is 😛). Maar wat maakt Linux nu zo **belangrijk** voor de wereld?
 
 In dit artikel leg ik uit waarom GNU/Linux zo **bijzonder** is. Lees daarom snel verder!
 
@@ -89,7 +89,7 @@ En wellicht nog wel belangrijker, één Linux systeem kan dienen als 50 werkple
 
 ### Linux Foundation
 
-Vergeet ook niet dat wij met zijn allen, Linux kunnen verbeteren, omdat het open-source is. Zo werken nu **vele individuele** (meestal in hun eigen tijd) en **meerdere bedrijven** samen om Linux te verbeteren. Deelnemen kan zijn in code, documentatie schrijven, vertalen, package-en of bijvoorbeeld demotractievideo's maken. Linux Foundation bevat een lijst met bedrijven die aan Linux werken, in totaal zjin dat er +/- 10,000 ontwikkelaars in meer dan 1000 bedrijven waaronder: Red Hat, Novell, IBM, Intel, Oracle, Renesas, SGI, Fujitsu, Nokia (nu het Windows is, waarschijnlijk veel minder 🙁 ), HP, Google... Mobiele en embedded bedrijven steken steeds meer geld in Linux, denk hierbij aan: Linaro, Samsung en Texas Instruments.<br />
+Vergeet ook niet dat wij met zijn allen, Linux kunnen verbeteren, omdat het open-source is. Zo werken nu **vele individuele** (meestal in hun eigen tijd) en **meerdere bedrijven** samen om Linux te verbeteren. Deelnemen kan zijn in code, documentatie schrijven, vertalen, package-en of bijvoorbeeld demotractievideo's maken. Linux Foundation bevat een lijst met bedrijven die aan Linux werken, in totaal zjin dat er +/- 10,000 ontwikkelaars in meer dan 1000 bedrijven waaronder: Red Hat, Novell, IBM, Intel, Oracle, Renesas, SGI, Fujitsu, Nokia (nu het Windows is, waarschijnlijk veel minder 🙁 ), HP, Google... Mobiele en embedded bedrijven steken steeds meer geld in Linux, denk hierbij aan: Linaro, Samsung en Texas Instruments.
 
 Niemand alleen (Microsoft) kan ooit concurreren met wat iedereen samen kan produceren (Linux) los van het management gezien. Gemiddeld worden er per uur 7.14 veranderingen geaccepteerd in Linux kernel, dit komt neer op z'n 171 verbeteringen elke dag en meer dan **1200 fixes per week**.
 

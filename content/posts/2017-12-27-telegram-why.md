@@ -45,15 +45,15 @@ Telegram has peer to peer **encryption (_secret chats_)**, nice _stickers_, buil
 
 ![](/images/2017/12/gif_bot.png "Telegram Gif Bot")
 
-Telegram messages are synced automatically between all devices / clients. The messages can be changed after you send it <span id="result_box" class="short_text" lang="en"><span class="">to correct a spelling mistake</span></span> for example. You can even remove a message after you send it (at both sides!). It has even an in-app browser, which opens your content very fast.
+Telegram messages are synced automatically between all devices / clients. The messages can be changed after you send it to correct a spelling mistake for example. You can even remove a message after you send it (at both sides!). It has even an in-app browser, which opens your content very fast.
 
 It supports bots, so you can [write your own chat bot](https://core.telegram.org/bots)! Nice bots are available, to name a few: [HotOrBot](https://telegram.me/hotorbot), [ImageBot](https://telegram.me/imagebot), [YoutubeBot](https://telegram.me/youtube), [GifBot](https://t.me/gif), [OtoutoBot](https://telegram.me/otouto), [SpotifyBot](https://telegram.me/spotybot), and [IMDbBot](https://telegram.me/imdb).
 
-> Bots can make your life easier - Melroy
+> Bots can make your life easier - _Melroy van den Berg_
 
 ## Groups & Channels
 
-Moreover, Telegram supports so called supergroups. Which are big chat groups upto <span style="color: #333333;">50.000 members</span> in 1 chat. Or channels for broadcasting to **unlimited** audiences. 
+Moreover, Telegram supports so called supergroups. Which are big chat groups upto _100.000 members_ in 1 group chat. Or channels for broadcasting to **unlimited** audiences. 
 There are plenty of Telegram groups and channels available for all kind of different topics. Helpful cryptocurrency group: [Crypto Currency Republic](https://t.me/cryptocurrencyrepublic).
 
 Or channels like: [Netflix](https://t.me/netflix), [Crypto Alerts channel](https://t.me/crypto_exchange_updates), [new daily music](https://telegram.me/daily_music) or just [find the channel where are you looking for](https://t.me/tchannelsbot).

@@ -417,35 +417,35 @@ Nu hoort je een /dev/mdX erbij te hebben. Je kunt je harde schrijven, partities 
 
 Voorbeeld van 4 harde schrijven, waarvan sda1 & sdb1 in RAID 1 staan. En sdc1 & sdd1 in RAID 1 staan:
 
-```
+```sh
 NAME    MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
  sda       8:0    0 465.8G  0 disk
  ├─sda1    8:1    0 456.5G  0 part
- │<span style="color: #008000;"> └─md0   9:0    0 456.3G  0 raid1 /</span>
+ │ └─md0   9:0    0 456.3G  0 raid1 /
  └─sda2    8:5    0   9.3G  0 part  [SWAP]
  sdb       8:16   0 465.8G  0 disk
  ├─sdb1    8:17   0 456.5G  0 part
- │<span style="color: #008000;"> └─md0   9:0    0 456.3G  0 raid1 /</span>
+ │ └─md0   9:0    0 456.3G  0 raid1 /
  └─sdb2    8:21   0   9.3G  0 part
  sdc       8:32   0 931.5G  0 disk
  └─sdc1    8:33   0 931.5G  0 part
-<span style="color: #800080;"> └─md1   9:1    0 931.4G  0 raid1 /media/data</span>
+ └─md1   9:1    0 931.4G  0 raid1 /media/data
  sdd       8:48   0 931.5G  0 disk
  └─sdd1    8:49   0 931.5G  0 part
-<span style="color: #800080;"> └─md1   9:1    0 931.4G  0 raid1 /media/data</span>
+ └─md1   9:1    0 931.4G  0 raid1 /media/data
 ```
 
 Bijbehorende fstab:
 
 ```
 # <file system> <mount point>   <type>  <options>       <dump>  <pass>
- <span style="color: #008000;">UUID=87dbf687-...... /               ext4    errors=remount-ro 0     1</span>
+ UUID=87dbf687-...... /               ext4    errors=remount-ro 0     1
  # swap
  UUID=17f4568b-...... none            swap    sw              0       0
  # Second swap (enable only when needed)
  #UUID=2f37123c-..... none            swap    sw              0       0
  # Data disk
- <span style="color: #800080;">UUID=7b241b86-...... /media/data     ext4   defaults         0       2</span>
+ UUID=7b241b86-...... /media/data     ext4   defaults         0       2
 ```
 
 mdadm.config bevat bij mij onder andere:
@@ -496,7 +496,7 @@ Ik heb de built-in nginx server uitgezet (zie de tekst in het oranje hierboven).
 
 `nano /etc/apache2/sites-available/gitlab.conf`:
 
-```
+```conf
 <VirtualHost *:443>
     SSLEngine on
     #strong encryption ciphers only
@@ -553,13 +553,13 @@ Ik heb de built-in nginx server uitgezet (zie de tekst in het oranje hierboven).
 </VirtualHost>
 ```
 
-```
+```sh
 a2ensite gitlab
 ```
 
 Voor Gitlab-CI, gebruik ik een /etc/apache2/sites-available/gitlab-ci.conf bestand. Met exact dezelfde inhoud als hierboven. Behalve de **ServerName**, **ProxyPassReverse** en **ErrorLog**/**CustomLog** heb ik veranderd naar `ci.melroy.org`. Daarnaast gebruik GitLab-CI poort `8181` in plaats van `8080`. Ook dat moet je veranderen.
 
-```
+```sh
 a2ensite gitlab-ci
 ```
 
@@ -636,7 +636,7 @@ Stel je wilt deze e-mail beantwoorden, kortom het versturen van een e-mail:
 
 Laten we nu beginnen met Postfix te installeren: `apt-get install postfix`
 
-`nano /etc/postfix/postfix`:
+Bewerk bestand `nano /etc/postfix/postfix`:
 
 ```ini
 # Hostname
@@ -890,7 +890,7 @@ Tot slot, ga nu naar de installatie van Roundcube:
 In mijn geval gaf de installer aan dat er nog enkele pakketten van  3{{< super e >}} ontbraken (als je kiest voor Roundcube depedent). Deze installeerde ik als volgt:
 
 ```sh
-apt-get install php-pear
+sudo apt-get install php-pear
 pear install mail
 pear install Net_SMTP
 pear install Auth_SASL
@@ -898,7 +898,9 @@ pear install mail_mime
 pear install Mail_mimeDecode
 ```
 
-# pear install channel://pear.php.net/Net_IDNA2-0.1.1 </code> </span>
+```sh
+pear install channel://pear.php.net/Net_IDNA2-0.1.1
+```
 
 Eventueel kun je je de instellingen nog veranderen. %t zorgt ervoor dat je kunt inloggen zonder @melroy.org in mijn geval (controleer dit met: `hostname -d`).
 
@@ -961,7 +963,7 @@ Monitorix is een gratis open-source webbased monitoring tool. En creëert mooie 
 
 ![Monitorix Web GUI](/images/2015/07/monitorix.png "Monitorix Web GUI")
 
-Installeren: `apt-get install monitorix`
+Installeren: `sudo apt-get install monitorix`
 
 Configureren: `nano /etc/apache2/sites-available/monitorix.conf`
 
@@ -1014,9 +1016,9 @@ Monit is weer een andere gratis open-source monitoring tool voor processen, best
 
 ![Monit web pagina](/images/2015/07/monit.png "Monit web pagina")
 
-Installeren: `apt-get install monit`
+Installeren: `sudo apt-get install monit`
 
-`nano /etc/monit/monitrc`
+Bewerk bestand: `nano /etc/monit/monitrc`
 
 ```sh
 set mailserver localhost
@@ -1066,7 +1068,7 @@ Op [Melroy's Server website](http://server.melroy.org/) kun je al mijn web-diens
 We sluiten deze handleiding af met wat handige tools, tip & tricks. Smartmontools bevat verschillende applicaties voor het diagnostiseren van je harde schrijf en het uitlezen van de S.M.A.R.T. data op de schrijven.
 
 ```sh
-apt-get install smartmontools
+sudo apt-get install smartmontools
 ```
 
 Hardeschrijf info: `smartctl -i /dev/sdc`
@@ -1088,7 +1090,7 @@ Verwijs alle root e-mails door naar jouw e-mailadres, voeg je e-mailadres toe aa
 Naast Monitorix en Monit, gebruik ik ook `htop` commando voor het interactief bheheren van applicaties. Het is een alternatief van het wat oude top commando.
 
 ```sh
-apt-get install htop
+sudo apt-get install htop
 ```
 
 ## Netwerk tools
@@ -1096,7 +1098,7 @@ apt-get install htop
 Misschien ken je het commando `ping` & `route` commando. Het `mtr` commando (My Traceroute) combineerd deze twee tools. Ideaal voor het achterhalen van netwerk problemen.
 
 ```sh
-apt-get install mtr-tiny
+sudo apt-get install mtr-tiny
 ```
 
 Het standaard meegeleverde `netstat` is ook zeer krachtig. Onderstaande regel geeft bijvoorbeeld alle openstaande TCP sockets: `netstat -nat`

@@ -106,7 +106,7 @@ In de afbeelding hierboven gebeurt dan het volgende:
 
 1. De computer probeert contact te maken met de server;
 2. Je krijgt een server certificaat terug van de server (met een **publieke sleutel** erin);
-3. De computer creëert zijn eigen zogenaamde _sessie sleutel_;<br />
+3. De computer creëert zijn eigen zogenaamde _sessie sleutel_;
 4. De computer stuurt deze sleutel terug naar de server, door het te encrypteren met de **publieke sleutel**.
 5. De server ontcijfert de sleutel door zijn **privé sleutel**. Alleen de server beschikt over deze **privé sleutel**, en kan daardoor het bericht ontcijferen van de computer;
 6. Uiteindelijk maakt zowel de computer als de server gebruik van deze _sessie sleutel_ en het verkeer verder te versleutelen.

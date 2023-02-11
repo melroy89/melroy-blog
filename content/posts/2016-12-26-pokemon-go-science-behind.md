@@ -39,7 +39,7 @@ I share some history behind the game. Explaining some bugs and try to predict th
 
 ## Pokémon GO
 
-First, a little background information for those who have absolutely no idea what I'm talking about. Pokémon GO is an [Android](https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo) & [iOS](https://itunes.apple.com/us/app/pokemon-go/id1094591345?mt=8) game that allows you to catch pokémons virtually. To do so, you need to be on a physical location, the game uses GPS to know your current location. Pokémon GO is officially released in the European Union, North America, Canada, UK, Japan, Hong Kong, <span id="result_box" class="short_text" lang="en">New Zealand and <span class="">Australia.<br /> </span></span>
+First, a little background information for those who have absolutely no idea what I'm talking about. Pokémon GO is an [Android](https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo) & [iOS](https://itunes.apple.com/us/app/pokemon-go/id1094591345?mt=8) game that allows you to catch pokémons virtually. To do so, you need to be on a physical location, the game uses GPS to know your current location. Pokémon GO is officially released in the European Union, North America, Canada, UK, Japan, Hong Kong, <New Zealand and Australia.
 
 ![Rollout status](/images/2016/07/640px-Pokémon_Go_Release_Map.svg.png "Roll-out status (2016-07)")
 
@@ -49,14 +49,14 @@ Pokémon GO actually started as a 1 April joke in 2014 created by Satoru Iwata 
 
 ### Pokestops & Gyms
 
-Before Pokémon GO was released another similar game was released for the public, called **Ingress**. Ingress is also an augment reality game released in **2013**. Ingress was the founder of the Pokémon GO game. Ingress is in fact created by the same company as Pokémon GO; <span class="st">Niantic, Inc.</span> (more about that later).  
-In Ingress it's possible to create so called **Portals** based on geographic location together with a photo. <span id="result_box" class="short_text" lang="en"><span class="alt-edited">They</span> <span class="">asked the</span> <span class="">Ingress</span> <span class="">players</span> <span class="">to </span></span>submit places they think <span id="result_box" class="short_text" lang="en"><span class="">it</span> <span class="">is worth</span> <span class="">a visit</span></span>. There are even Portals in Antarctica and the North Pole, and some points in between. The data of these locations together with the picture is now used in Pokémon GO, but instead calling them "Portals" it is now referred as "Pokéstops" and "Gyms". Without Ingress, Pokémon GO couldn't become as successful as it is now. So kudos for the Ingress community.
+Before Pokémon GO was released another similar game was released for the public, called **Ingress**. Ingress is also an augment reality game released in **2013**. Ingress was the founder of the Pokémon GO game. Ingress is in fact created by the same company as Pokémon GO; Niantic, Inc. (more about that later).  
+In Ingress it's possible to create so called **Portals** based on geographic location together with a photo. They asked the Ingress players to submit places they think it is worth a visit. There are even Portals in Antarctica and the North Pole, and some points in between. The data of these locations together with the picture is now used in Pokémon GO, but instead calling them "Portals" it is now referred as "Pokéstops" and "Gyms". Without Ingress, Pokémon GO couldn't become as successful as it is now. So kudos for the Ingress community.
 
 No, it's not possible anymore to submit new Pokéstops or Gyms. Contact the official Twitter account instead.
 
 ![Ingress screens](/images/2016/07/ingress_screenshot.png "Ingress screens")
 
-<span class="st">Niantic Labs is the creator of both Ingress and Pokémon GO. Niantic Labs was founded in 2010. Niantic was an internal start-up company of **Google** by John Hanke, but is now <span id="result_box" class="" lang="en">independent after restructuring for G<span class="">oogle</span> in A<span class="">lphabet (Alphabet Inc. is the parent company of Google Inc.)</span><span class="">. Ingress is played on a modified version of Google Maps. Google, Nintendo and the The Pokémon Company invested 20 million dollars in Niantic Labs. </span></span></span>
+Niantic Labs is the creator of both Ingress and Pokémon GO. Niantic Labs was founded in 2010. Niantic was an internal start-up company of **Google** by John Hanke, but is now independent after restructuring for Google in Alphabet (Alphabet Inc. is the parent company of Google Inc.). Ingress is played on a modified version of Google Maps. Google, Nintendo and the The Pokémon Company invested 20 million dollars in Niantic Labs.
 
 ### Google Earth
 
@@ -85,10 +85,10 @@ Besides the built-in GPS module in your phone, you may want a separate GPS recei
 
 ![Two measurements narrow down our position to 2 points](/images/2016/07/200px-Sphere3-intersect.svg.png "Three measurements narrow down our position to 2 points")
 
-When your phone consist of a cheap GPS module, you could consider to buy a **Bluetooth GPS Receiver** that works with Android/iOS. Although I hear the game can't handle the Bluetooth GPS receiver too bad. Because Pokemon GO may block Bluetooth GPS Receivers, <span id="result_box" class="short_text" lang="en"><span class="">because</span> <span class="alt-edited">they think you are</span> hacking. In fact, there are a lot of GPS fakers released for Pok<span class="st">é</span>mon GO.</span>  
+When your phone consist of a cheap GPS module, you could consider to buy a **Bluetooth GPS Receiver** that works with Android/iOS. Although I hear the game can't handle the Bluetooth GPS receiver too bad. Because Pokemon GO may block Bluetooth GPS Receivers, because they think you are hacking. In fact, there are a lot of GPS fakers released for Pokémon GO.  
 Besides a Bluetooth GPS Receiver you can just hold in your hand/pocket, there are other fancy products in the making; like the [Pokedrone](https://www.trndlabs.com/featured_item/pokedrone/). A small drone which can be used to catch pokemons on water for instance (the product itself is not yet released).
 
-I think Pokemon GO should also use other sensors like magnetometer, accelerometer or <del>gyroscope</del> (gyroscope is already used when you rotate your screen). This makes it harder for cheater to cheat, although the Pok<span class="st">é</span>drone may not work anymore.
+I think Pokemon GO should also use other sensors like magnetometer, accelerometer or ~~gyroscope~~ (gyroscope is already used when you rotate your screen). This makes it harder for cheater to cheat, although the Pokédrone may not work anymore.
 
 ## Bugs (not Caterpie)
 
@@ -98,9 +98,9 @@ In the mean-while you can limit your battery usage by dimming the screen, enabli
 
 ## What's the impact?
 
-- There are already a lot of **events** created for Pokemon GO, you could visit the <span id="result_box" class="short_text" lang="en"><span class="">Amersfoort Zoo (Holland) for <em>FREE</em> to catch them all. For big parks (read: Efteling, Walibi etc.) people created Pokemon GO maps for it. And an open-source map is created called [PoGoMap](https://jz6.github.io/PoGoMap/). Finally a lot of mobile apps are also created to support the Pokemon GO game, like [Poke Radar](http://www.pokemonradargo.com/) and [PokeVision](https://pokevision.com). Facebook events appears to pop-up in Amsterdam and other places.<br /> </span></span>
-- A special **mobile data bundle** is created called [Robin GO](https://www.robinmobile.nl/robin-go?pagehome=robin-go). For € 24,95 per month you get u<span id="result_box" class="short_text" lang="en">nlimited MBs, SMS and <span class="">voice minutes with a data speed of 1,1Mbps (enough to play the game). I would not advise this mobile plan, the provider is not that great.<br /> </span></span>
-- <span id="result_box" class="" lang="en">People buy items with real money in the shop, like **lures**. Especially business owners setup such lures to attract people to their location. In the hope that the players purchase drinks/food. </span>
+- There are already a lot of **events** created for Pokemon GO, you could visit the Amersfoort Zoo (Holland) for _FREE_ to catch them all. For big parks (read: Efteling, Walibi etc.) people created Pokemon GO maps for it. And an open-source map is created called [PoGoMap](https://jz6.github.io/PoGoMap/). Finally a lot of mobile apps are also created to support the Pokemon GO game, like [Poke Radar](http://www.pokemonradargo.com/) and [PokeVision](https://pokevision.com). Facebook events appears to pop-up in Amsterdam and other places.
+- A special **mobile data bundle** is created called [Robin GO](https://www.robinmobile.nl/robin-go?pagehome=robin-go). For € 24,95 per month you get MBs, SMS and voice minutes with a data speed of 1,1Mbps (enough to play the game). I would not advise this mobile plan, the provider is not that great.
+- People buy items with real money in the shop, like **lures**. Especially business owners setup such lures to attract people to their location. In the hope that the players purchase drinks/food.
 - Nintendo Inc. stock price went sky-high after the launch of the game. After a statement that the company (Nintendo) only owns 32% of Pokemon GO (together with Niantic), and mainly benefits for the side effects of the hype. The company doesn't change the financial forecast due to uncertainty and the financial construction, causing the stock price to drop again. From 272,75 Euros (31 770 Japanese yen) to 199,34 Euros (23 220,00 yen) on the Japanese stock market.
 - Special open-source [cases are created ](https://www.myminifactory.com/object/pokeball-aimer-pokemon-go-23009)to play Pokemon GO (see image below).
 
@@ -108,13 +108,13 @@ In the mean-while you can limit your battery usage by dimming the screen, enabli
 
 ## Future
 
-Pokemon GO and Ingress will certainly not be the last <span data-ft="{&quot;tn&quot;:&quot;K&quot;}"><span class="UFICommentBody">augmented </span></span>reality game that is released for the mobile phone. Will the next game be GTA on your navigation system? Who knows&#8230; What I  think is that **VR devices** can become a next big thing.  
+Pokemon GO and Ingress will certainly not be the last augmented reality game that is released for the mobile phone. Will the next game be GTA on your navigation system? Who knows... What I  think is that **VR devices** can become a next big thing.  
 Google created a Virtual Reality platform called [Daydream](https://vr.google.com/daydream/). This can become a good starting point for future projects and games. At some point a VR goggles could be become a feature of a smartphone (just like a camera), meaning a second device is not needed anymore in order to experience the full virtual world (I know we have already Google Cardboard). Currently our mobiles doesn't have good specifications to get the most out of VR (look at the Cardboard project). By partnering with manufactures to build Android phones to a common baseline that can support high-fidelity VR, Google was able to design a minimal headset that could be the standard to deliver high quality VR, without all the cords or a PC.  
 Daydream will also solve the controlling VR experience. Where there is no industry standard right now; Cardboard had only a single button, while HTC Vive has a pair of motion controllers. Daydream will have a small remote controller which has a thumb track-pad and two buttons.
 
 ![Google Daydream design](/images/2016/07/final_daydream_design.jpeg "Google Daydream design")
 
-## Did you know, that&#8230;
+## Did you know, that...
 
 - the max user level is 40?
 - you need to have 20.000.000 XP to reach the max level (40)?

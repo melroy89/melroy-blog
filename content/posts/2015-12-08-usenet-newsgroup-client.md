@@ -20,7 +20,7 @@ tags:
   - usenet
 ---
 
-![Student Stephen Daniel software that first ran the Usenet newsgroups](/images/2015/12/stephen_daniel.jpg" Student Stephen Daniel software that first ran the Usenet newsgroups (1979)")
+![Student Stephen Daniel software that first ran the Usenet newsgroups](/images/2015/12/stephen_daniel.jpg "Student Stephen Daniel software that first ran the Usenet newsgroups (1979)")
 
 Usenet Newsgroups is a way to communicate between people on the Internet. Newsgroup is a discussion group and despite the name not for news. Usenet Newsgroup were the most used Internet service when the World Wide Web (WWW) didn't exist yet. Newsgroup uses Network News Transfer Protocol (NNTP) for distributing the posts.
 
@@ -36,11 +36,9 @@ There exist many Usenet service providers, for example [Supernews](http://www.su
 
 ## NZB Client
 
-To install NZBGet under Arch Linux, execute the following command-line:
+To install NZBGet under Arch Linux, execute the following command-line: `yaourt -S nzbget untar unzip`
 
-`yaourt -S nzbget untar unzip`
-
-For other distributions. Use the Linux installer which can be downloaded from [NZBGet website](http://nzbget.net/download/). Or for the hard-core people; get the stable release source from [GitHub ](https://github.com/nzbget/nzbget/tree/v16.4)(v16.4).
+For other distributions. Use the Linux installer which can be downloaded from [NZBGet website](http://nzbget.net/download/). Or for the hard-core people; get the stable release [source from GitHub](https://github.com/nzbget/nzbget/tree/v16.4) (v16.4).
 
 ![NZBGet Interface](/images/2015/12/nzbget-e1449578281188.jpg "NZBGet Interface")
 
@@ -71,9 +69,12 @@ UMask=0007
 You can change the `ControlPort` to port 80 (root is required), default HTTP port, if you like. When you use the default port you can visit the NZBGet web-interface on: [http://localhost:6789/](http://localhost:6789/).  
 Of-source change the `DaemonUsername` to your Linux user and don't forget the change the Server settings. You can leave the ControlUsername and Controlpassword empty if you want to disable authentication on the web interface.
 
-Create the destination directory and the log file, in my case:  
-`mkdir /home/melroy/downloads/dist<br />
-touch /home/melroy/downloads/dist/nzbget.log`
+Create the destination directory and the log file, in my case:
+
+```sh
+mkdir /home/melroy/downloads/dist
+touch /home/melroy/downloads/dist/nzbget.log
+```
 
 ## Up and running!
 
@@ -81,6 +82,6 @@ You can start NZBGet in console mode via as root: `nzbget -c /etc/nzbget.conf -s
 
 Or start NZBGet as daemon (server) via: `nzbget -c /etc/nzbget.conf -D`
 
-I use [NZBIndex ](http://www.nzbindex.nl/)or [NewzBin.com](https://web.newzbin.org/) for searching for files. You can use the NZBGet web interface to upload the nzb file.
+I use [NZBIndex](http://www.nzbindex.nl/) or [NewzBin.com](https://web.newzbin.org/) for searching for files. You can use the NZBGet web interface to upload the nzb file.
 
 Have fun using NZBGet, one of the best NZB clients out here.

@@ -7,19 +7,19 @@ draft: true
 url: /?p=2847
 categories:
   - Windows OS
-
 ---
+
 I know&#8230; computers, programming and other IT related subjects are not one of your core-businesses or your profession. Nevertheless, I would like to share some funny IT related stories that I have to handle in my life 🙂 .
 
 All stories are of-source completely anonymous.
 
-## Can&#8217;t reply
+## Can't reply
 
-**Background story:** I couldn&#8217;t reply on a message in a ticket system of a company. When I do, I get &#8220;Unknown error occurred&#8221; error message.  
-**Real cause**: The root cause was due to a hyperlink within the message, the system couldn&#8217;t handle links (URL&#8217;s) in the description field.  
-**Funny sentence(s) quoted:** 
+**Background story:** I couldn't reply on a message in a ticket system of a company. When I do, I get "Unknown error occurred" error message.  
+**Real cause**: The root cause was due to a hyperlink within the message, the system couldn't handle links (URL's) in the description field.  
+**Funny sentence(s) quoted:**
 
-> <span id="result_box" class="" lang="en">When I removed the link from the message, it work again. Possibly there is an error <span class="">in the link.</span></span>
+> When I removed the link from the message, it work again. Possibly there is an error in the link.
 
 **What it _SHOULD_ have been:** When I removed the link from the message, it work again. I forward your mail to our Software department so they fix the bug in the ticket system. When this is solved by them, you can supply hyperlinks in your message field.
 
@@ -27,34 +27,34 @@ All stories are of-source completely anonymous.
 
 **Background story:** The wireless printer/scanner was not working. Instead of scanning the paper, you make a picture with your mobile phone of the paper. So far so good.  
 **Real cause:** Picture was added as inline photo instead of attachment to the e-mail.  
-**Funny sentence(s) quoted:** 
+**Funny sentence(s) quoted:**
 
 > My phone creates a PNG file instead of a JPG. JPG is not recognized as a picture.  
-> In the past, computers couldn&#8217;t handle big pictures, today this is different right?
+> In the past, computers couldn't handle big pictures, today this is different right?
 
 **What it _SHOULD_ have been:** The photo is not correctly added to the e-mail. The photo is added to the message instead of as an attachment.
 
 ## Bad SD card
 
-**Background story:** SD card couldn&#8217;t be read from the phone. During the holidays, on a <span id="result_box" class="short_text" lang="en"><span class="alt-edited">park</span></span>.  
+**Background story:** SD card couldn't be read from the phone. During the holidays, on a park.  
 **Real cause:** Still unknown, probably a bad SD card that should be replaced soon.  
-**Funny sentence(s) quoted:** 
+**Funny sentence(s) quoted:**
 
-> My SD card has broken, while I was on the park and where I <span id="result_box" class="short_text" lang="en"><span class="">purchased</span></span> WiFi.
+> My SD card has broken, while I was on the park and where I purchased WiFi.
 
 Back home:
 
-> SD card seems to be working again. Would <span id="result_box" class="short_text" lang="en"><span class="">it have</span> been the bad Internet coverage on the park<span class="">?</span></span>
+> SD card seems to be working again. Would it have been the bad Internet coverage on the park?
 
-**What it _SHOULD_ have been:** I think my SD card is broken. I remove it from my device and try to recover my data when I&#8217;m back home. I will replace the card with a new one for now.
+**What it _SHOULD_ have been:** I think my SD card is broken. I remove it from my device and try to recover my data when I'm back home. I will replace the card with a new one for now.
 
 ## Updating Linux Operating System
 
-**Background story:** Update systems under Linux says it has 2 packages left to update. But isn&#8217;t not checked by default, since the packages belong to &#8216;level 5&#8217; (potentially dangerous for the stability of your system). Linux Mint knows very levels (1 until 5) of packages based on stability, impact and safety of the Linux operating system.  
+**Background story:** Update systems under Linux says it has 2 packages left to update. But isn't not checked by default, since the packages belong to "level 5" (potentially dangerous for the stability of your system). Linux Mint knows very levels (1 until 5) of packages based on stability, impact and safety of the Linux operating system.  
 **Real cause:** Linux Mint configuration is set to NOT updating level 5 packages automatically.  
-**Funny sentence(s) quoted:** 
+**Funny sentence(s) quoted:**
 
-> I can&#8217;t update the 2 packages. Should I upgrade them, or is that a paid version?
+> I can't update the 2 packages. Should I upgrade them, or is that a paid version?
 
 **What it _SHOULD_ have been: ** The 2 packages are not updated by default, is it safe to update them nevertheless?  
 Ps. All packages via the package manager are **_free_** to install, since Linux is an open-source and  free operating system!
