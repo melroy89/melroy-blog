@@ -3,6 +3,7 @@ title: Server Hardening
 author: Melroy van den Berg
 type: post
 date: -001-11-30T00:00:00+00:00
+toc: true
 url: /2023/server-hardening/
 draft: true
 categories:
@@ -46,7 +47,7 @@ Disable root shell login: `sudo chsh -s /usr/sbin/nologin root`
 
 And disable root user (remove password and lock user): `sudo passwd --delete --lock root`
 
-## SSHD
+## SSH Daemon
 
 ### Locally (on your local machine, not the server)
 
@@ -54,7 +55,7 @@ Generate a SSH key, if you didn't have this already: `ssh-keygen`
 
 Copy SSH public key to the Server now: `ssh-copy-id <user>@<server-ip>`
 
-### Change SSHD settings
+### Change sshd settings
 
 Edit: `/etc/ssh/sshd_config` file:
 
@@ -208,21 +209,45 @@ location / {
 Using Docker compose v3 (eg. compose.yaml file):
 
 ```yaml
-deploy:
-  restart_policy:
-    condition: on-failure
-    delay: 5s
-    max_attempts: 5
-    window: 120s
-  resources:
-    limits:
-      cpus: "1.5"
-      memory: 400M
+services:
+  sevice-name:
+    image: ...
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 5
+        window: 120s
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 400M
 ```
 
 We also get rid of the obsolete `restart` statement and move to `restart_policy` with a max attepts of 5.
 
+I use `docker stats` to check what the current memory usage is and estimate what the maximum may be for each container.
+
 If you don't want to use Docker swam you can start Docker compose v3 with the deploy settings above using: `docker compose --compatibility up -d`.
+
+### Docker write only file system
+
+Docker Bench for Security will also warn you when your Docker filesystem is writable, which is a bad pratice. It's not always easy to solve, since some applications might need to write to disk.
+
+In Docker compose you can create a read-only filesystem using the `read_only: true` option:
+
+```yaml
+services:
+  sevice-name:
+    image: ...
+    read_only: true
+    volumes:
+      - /data:/app/data_folder
+    tmpfs:
+      - /run:mode=1777,uid=1000,gid=1000
+```
+
+Since everything is now read-only, you might to create volume mounts (or binds) to your host which will be writable. And/or create a tmpfs.
 
 ### Docker Bench for Security
 
