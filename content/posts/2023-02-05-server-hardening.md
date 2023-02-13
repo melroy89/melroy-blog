@@ -59,33 +59,48 @@ Add the following line to the top of the file (at least _above_ the existing lin
 password requisite pam_cracklib.so retry=3 minlen=15 difok=3 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
 ```
 
+### More PAM....
+
+`/etc/pam.d/su`
+
+```conf
+# DISALLOW su command, my commenting this line below
+#auth       sufficient pam_rootok.so
+
+
+# Allow user melroy to switch to data user (data user has no password)
+auth  [success=ignore default=1] pam_succeed_if.so user = data
+auth  sufficient                 pam_succeed_if.so use_uid user = melroy
+
+# Allow root user to switch only to gitlab-runner
+auth  [success=ignore default=1] pam_succeed_if.so user = gitlab-runner
+auth  sufficient                 pam_succeed_if.so use_uid user = root
+```
+
 ### Create seperate user
 
-Create a new user: `useradd -m <user> -s /bin/bash`
-
-Set password for user: `passwd <user>`
-
+Create a new user: `useradd -m <user> -s /bin/bash`  
+Set password for user: `passwd <user>`  
 Add user to sudo group: `usermod -aG sudo <user>`
 
-And maybe Docker for example?: `usermod -aG docker <user>`
+And maybe Docker this user to the Docker group? Only when you need it: `usermod -aG docker <user>`
 
-#### Disable root
+### Disable root user
 
 Disable root shell login: `sudo chsh -s /usr/sbin/nologin root`
 
-And disable root user (remove password and lock user): `sudo passwd --delete --lock root`
+And disable root user on the machine (remove password and lock user): `sudo passwd --delete --lock root`
 
 ### SSH Daemon
 
-#### Locally (on your local machine, not the server)
+The default sshd configuration is rather unsafe. Let's **not** use password authentication for example.
+Instead we will use our local SSH key pair for authorization towards the SSH serer.
 
-Generate a SSH key, if you didn't have this already: `ssh-keygen`
+First, we generate new SSH key on your **local machine**, if you didn't have this already: `ssh-keygen`
 
-Copy SSH public key to the Server now: `ssh-copy-id <user>@<server-ip>`
+Next, we will copy the SSH _public key_ to your server using the following command: `ssh-copy-id <user>@<server-ip>`
 
-#### Change sshd settings
-
-Edit: `/etc/ssh/sshd_config` file:
+We are now ready to change the server SSH Daemon config. We will edit the config file `/etc/ssh/sshd_config`:
 
 ```ssh-config
 LoginGraceTime 2m
@@ -95,13 +110,15 @@ PubkeyAuthentication yes
 PasswordAuthentication no
 DisableForwarding yes
 X11Forwarding no
-PrintMotd no
+DebianBanner no
 ClientAliveCountMax 2
 ```
 
----
+This snippet will not only disable password authenication and enable public key authenication.
 
-sudo systemctl restart sshd
+This configuration will also disable root login (very important!). And we will disable forwarding, lower the amount of retries and alive connections. As well as disabling any banner message (for Debian based systems).
+
+Now let's restart the daemon: `sudo systemctl restart sshd`
 
 ### Allow/deny
 
@@ -113,9 +130,11 @@ And: /etc/hosts.deny:
 sshd : ALL
 ```
 
-### Enable syslog messages via TCP - RSyslogd
+### Enable syslog messages via TCP - RSyslogd {#rsyslogd}
 
-Enable RSyslog TCP port (514). Uncommit the following two lines in /etc/rsyslog.conf:
+It's recommended to move your log files to another remote machine, in case there is a hack.
+
+Enable RSyslog TCP port (port `514`). Uncommit the following two lines in `/etc/rsyslog.conf`:
 
 ```ini
 module(load="imtcp")
@@ -124,15 +143,59 @@ input(type="imtcp" port="514")
 
 Then restart the service: `sudo systemctl restart rsyslog.service`
 
+Now rsyslog allows incoming requests on `localhost:514`, so other applications can log towards RSyslogd. Which will be used by Docker later.
+
+### Linux Audit Daemon - Auditd
+
+We can use auditd if let's say the system was compromised, then we can can track back and see how its system was compromised.
+
+Install auditd: `sudo apt install auditd`
+
+The main config file is located in: `/etc/audit/rules.d/audit.rules`. Here an example of my `audit.rules` file:
+
+```conf
+# Delete all previous rules
+-D
+
+# Increase the buffers to survive stress events.
+# Make this bigger for busy systems
+-b 48192
+
+# This determine how long to wait in burst of events
+--backlog_wait_time 60000
+
+# Set failure mode to print a failure message
+-f 1
+
+# Set rate limit (messages per second)
+-r 100
+
+# Add Docker to the audit
+-w /usr/bin/dockerd -p rwxa -k docker
+-w /run/containerd -p rwxa -k docker
+-w /var/lib/docker -p rwxa -k docker
+-w /etc/docker -p rwxa -k docker
+-w /lib/systemd/system/docker.service -p rwxa -k docker
+-w /lib/systemd/system/docker.socket -p rwxa -k docker
+-w /etc/default/docker -p rwxa -k docker
+-w /etc/docker/daemon.json -p rwxa -k docker
+-w /etc/containerd/config.toml -p rwxa -k docker
+-w /usr/bin/containerd -p wa -k docker
+-w /usr/bin/containerd-shim -p wa -k docker
+-w /usr/bin/containerd-shim-runc-v1 -p wa -k docker
+-w /usr/bin/containerd-shim-runc-v2 -p wa -k docker
+-w /usr/bin/runc -p wa -k docker
+```
+
+_**Note:** The audit roles above are on purpose only focusing on Docker. Be free to extend your `audit.rules` file with [more rules](https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules)._
+
 ## Docker
 
 Now let's move to our Docker setup.
 
-### Edit default Docker daemon configs
+### Introducing Docker daemon config
 
-Be sure you enable syslog messages via TCP in RSyslog, see above.
-
-Next, create or edit the following /etc/docker/daemon.json file:
+We will create or edit the default Docker daemon configuration file `/etc/docker/daemon.json`:
 
 ```json
 {
@@ -156,18 +219,37 @@ Next, create or edit the following /etc/docker/daemon.json file:
 }
 ```
 
-I want to disable experimental features so I set experimental to false.
-Icc to false will disable inter-container communication (on the default bridge network). userns-remap will use Linux namespaces to map to seperate user (the dockremap user).
-We set the default storage driver to overlay2, just to be sure. We increase some default ulimits for Docker.
+_**Note:** We will use the [rsyslogd configuration above](#rsyslogd) for logging._
 
-We want to keep live-restore to false ("live-restore": false), otherwise I noticed we got host.docker.internal host mapping doesn't seems to work: https://github.com/moby/moby/pull/42785
+Futhermore, I want to disable experimental features so I set `experimental` option to `false`.
+The `icc` option to `false` will disable inter-container communication (on the default bridge network). `userns-remap` option will use Linux namespaces to map to seperate user (the `dockremap` user and group is created and used for this purpose).
 
-We don't want to use the default userland proxy, we want to use hairpin NAT.
+We set the default `storage-driver` option to `overlay2` (which should be the default).
 
-Next, we want to prevent your container processes from gaining additional privileges, so we set no-new-privileges to true.
-Additionally, you could also drop all Linux capabilities (https://man7.org/linux/man-pages/man7/capabilities.7.html) using: cap-drop=all. And maybe only enable the Linux capabilities you really need for that container (if any).
+We increase some default ulimits for Docker, thus we increase the maximum number of open files/file descriptors. You might want to increase the `nofile` soft and hard limits in `/etc/security/limits.conf` configuration file as well:
 
-Docs: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
+```conf
+root             soft    nofile          500000
+root             hard    nofile          500000
+```
+
+We want to keep `live-restore` to `false`, since this might trigger a bug to appear 😢. Since I noticed that `host.docker.internal` host mapping doesn't seems to work when I enabled live restore, see also [this GitHub issue](https://github.com/moby/moby/pull/42785).
+
+We don't want to use the default userland proxy, we want to use hairpin NAT for for forwarding when Docker ports are exposed. For that we set `userland-proxy` option to `false` once again.
+
+Next, we want to **prevent** a Docker container processes from gaining additional privileges, so we set `no-new-privileges` option to `true`.
+
+More info about: [the Docker Daemon configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file)
+
+**Did you know?**
+
+> Docker containers are running with several [Linux kernel capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html) enabled by default. You can disable the Linux capabilities using the option during containter start-up: `--cap-drop=all`.
+>
+> Once you disabled all capabilities, you might want to enable the Linux capabilities using: `--cap-add` flag, for the Linux capabilities you really need on that container. Here is an example:
+>
+> ```sh
+> docker run -d --cap-drop=all --cap-add=setuid --cap-add=setgid
+> ```
 
 ### Docker containers not running as root-user
 
@@ -186,11 +268,11 @@ COPY --chown=worker:worker . .
 USER worker
 ```
 
-Do don't need to copy the files with `--chown`, if the user does not need to write the files, as long as you place `USER <username>` in this case at the bottom of the Dockerfile. When you set `USER <username>` also depends on the folder permissions and what you want to achieve.
+Do don't need to copy the files with `--chown`, if the user does not need to have write access to the files, as long as you place `USER <username>` in this case at the bottom of the Dockerfile.
 
 **Did you know?**
 
-> The NodeJS Docker images has already a user called `node`, which you can use and set after you copies the files to the Docker image:
+> The official [NodeJS Docker image](https://hub.docker.com/_/node/) has already a user called "node", which you can use and set after you copied the files to the Docker image:
 >
 > ```Dockerfile
 > USER node
@@ -210,21 +292,23 @@ services:
 
 ### Bind network port only to the localhost interface
 
-By default port mapping will be mapped to all interfaces (0.0.0.0). However, it's a good pratice to add Nginx in front of the service, which could also add SSL/TLS certs as well as load balancing. In that case we should say to Docker to only map the ports to localhost (127.0.0.1), like so in your Docker compose file. So from:
+By default Docker port mapping will be mapped to all interfaces (`0.0.0.0`). However, it's a good pratice to add Nginx in front of the service, which allows you to add a SSL/TLS certificate as well as load balancing.
+
+In the case you have a reverse proxy like Nginx in front of your Docker containers, you only want to map the Docker ports to localhost (`127.0.0.1`). This can be done by changing your Docker compose file (or `docker run` command line). An example of Docker compose, change from:
 
 ```yaml
 ports:
   - "8080:8080"
 ```
 
-To only listen on localhost:
+To only listen on `localhost` / `127.0.0.1`:
 
 ```yaml
 ports:
   - "127.0.0.1:8080:8080"
 ```
 
-Within Nginx you can then forward the incoming web request from a domain name to 127.0.0.1:8080. Example snippet for Nginx (just an example; depends on your app):
+Then within Nginx config you will proxy the incoming web requests from a specific (sub) domain name to `127.0.0.1:8080`. Example snippet for Nginx:
 
 ```ini
 location / {
@@ -232,9 +316,11 @@ location / {
 }
 ```
 
-### Set Docker container limits
+Of course these are just examples, your actually configuration will differ.
 
-Using Docker compose v3.8 (eg. `compose.yaml` file):
+### Set Docker container Limits
+
+Using Docker Compose v3.8 . Example `compose.yaml` file:
 
 ```yaml
 version: "3.8"
@@ -248,11 +334,11 @@ services:
           memory: 400M
 ```
 
-I use `docker stats` to check what the current memory usage is and estimate what the maximum may be for each container.
+I use the `docker stats` command to see what the current memory usage is, and estimate what the maximum might be for each container.
 
-If you don't want to use Docker swam you can start Docker compose v3 with the deploy settings above using: `docker compose --compatibility up -d`.
+If you do **NOT** want to use [Docker swarm](https://docs.docker.com/engine/swarm/) that comes with Compose v3, use the `--compatibility` flag to start the container: `docker compose --compatibility up -d`.
 
-### Docker restart policy
+### Docker Restart Policy
 
 You actually do not want to use the obsolete `restart` statement anymore. So let's move to `restart_policy` with a max attepts of 5 with the `on-failure` condition.
 
