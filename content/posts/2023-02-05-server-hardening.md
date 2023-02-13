@@ -19,19 +19,47 @@ tags:
   - terminal
 ---
 
-## Enforce secure passwords
+## Introduction
+
+## Harding Host Tools
+
+### Lynix
+
+https://cisofy.com/downloads/lynis/
+
+```sh
+cd /opt
+sudo wget https://downloads.cisofy.com/lynis/lynis-3.0.8.tar.gz
+sudo tar -xf lynis-3.0.8.tar.gz
+cd lynis
+sudo ./lynis audit system
+```
+
+### Docker Bench for Security
+
+Clone and run the Docker Bench Security script:
+
+```sh
+git clone https://github.com/docker/docker-bench-security.git
+cd docker-bench-security
+sudo ./docker-bench-security.sh
+```
+
+## Host Machine
+
+### Enforce secure passwords
 
 `sudo apt install libpam-cracklib`
 
 Under Ubuntu we edit: `/etc/pam.d/common-password`
 
-Add the following line to the TOP (at least above the: `password [success=1 default=ignore]pam_unix.so` line):
+Add the following line to the top of the file (at least _above_ the existing line: `password [success=1 default=ignore]pam_unix.so`):
 
 ```ini
 password requisite pam_cracklib.so retry=3 minlen=15 difok=3 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
 ```
 
-## Create seperate user
+### Create seperate user
 
 Create a new user: `useradd -m <user> -s /bin/bash`
 
@@ -41,21 +69,21 @@ Add user to sudo group: `usermod -aG sudo <user>`
 
 And maybe Docker for example?: `usermod -aG docker <user>`
 
-### Disable root
+#### Disable root
 
 Disable root shell login: `sudo chsh -s /usr/sbin/nologin root`
 
 And disable root user (remove password and lock user): `sudo passwd --delete --lock root`
 
-## SSH Daemon
+### SSH Daemon
 
-### Locally (on your local machine, not the server)
+#### Locally (on your local machine, not the server)
 
 Generate a SSH key, if you didn't have this already: `ssh-keygen`
 
 Copy SSH public key to the Server now: `ssh-copy-id <user>@<server-ip>`
 
-### Change sshd settings
+#### Change sshd settings
 
 Edit: `/etc/ssh/sshd_config` file:
 
@@ -75,7 +103,7 @@ ClientAliveCountMax 2
 
 sudo systemctl restart sshd
 
-## Allow/deny
+### Allow/deny
 
 Edit `/etc/hosts.allow`:
 
@@ -85,21 +113,7 @@ And: /etc/hosts.deny:
 sshd : ALL
 ```
 
-## Harding Host Tools
-
-### Lynix
-
-https://cisofy.com/downloads/lynis/
-
-```sh
-cd /opt
-sudo wget https://downloads.cisofy.com/lynis/lynis-3.0.8.tar.gz
-sudo tar -xf lynis-3.0.8.tar.gz
-cd lynis
-sudo ./lynis audit system
-```
-
-## Enable syslog messages via TCP - RSyslogd
+### Enable syslog messages via TCP - RSyslogd
 
 Enable RSyslog TCP port (514). Uncommit the following two lines in /etc/rsyslog.conf:
 
@@ -110,7 +124,11 @@ input(type="imtcp" port="514")
 
 Then restart the service: `sudo systemctl restart rsyslog.service`
 
-## Edit default Docker daemon configs
+## Docker
+
+Now let's move to our Docker setup.
+
+### Edit default Docker daemon configs
 
 Be sure you enable syslog messages via TCP in RSyslog, see above.
 
@@ -151,9 +169,9 @@ Additionally, you could also drop all Linux capabilities (https://man7.org/linux
 
 Docs: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file
 
-## Docker containers not running as root-user
+### Docker containers not running as root-user
 
-When you are leveraging the Dockerfile, you are able to create a new user and set this user as the default, copying the data with the correct permissions:
+When you are leveraging the `Dockerfile`, you are able to create a **new** user and then switch to this new user by using the `USER` option. If you want to have write access to the files, you can copy the files via `--chown=` flag as well. Here is an example:
 
 ```Dockerfile
 RUN useradd -ms /bin/bash worker
@@ -168,17 +186,27 @@ COPY --chown=worker:worker . .
 USER worker
 ```
 
+Do don't need to copy the files with `--chown`, if the user does not need to write the files, as long as you place `USER <username>` in this case at the bottom of the Dockerfile. When you set `USER <username>` also depends on the folder permissions and what you want to achieve.
+
+**Did you know?**
+
+> The NodeJS Docker images has already a user called `node`, which you can use and set after you copies the files to the Docker image:
+>
+> ```Dockerfile
+> USER node
+> ```
+
 ---
 
-NodeJS docker images has already a 'node' user which you can use and set after you copies the files to the Docker image:
+In the case you don't want to change or adapt a Dockerfile, you can also specify a user or user id (UID) in a Docker compose file. Using the YAML format: `user: <username | user-id>`, like below:
 
-```Dockerfile
-USER node
+```yml
+services:
+  db:
+    restart: always
+    image: postgres:15-alpine
+    user: postgres
 ```
-
----
-
-In the case you don't want to change or adapt a Dockerfile, you can also specify a user or user id (UID) in a Docker compose file:
 
 ### Bind network port only to the localhost interface
 
@@ -206,9 +234,30 @@ location / {
 
 ### Set Docker container limits
 
-Using Docker compose v3 (eg. compose.yaml file):
+Using Docker compose v3.8 (eg. `compose.yaml` file):
 
 ```yaml
+version: "3.8"
+services:
+  sevice-name:
+    image: ...
+    deploy:
+      resources:
+        limits:
+          cpus: "1.5"
+          memory: 400M
+```
+
+I use `docker stats` to check what the current memory usage is and estimate what the maximum may be for each container.
+
+If you don't want to use Docker swam you can start Docker compose v3 with the deploy settings above using: `docker compose --compatibility up -d`.
+
+### Docker restart policy
+
+You actually do not want to use the obsolete `restart` statement anymore. So let's move to `restart_policy` with a max attepts of 5 with the `on-failure` condition.
+
+```yaml
+version: "3.8"
 services:
   sevice-name:
     image: ...
@@ -218,17 +267,9 @@ services:
         delay: 5s
         max_attempts: 5
         window: 120s
-      resources:
-        limits:
-          cpus: "1.5"
-          memory: 400M
 ```
 
-We also get rid of the obsolete `restart` statement and move to `restart_policy` with a max attepts of 5.
-
-I use `docker stats` to check what the current memory usage is and estimate what the maximum may be for each container.
-
-If you don't want to use Docker swam you can start Docker compose v3 with the deploy settings above using: `docker compose --compatibility up -d`.
+Of course you can now combine the `deploy.resources`, from the previous paragraph, together with this `deploy.restart_policy` section in YAML.
 
 ### Docker write only file system
 
@@ -248,13 +289,3 @@ services:
 ```
 
 Since everything is now read-only, you might to create volume mounts (or binds) to your host which will be writable. And/or create a tmpfs.
-
-### Docker Bench for Security
-
-Clone and run the Docker Bench Security script:
-
-```sh
-git clone https://github.com/docker/docker-bench-security.git
-cd docker-bench-security
-sudo ./docker-bench-security.sh
-```

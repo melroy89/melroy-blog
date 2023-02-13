@@ -13,8 +13,23 @@ h4,
 h5,
 h6,
 .code,
-code {
+code,
+kbd,
+samp {
   word-break: break-word;
+}
+.nested-list-small-indent ul ul,
+.nested-list-small-indent ol ol {
+  padding-left: 20px;
+}
+#TableOfContents ul li {
+  margin-bottom: 0.6em;
+}
+.code,
+code,
+kbd,
+samp {
+  font-size: 0.9em;
 }
 .image {
   display: block;
