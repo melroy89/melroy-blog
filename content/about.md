@@ -15,10 +15,10 @@ You might want to also [visit my homepage](https://melroy.org).
 
 My passion has always been technology and computers in the broadest sense.
 
-I have been involved in software development from a young age. What I made my profession out of, with knowledge about maybe programming language as well as advance software testing knowledge.  
-In recent years I have also enjoyed discovering a different side of IT landscape. Currently, I'm a DevOps architect as my day job for ASML.
+I have been involved in software development from a young age. What I made my profession out of, with knowledge about many programming language, software testing and many other technical subjects.  
+In recent years I have also enjoyed discovering a different side of IT landscape apart from software development. Currently, I'm a DevOps architect as my day job for ASML.
 
-I _love_ contributing to open-source and free projects, [check-out my GitHub profile](https://github.com/melroy89).
+I _love_ contributing to open-source projects and free software ([Free as in freedom](https://www.gnu.org/philosophy/free-sw.html), not free bear), [check-out my GitHub profile](https://github.com/melroy89).
 
 ## Projects
 
@@ -27,7 +27,7 @@ Including but not limited to: [WineGUI](https://gitlab.melroy.org/melroy/winegui
 
 # Services
 
-I actually host my different services myself, for both personal use as well as for the best interest of humanity 😄.
+I actually host many different services myself, for both for personal use as well as for the best interest of humanity 😄.
 
 Some of those services are:
 
