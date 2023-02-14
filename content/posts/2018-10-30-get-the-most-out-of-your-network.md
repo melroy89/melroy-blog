@@ -131,7 +131,7 @@ Start the **client** is easy as long as you know the IP address or hostname of t
 
 ![](/images/2018/10/image_2018-10-25_23-09-44.png "Iperf3 on client side")
 
-By default iperf in client mode sending the data to the server. Therefor looking at the output of the client, we can see:
+By default iperf in client mode sending the data to the server. Therefore looking at the output of the client, we can see:
 
 - `sender` - is iperf client, Upload speed from iperf client to iperf server is measured
 - `receiver` - is iperf server, Download speed on iperf server from iperf client is measured
@@ -187,16 +187,16 @@ Then display the statistics output via: `ethtool -S eth0`
 ```sh
 tx_packets:           Trasmitted packets
 rx_packets:           Received packets
-tx_errors:            Trasmission errors
+tx_errors:            Transmission errors
 rx_errors:            Received errors
-rx_missed:            Recieved misses
+rx_missed:            Received misses
 align_errors:         Received alignment errors
 tx_single_collisions: Trasmitted singular collisions
 tx_multi_collisions:  Trasmitted multiple collisions
 unicast:              Received unicast
 broadcast:            Received broadcast
-multicast:            Recieved multicast
-tx_aborted:           Aborted trasmissions
+multicast:            Received multicast
+tx_aborted:           Aborted transmission
 tx_underrun:          Aborted underruns
 ```
 
@@ -380,7 +380,7 @@ Enable service: `sudo systemctl enable increase_tx@enp6s0.service`
 
 ## Future
 
-To finish this story. My house is partly ready for 10Gb/s, but this is still very expensive. Ehternet cards (PCI cards) are already available for a lot of money if you ask me (starts at € 100). I mean a gigabit ethernet card is sold as low as €10:
+To finish this story. My house is partly ready for 10Gb/s, but this is still very expensive. Ethernet cards (PCI cards) are already available for a lot of money if you ask me (starts at € 100). I mean a gigabit ethernet card is sold as low as €10:
 
 ![](/images/2018/10/007445_moscojk5yq6hydwv_setting_fff_1_90_end_3000.jpg "Asus XG-C100C - 10Gbit Ethernet PCI card")
 

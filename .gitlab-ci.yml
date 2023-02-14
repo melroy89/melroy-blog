@@ -1,7 +1,22 @@
 image: registry.gitlab.com/pages/hugo:latest
 
+cache:
+  paths:
+    - .cache/pip
+
 stages:
+  - test
   - build
+
+codespell:
+  stage: test
+  image: python:3-slim
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  before_script:
+    - pip install codespell
+  script:
+    - ./spell-check.sh
 
 test-build:
   stage: build

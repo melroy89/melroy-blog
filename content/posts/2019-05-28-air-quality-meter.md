@@ -24,7 +24,7 @@ tags:
   - meter
   - MH-Z19B
   - open-source
-  - particals
+  - particles
   - PMSA003
   - pollution
   - quality

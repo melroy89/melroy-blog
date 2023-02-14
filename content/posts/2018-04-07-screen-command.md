@@ -13,7 +13,7 @@ What is screen?
 
 How to use it?
 
-Create deamon.. / dettach / reattach / force dettach .. 🙂
+Create daemon.. / detach / reattach / force detach .. 🙂
 
 **Did you know?**
 

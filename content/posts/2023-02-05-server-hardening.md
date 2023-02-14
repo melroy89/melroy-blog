@@ -23,17 +23,7 @@ tags:
 
 ## Harding Host Tools
 
-### Lynix
-
-https://cisofy.com/downloads/lynis/
-
-```sh
-cd /opt
-sudo wget https://downloads.cisofy.com/lynis/lynis-3.0.8.tar.gz
-sudo tar -xf lynis-3.0.8.tar.gz
-cd lynis
-sudo ./lynis audit system
-```
+There exists many different hardening tools, which will help you identify best practices or other possible vurnabilities that requires your attention.
 
 ### Docker Bench for Security
 
@@ -44,6 +34,18 @@ git clone https://github.com/docker/docker-bench-security.git
 cd docker-bench-security
 sudo ./docker-bench-security.sh
 ```
+
+### Lynix
+
+```sh
+cd /opt
+sudo wget https://downloads.cisofy.com/lynis/lynis-3.0.8.tar.gz
+sudo tar -xf lynis-3.0.8.tar.gz
+cd lynis
+sudo ./lynis audit system
+```
+
+Or [download Lynx from here](https://cisofy.com/downloads/lynis/).
 
 ## Host Machine
 
@@ -64,9 +66,8 @@ password requisite pam_cracklib.so retry=3 minlen=15 difok=3 ucredit=-1 lcredit=
 `/etc/pam.d/su`
 
 ```conf
-# DISALLOW su command, my commenting this line below
+# DISALLOW su command, my commenting this line below:
 #auth       sufficient pam_rootok.so
-
 
 # Allow user melroy to switch to data user (data user has no password)
 auth  [success=ignore default=1] pam_succeed_if.so user = data
@@ -77,19 +78,20 @@ auth  [success=ignore default=1] pam_succeed_if.so user = gitlab-runner
 auth  sufficient                 pam_succeed_if.so use_uid user = root
 ```
 
-### Create seperate user
+### Create separate user
 
 Create a new user: `useradd -m <user> -s /bin/bash`  
 Set password for user: `passwd <user>`  
 Add user to sudo group: `usermod -aG sudo <user>`
 
-And maybe Docker this user to the Docker group? Only when you need it: `usermod -aG docker <user>`
+And maybe you want to add the `docker` group to the user? Only when you need it: `usermod -aG docker <user>`
 
 ### Disable root user
 
 Disable root shell login: `sudo chsh -s /usr/sbin/nologin root`
 
-And disable root user on the machine (remove password and lock user): `sudo passwd --delete --lock root`
+And disable root user on the machine (remove password and lock user):  
+`sudo passwd --delete --lock root`
 
 ### SSH Daemon
 
@@ -114,27 +116,35 @@ DebianBanner no
 ClientAliveCountMax 2
 ```
 
-This snippet will not only disable password authenication and enable public key authenication.
+This snippet will not only disable password authentication and enable public key authentication.
 
 This configuration will also disable root login (very important!). And we will disable forwarding, lower the amount of retries and alive connections. As well as disabling any banner message (for Debian based systems).
 
 Now let's restart the daemon: `sudo systemctl restart sshd`
 
-### Allow/deny
+### Allow / Deny
 
-Edit `/etc/hosts.allow`:
+We can leverage the [allow and deny hosts files](https://linux.die.net/man/5/hosts.allow) under Linux to even block all access to the sshd service and only allow incoming connections from your local IP network.
 
-```text
+For that, we will edit `/etc/hosts.allow` and add the following:
+
+```txt
 sshd: 192.168.1.\*
-And: /etc/hosts.deny:
+```
+
+And then edit: `/etc/hosts.deny`:
+
+```txt
 sshd : ALL
 ```
 
 ### Enable syslog messages via TCP - RSyslogd {#rsyslogd}
 
-It's recommended to move your log files to another remote machine, in case there is a hack.
+Rsyslogd is a powerful logging daemon, most likely present and enabled by default on your installation.
 
-Enable RSyslog TCP port (port `514`). Uncommit the following two lines in `/etc/rsyslog.conf`:
+Let's enable TCP port (port `514`) in rsyslogd. So rsyslog allows incoming requests on `localhost:514`, so other applications can log towards RSyslogd. Which can be used by Docker daemon, [see later](#docker-daemon).
+
+Uncommit the following two lines in `/etc/rsyslog.conf`:
 
 ```ini
 module(load="imtcp")
@@ -142,8 +152,6 @@ input(type="imtcp" port="514")
 ```
 
 Then restart the service: `sudo systemctl restart rsyslog.service`
-
-Now rsyslog allows incoming requests on `localhost:514`, so other applications can log towards RSyslogd. Which will be used by Docker later.
 
 ### Linux Audit Daemon - Auditd
 
@@ -193,7 +201,7 @@ _**Note:** The audit roles above are on purpose only focusing on Docker. Be free
 
 Now let's move to our Docker setup.
 
-### Introducing Docker daemon config
+### Introducing Docker daemon config {#docker-daemon}
 
 We will create or edit the default Docker daemon configuration file `/etc/docker/daemon.json`:
 
@@ -221,8 +229,8 @@ We will create or edit the default Docker daemon configuration file `/etc/docker
 
 _**Note:** We will use the [rsyslogd configuration above](#rsyslogd) for logging._
 
-Futhermore, I want to disable experimental features so I set `experimental` option to `false`.
-The `icc` option to `false` will disable inter-container communication (on the default bridge network). `userns-remap` option will use Linux namespaces to map to seperate user (the `dockremap` user and group is created and used for this purpose).
+Furthermore, I want to disable experimental features so I set `experimental` option to `false`.
+The `icc` option to `false` will disable inter-container communication (on the default bridge network). `userns-remap` option will use Linux namespaces to map to separate user (the `dockremap` user and group is created and used for this purpose).
 
 We set the default `storage-driver` option to `overlay2` (which should be the default).
 
@@ -243,7 +251,7 @@ More info about: [the Docker Daemon configuration](https://docs.docker.com/engin
 
 **Did you know?**
 
-> Docker containers are running with several [Linux kernel capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html) enabled by default. You can disable the Linux capabilities using the option during containter start-up: `--cap-drop=all`.
+> Docker containers are running with several [Linux kernel capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html) enabled by default. You can disable the Linux capabilities using the option during container start-up: `--cap-drop=all`.
 >
 > Once you disabled all capabilities, you might want to enable the Linux capabilities using: `--cap-add` flag, for the Linux capabilities you really need on that container. Here is an example:
 >
@@ -292,7 +300,7 @@ services:
 
 ### Bind network port only to the localhost interface
 
-By default Docker port mapping will be mapped to all interfaces (`0.0.0.0`). However, it's a good pratice to add Nginx in front of the service, which allows you to add a SSL/TLS certificate as well as load balancing.
+By default Docker port mapping will be mapped to all interfaces (`0.0.0.0`). However, it's a good practice to add Nginx in front of the service, which allows you to add a SSL/TLS certificate as well as load balancing.
 
 In the case you have a reverse proxy like Nginx in front of your Docker containers, you only want to map the Docker ports to localhost (`127.0.0.1`). This can be done by changing your Docker compose file (or `docker run` command line). An example of Docker compose, change from:
 
@@ -359,7 +367,7 @@ Of course you can now combine the `deploy.resources`, from the previous paragrap
 
 ### Docker write only file system
 
-Docker Bench for Security will also warn you when your Docker filesystem is writable, which is a bad pratice. It's not always easy to solve, since some applications might need to write to disk.
+Docker Bench for Security will also warn you when your Docker filesystem is writable, which is a bad practice. It's not always easy to solve, since some applications might need to write to disk.
 
 In Docker compose you can create a read-only filesystem using the `read_only: true` option:
 

@@ -310,7 +310,7 @@ add_header X-Content-Type-Options "nosniff" always;
 add_header Referrer-Policy "no-referrer" always;
 # Disable the option to open a file directly on download
 add_header X-Download-Options                   "noopen"        always;
-# Don't allow cross domain of Falsh & PDF documents
+# Don't allow cross domain of Flash & PDF documents
 add_header X-Permitted-Cross-Domain-Policies    "none"          always;
 #  Feature to support on your site and strengthens your implementation of TLS by getting the User Agent to enforce the use of HTTPS
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
@@ -762,7 +762,7 @@ Read more: [Tor Support site](https://support.torproject.org/), [Relay Operators
 
 ## DuckDNS
 
-My home internet connection has a dynamic IP address assigned, although it doesn't change often. However, if my external IP does change, that should not impact my services availability. Therefor I use DuckDNS to periodically check my IP address, and update when needed. My DNS records will therefor always point to the correct IP address.
+My home internet connection has a dynamic IP address assigned, although it doesn't change often. However, if my external IP does change, that should not impact my services availability. Therefore I use DuckDNS to periodically check my IP address, and update when needed. My DNS records will therefore always point to the correct IP address.
 
 ### Install DuckDNS
 
@@ -903,13 +903,13 @@ For those applications I prefer to run them on true bare-metal server. Services 
 
 Matrix a fully decentralized, open standard real-time communication protocol. Synapse is one of the servers for Matrix. Dendrite would be the next-generation server of Matrix.
 
-As a client user, you can use [Element](https://element.io/get-started) for your chats. It's fully free. Matrix a better alternative for WhatApps, Signal and Telegram. In other words, Matrix is not depending on centralized servers. And therefor Matrix is federated. I will most likely spend a dedicated blog article about Matrix.
+As a client user, you can use [Element](https://element.io/get-started) for your chats. It's fully free. Matrix a better alternative for WhatApps, Signal and Telegram. In other words, Matrix is not depending on centralized servers. And therefore Matrix is federated. I will most likely spend a dedicated blog article about Matrix.
 
 **Public URL** [https://matrix.melroy.org](https://matrix.melroy.org/) (can be used as your Matrix homeserver address!)
 
 #### Synapse Compose
 
-Since I'm using the PostgreSQL database on my _bare metal_ machine, therefor **NOT** running another database instance in Docker:
+Since I'm using the PostgreSQL database on my _bare metal_ machine, therefore **NOT** running another database instance in Docker:
 
 ```yaml
 version: '3.3'

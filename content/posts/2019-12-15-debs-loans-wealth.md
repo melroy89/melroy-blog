@@ -61,7 +61,7 @@ Accept reality, don't be afraid, do not feel embarrassed, look for people who ar
 
 > Suffer the pain of discipline or suffer the pain of regret
 
-I think its very important to deal with those personal issues first. Actually it's a must, in order to be able to fully execute the story I write down in this article and upcoming onces with passion and energy. Of-course you can still read it all :). For sure these articles will give you grip, vision and purpose. I hope&#8230; but what do I know, right? Haha 😇
+I think its very important to deal with those personal issues first. Actually it's a must, in order to be able to fully execute the story I write down in this article and upcoming articles with passion and energy. Of-course you can still read it all :). For sure these articles will give you grip, vision and purpose. I hope&#8230; but what do I know, right? Haha 😇
 
 ### Alignment
 

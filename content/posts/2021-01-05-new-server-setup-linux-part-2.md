@@ -95,7 +95,7 @@ network:
           via: 192.168.1.1
 ```
 
-_**Updated:** Updateed using the new `routes` with `to: default` key._
+_**Updated:** Updated using the new `routes` with `to: default` key._
 
 There is at least one benefit of netplan, which is; you can try-out your new configuration and automatically rolls it back in after 120 seconds executing: `sudo netplan try`. Optionally add the `--timeout 60` flag if you want to decrease the value to 60 instead of 120 seconds.
 
@@ -224,7 +224,7 @@ Running a **speedtest** (select the same server in order to better compare the r
 
 ### RAID Introduction
 
-We will use software RAID using Muliple Device driver also known as "md". Which has a powerful command line application: `mdadm` (run as root).
+We will use software RAID using Multiple Device driver also known as "md". Which has a powerful command line application: `mdadm` (run as root).
 
 There are [many RAID levels](https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_0) from which you can choose from. Starting with no redundancy RAID-0, to a simple mirroring setup, called RAID-1, to more advanced RAID-3, RAID-4, RAID-5 and more.
 
@@ -293,7 +293,7 @@ What if you already have an existing RAID, but you forgot or want to add a name 
 
 ```sh
 sudo mdadm --remove /dev/md0
-sudo mdadm --assemble /dev/md0 /dev/nvme1n1p1 /dev/nvme2n1p1 --name=Datas --update=name
+sudo mdadm --assemble /dev/md0 /dev/nvme1n1p1 /dev/nvme2n1p1 --name=Data --update=name
 ```
 
 _Note:_ `--update=name` says you want to update the name in the super-block, the `--name` parameter will be the actual name given to this software raid ("Data" in this case), eventually accessible via `/dev/md/Data`.

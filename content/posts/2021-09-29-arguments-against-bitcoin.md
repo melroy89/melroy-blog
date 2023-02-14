@@ -114,7 +114,7 @@ It's wise to first read the previous section above.
 #### Why people think it's a scam?
 
 A scam is a fraud or a dishonest scheme. Bitcoin is decentralized, meaning _YOU_ are in control of your money. This is very important to understand. People get scammed in the crypto world, because they are victim of trusting another person. They are giving others access to their cryptocurrency. Usually _without_ their knowing or intending to.  
-Therefor, **never** **share** any private key or back-up seed phrase. In fact, you should store this sensitive information _offline_ and buy a _hardware wallet_ like a Ledger or a Trezor device. Look out for scammers!
+Therefore, **never** **share** any private key or back-up seed phrase. In fact, you should store this sensitive information _offline_ and buy a _hardware wallet_ like a Ledger or a Trezor device. Look out for scammers!
 
 In a decentralized system you do _not_ need a trusted party like banks, this has a lot of benefits like; you can't get censored and nobody can block your transaction. The only downside of a decentralized system is that you are in control which requires **education**. Keeping your cryptocurrencies safe is **your responsibility**. Read also [Forgotten password/lost device argument][14].
 
@@ -136,7 +136,7 @@ It's true that Bitcoin mining is using energy in form of electricity. This energ
 
 > Bitcoin mining is **not** physical mining like mining for gold. Instead, Proof-of-Work are mathematical calculations (SHA-256 hashing function) that needs to be solved. This task is called "mining" in the crypto world. Dedicated hardware is used nowadays for Bitcoin mining, called Bitcoin Miners. [Antminer](https://shop.bitmain.com/product/detail?pid=00020210920124332765Ffe211v80644) is a very common Bitcoin miner.
 
-Bitcoin mining (using PoW) is **crucial** for the security of a decentralized network. Bitcoin therefor requires physical power of the real world. In order to hack the Bitcoin network via the [51% attack](https://www.investopedia.com/terms/1/51-attack.asp), you need a tremendous amount of energy and money for a long time.
+Bitcoin mining (using PoW) is **crucial** for the security of a decentralized network. Bitcoin therefore requires physical power of the real world. In order to hack the Bitcoin network via the [51% attack](https://www.investopedia.com/terms/1/51-attack.asp), you need a tremendous amount of energy and money for a long time.
 
 #### Renewable energy
 
