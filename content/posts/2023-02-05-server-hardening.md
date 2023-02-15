@@ -264,7 +264,7 @@ net.ipv6.conf.all.accept_redirects = 0
 net.ipv6.conf.default.accept_redirects = 0
 ```
 
-_**Important note:** `net.ipv4.conf.all.forwarding` needs to stay at: `1`, if you disable forwarding then Docker containers would be unable to access the Internet. Unless that is really you want._
+_**Important note:** `net.ipv4.conf.all.forwarding` needs to be set to: `1`, if you disable IP forwarding then Docker containers would be unable to route the packages. Thus you will not be able to access the Internet from Docker. Unless that is really what you want._
 
 And I updated the following two lines in `/etc/sysctl.d/10-network-security.conf`:
 
