@@ -9,6 +9,8 @@ draft: true
 categories:
   - Server
   - Hardening
+  - Intermediate
+  - Security
   - GNU/Linux OS
 tags:
   - hardening
@@ -17,15 +19,26 @@ tags:
   - GNU
   - bash
   - terminal
+  - Docker
 ---
 
 ## Introduction
 
+Security of a system is often overlooked or not considered important enough. They don't think through the possible consequences, which might result in a hacked or compromised server. Maybe sensitive data gets stolen or encrypted with major consequences.
+
+A collection of tools, techniques and best pratices to reduce such vulnerabilities are called system hardening.
+
+With the recent hacks or data breaches over the past years across different big companies, including but not limited by: PayPal, LastPast, T-Mobile, MailChimp, Cash App, Netflix, Dropbox, OpenSea, Twitter...
+
+Maybe it's wise to also validate the security of your own Linux machine and/or server?
+
 ## Harding Host Tools
 
-There exists many different hardening tools, which will help you identify best practices or other possible vurnabilities that requires your attention.
+There exists _many_ different hardening tools, which will help you identify best practices or other possible vulnerabilities that requires your attention.
 
-### Docker Bench for Security
+We will mainly focus on the two listed below. And since both tools will give a lot of feedback back, we can't tackle all items the tools will report back.
+
+### Docker Bench for Security {#docker-bench-security}
 
 Clone and run the Docker Bench Security script:
 
@@ -35,48 +48,71 @@ cd docker-bench-security
 sudo ./docker-bench-security.sh
 ```
 
-### Lynix
+### Lynis
+
+Install Lynis using
 
 ```sh
 cd /opt
 sudo wget https://downloads.cisofy.com/lynis/lynis-3.0.8.tar.gz
 sudo tar -xf lynis-3.0.8.tar.gz
 cd lynis
-sudo ./lynis audit system
 ```
 
 Or [download Lynx from here](https://cisofy.com/downloads/lynis/).
+
+To perform a local security system scan, execute now:
+
+```sh
+sudo ./lynis audit system
+```
 
 ## Host Machine
 
 ### Enforce secure passwords
 
-`sudo apt install libpam-cracklib`
+We want to enforce secure passwords to users. For that, we first need to install: `sudo apt install libpam-cracklib`
 
-Under Ubuntu we edit: `/etc/pam.d/common-password`
+Under Debian based systems we edit the file: `/etc/pam.d/common-password`.
 
-Add the following line to the top of the file (at least _above_ the existing line: `password [success=1 default=ignore]pam_unix.so`):
+Finally, we add the following line to the top of the file (at least _above_ the existing line: `password [success=1 default=ignore]pam_unix.so`):
 
 ```ini
 password requisite pam_cracklib.so retry=3 minlen=15 difok=3 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1
 ```
 
-### More PAM....
+### Disable su
 
-`/etc/pam.d/su`
+I also don't like the users who are part of the `sudo` group can run `su` command or `sudo -l` commands to become root.
+
+Let disable that by editing `/etc/pam.d/su`:
 
 ```conf
 # DISALLOW su command, my commenting this line below:
 #auth       sufficient pam_rootok.so
-
-# Allow user melroy to switch to data user (data user has no password)
-auth  [success=ignore default=1] pam_succeed_if.so user = data
-auth  sufficient                 pam_succeed_if.so use_uid user = melroy
-
-# Allow root user to switch only to gitlab-runner
-auth  [success=ignore default=1] pam_succeed_if.so user = gitlab-runner
-auth  sufficient                 pam_succeed_if.so use_uid user = root
 ```
+
+Within the same configuration file, we can also do some fancy PAM stuff. For example let's say the user `melroy` still want to be able to switch to another user called `demo`:
+
+```conf
+# Allow melroy user to switch to another user (demo)
+auth  [success=ignore default=1] pam_succeed_if.so user = demo
+auth  sufficient                 pam_succeed_if.so use_uid user = melroy
+```
+
+### Sudoers file
+
+I just would like to share an alternative approach as well...
+
+Let's say you wish to give a user "apt" execution rights but nothing else that requires `sudo` command.
+
+You can edit the `/etc/sudoers` file and add the following line for a user "demo":
+
+```conf
+demo ALL=(root) /usr/bin/apt update, /usr/bin/apt install *, /usr/bin/apt upgrade, /usr/bin/apt-get update, /usr/bin/apt-get install *, /usr/bin/apt-get upgrade
+```
+
+Then you do **NOT** need to add the user to the `sudo` group. While this `demo` user is allowed to execute `apt` commands.
 
 ### Create separate user
 
@@ -197,9 +233,54 @@ The main config file is located in: `/etc/audit/rules.d/audit.rules`. Here an ex
 
 _**Note:** The audit roles above are on purpose only focusing on Docker. Be free to extend your `audit.rules` file with [more rules](https://raw.githubusercontent.com/Neo23x0/auditd/master/audit.rules)._
 
+### Sudoers.d folder
+
+Permissions for directory `/etc/sudoers.d` where not strict enough according to Lynis, execute:
+
+```sh
+sudo chmod 750 /etc/sudoers.d
+```
+
+### Kernel hardening
+
+I extended my `/etc/sysctl.d/10-kernel-hardening.conf` config with the following additional kernel configs:
+
+```conf
+dev.tty.ldisc_autoload=0
+fs.protected_fifos=2
+fs.suid_dumpable=0
+kernel.kptr_restrict=2
+kernel.modules_disabled=1
+kernel.perf_event_paranoid=3
+kernel.sysrq=0
+kernel.unprivileged_bpf_disabled=1
+net.core.bpf_jit_harden=2
+net.ipv4.conf.all.accept_redirects=0
+net.ipv4.conf.all.forwarding=0
+net.ipv4.conf.all.log_martians=1
+net.ipv4.conf.all.send_redirects=0
+net.ipv4.conf.default.accept_redirects=0
+net.ipv4.conf.default.log_martians=1
+net.ipv6.conf.all.accept_redirects=0
+net.ipv6.conf.default.accept_redirects=0
+```
+
+And I updated the following two lines in `/etc/sysctl.d/10-network-security.conf`:
+
+```conf
+net.ipv4.conf.default.rp_filter=1
+net.ipv4.conf.all.rp_filter=1
+```
+
+Reload the sysctl configs without rebooting: `sudo sysctl --system`
+
+See [more kernel tuning snippet](https://gitlab.melroy.org/-/snippets/609).
+
+I love to go into details about each kernel option, but then this article would be way too long.
+
 ## Docker
 
-Now let's move to our Docker setup.
+Now let's move to our Docker setup. The following sections are based on the audit results performed by the Docker Bench for Security script, [I described earlier](#docker-bench-security).
 
 ### Introducing Docker daemon config {#docker-daemon}
 
