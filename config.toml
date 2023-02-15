@@ -2,7 +2,7 @@ baseURL = 'https://blog.melroy.org'
 languageCode = 'en-us'
 title = "Melroy's Blog"
 theme = 'ananke'
-
+copyright = "Copyright Melroy van den Berg, created with 💖 and 🔨 with Hugo"
 DefaultContentLanguage = "en"
 #SectionPagesMenu = "main"
 Paginate = 12
