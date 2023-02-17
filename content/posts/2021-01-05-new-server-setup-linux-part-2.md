@@ -52,7 +52,7 @@ sudo rm -vrf /snap /var/snap /var/lib/snapd /var/cache/snapd /usr/lib/snapd
 sudo apt-mark hold snapd
 ```
 
-### Docker & Docker Compose {#docker}
+## Docker & Docker Compose {#docker}
 
 Before we can install `docker-ce` package _instead_ of snap, we will need to import the docker keyring:
 
