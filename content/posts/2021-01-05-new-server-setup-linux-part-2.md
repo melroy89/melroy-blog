@@ -216,7 +216,7 @@ net.ipv4.tcp_synack_retries = 2
 net.ipv4.tcp_max_syn_backlog = 4096
 ```
 
-![Network monitoring via bmon](images/2021/01/speedtest.gif "Network monitoring via bmon")
+![Network monitoring via bmon](/images/2021/01/speedtest.gif "Network monitoring via bmon")
 
 Download `speedtest-cli` to validate the kernel settings made earlier:
 
