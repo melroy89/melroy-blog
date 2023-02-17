@@ -1,0 +1,33 @@
+{{ define "main" }}
+{{ $data := .Data }}
+{{ if .Content }}
+<article class="cf pa3 pa4-m pa4-l">
+  <div class="measure-wide-l center f4 lh-copy nested-copy-line-height nested-links {{ $.Param " text_color" |
+    default "mid-gray" }}">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}
+<div class="mw8 center  nested-list-reset nested-links">
+  <section class="ph5-m ph6-l">
+    <h1 id="title">{{ .Title }}</h1>
+    <ul>      
+      {{ range .Data.Terms.ByCount }}
+      <li><h2 class="f5"><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a> ({{ .Count }})</h2></li>
+      {{ end }}
+    </ul>
+  </section>
+  <!-- <section class="ph4">
+    {{ range $term := .Data.Pages }}
+    <h2 class="f2">
+      <a href="{{ $term.RelPermalink }}" class="link blue hover-black">
+        {{ $.Data.Singular | humanize }}: {{ $term.LinkTitle }}
+      </a>
+    </h2>
+    {{ range $term.Pages }}
+    {{ .Render "summary" }}
+    {{ end }}
+    {{ end }}
+  </section>-->
+</div>
+{{ end }}
