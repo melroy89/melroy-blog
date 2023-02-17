@@ -532,34 +532,11 @@ It is must faster and lighter than running VMs (Virtual Machines), but with simi
 
 Docker allows you to run containers, be it from your own created image or [images which are made publicly available](https://hub.docker.com/search?q=&type=image) for you to use.
 
-### Install Docker / Docker-Compose
+### Install Docker / Docker Compose
 
-Installation was actually already explained in [Part 2](/2021/new-server-setup-linux-part-2/#docker) of this blog series, but I will also include Docker-compose now:
+Installation of Docker & Docker Compose was actually already explained in [Part 2](/2021/new-server-setup-linux-part-2/#docker).
 
-```sh
-sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) \
-    stable"
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io
-
-# Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
-
-### Configure Docker
-
-```sh
-sudo groupadd docker
-# Add a user to the docker group
-sudo usermod -aG docker $USER
-newgrp docker
-```
-
-Read more: [Docker Docs: Getting Started](https://docs.docker.com/get-started/) and [Docker-Compose Docs](https://docs.docker.com/compose/).
+So if you want to install Docker or Docker compose, please follow the guide in the link above!
 
 ## Grafana, InfluxDB & Telegraf
 

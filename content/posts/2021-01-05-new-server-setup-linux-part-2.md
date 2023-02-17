@@ -52,22 +52,33 @@ sudo rm -vrf /snap /var/snap /var/lib/snapd /var/cache/snapd /usr/lib/snapd
 sudo apt-mark hold snapd
 ```
 
-### Docker
+### Docker & Docker Compose {#docker}
 
-I installed the official `docker-ce` package _instead_ of snap, via:
+Before we can install `docker-ce` package _instead_ of snap, we will need to import the docker keyring:
 
 ```sh
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+
+Now, we can add the repository and install `docker-ce`:
+
+```sh
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-sudo addgroup --system docker
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# add the user to the pre-created docker group
 sudo usermod -aG docker melroy
+# Make the user part of the group, without rebooting
 newgrp docker
 ```
+
+_**Important note:** We use the docker compose plugin nowadays, which mean the CLI tool is called: `docker compose`, with a space between "docker" and "compose"._
+
+Read more: [Docker Docs: Getting Started](https://docs.docker.com/get-started/) and [Docker Compose Docs](https://docs.docker.com/compose/gettingstarted/).
 
 ## Ubuntu News
 
