@@ -10,23 +10,11 @@ categories:
   - Gaming
   - Mobile
 tags:
-  - centre
-  - go
-  - gps
-  - gym
   - Ingress
-  - keyhole
-  - lure
-  - mew
-  - mewtwo
-  - niantic
   - Nintendo
-  - pokemon
-  - pokemon go plus
-  - pokestops
+  - Pokemon
   - receiver
   - stock
-  - stops
   - trade
   - VR
 ---

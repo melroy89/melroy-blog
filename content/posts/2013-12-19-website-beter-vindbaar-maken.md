@@ -15,24 +15,21 @@ categories:
 tags:
   - Android
   - crawler
-  - facebook
-  - google
-  - Google Places
-  - grammatica
+  - Facebook
+  - Google
   - gzip
   - indexeren
-  - iphone
-  - linkedin
+  - iPhone
+  - LinkedIn
   - mobiel
   - richtlijnen
   - sitemap
   - social media
-  - spelfouten
   - titel
-  - url
+  - URL
   - webmasters
   - website
-  - xml
+  - XML
   - zoeken
   - zoekwoorden
 ---

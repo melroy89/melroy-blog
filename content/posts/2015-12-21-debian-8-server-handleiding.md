@@ -17,7 +17,7 @@ categories:
   - Server
 tags:
   - Apache
-  - certificaat
+  - certificate
   - cloud storage
   - CI/CD
   - Debian
@@ -33,7 +33,7 @@ tags:
   - Monit
   - MySQL
   - netstat
-  - netwerk
+  - network
   - OpenSSL
   - nextcloud
   - PHP

@@ -11,9 +11,9 @@ categories:
   - Handy Tools
   - Server
 tags:
-  - c++
+  - C++
   - client
-  - downloading
+  - download
   - Linux
   - newsgroups
   - nzb

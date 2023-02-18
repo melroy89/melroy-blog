@@ -1,5 +1,5 @@
 ---
-title: "Ubuntu commando’s & locaties"
+title: "Ubuntu commando's & locaties"
 author: Melroy van den Berg
 type: post
 date: 2013-12-04T14:58:36+00:00
@@ -14,12 +14,12 @@ categories:
   - Server
 tags:
   - commands
-  - downloaden
+  - download
   - GNU
   - free
-  - handig
+  - useful
   - Linux
-  - locaties
+  - locations
   - Ubuntu
 ---
 

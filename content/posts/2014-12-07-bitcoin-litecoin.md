@@ -18,18 +18,17 @@ tags:
   - BTC
   - crypto
   - decentralized
-  - digitaal
+  - digital
   - hash
   - key
-  - litecoins
   - BCH
-  - nadelen
-  - portemonnee
+  - wallet
   - scrypt
   - SHA-256
   - sleutel
-  - valuta
-  - voordelen
+  - currency
+  - pros
+  - cons
   - wallet
 ---
 

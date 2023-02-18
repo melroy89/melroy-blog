@@ -21,13 +21,13 @@ tags:
   - Facebook
   - Google
   - Heartbleed
-  - linkedin
+  - LinkedIn
   - OpenSSL
   - private
   - public
   - Robin Seggelman
   - SLL
-  - Wordpress
+  - WordPress
   - Yahoo
 ---
 

@@ -14,7 +14,7 @@ categories:
   - Security
   - Server
 tags:
-  - artificial intelligence
+  - AI
   - GPT-3
   - GPT
   - machine learning

@@ -11,11 +11,11 @@ categories:
   - Programming
   - Security
 tags:
-  - artificial intelligence
+  - AI
   - ASML
-  - kwantumcompuer
-  - kwantumverstrengeling
-  - supercomputer
+  - quantum computer
+  - quantum entanglement
+  - super computer
 ---
 
 http://computer.howstuffworks.com/quantum-computer.htm

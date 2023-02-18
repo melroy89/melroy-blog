@@ -13,19 +13,16 @@ tags:
   - bloeddruk
   - cool
   - design
-  - ecg
+  - ECG
   - Emotiv Insight
-  - FabTotum
   - gezichtsuitdrukking
   - hartslag
   - NFC Ring
-  - presaties
   - producten
   - reality
   - revolight
   - Smart watch
-  - technisch
-  - temperatuur
+  - temperature
   - Tricorder
 ---
 

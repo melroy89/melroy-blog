@@ -20,15 +20,15 @@ tags:
   - euro
   - gigabyte
   - Honda
-  - id3
+  - ID3
   - kwh
-  - opel
+  - Opel
   - Polestar
   - price
   - range
   - sustainable
-  - tesla
-  - vw
+  - Tesla
+  - VW
   - WLTP
 ---
 

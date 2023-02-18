@@ -18,7 +18,7 @@ tags:
   - Linux
   - Linux Kernel
   - mailserver
-  - networking
+  - network
   - new-server-series
   - Postfix
   - RAID

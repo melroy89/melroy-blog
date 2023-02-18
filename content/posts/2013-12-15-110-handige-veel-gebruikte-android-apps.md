@@ -18,11 +18,10 @@ tags:
   - apps
   - audio
   - communicatie
-  - handig
-  - muziek
-  - sociaal
+  - useful
+  - music
+  - social
   - tools
-  - veel gebruikt
 ---
 
 ![](/images/2013/10/Google-Play.jpg "Er zijn al vele mensen geweest die vragen wat ik voor applicaties ik gebruik op mijn Android apparaat.")

@@ -2,6 +2,8 @@
 
 My blog using Hugo. Which is leveraging markdown as it's default format for the [content](content).
 
+**Live at:** [blog.melroy.org](https://blog.melroy.org)
+
 So you need to [install](https://gohugo.io/installation/) the `hugo` command first.
 
 ## Run local server
