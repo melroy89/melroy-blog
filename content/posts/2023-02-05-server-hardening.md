@@ -24,7 +24,7 @@ tags:
 
 ## Introduction
 
-Security of a system is often overlooked or not considered important enough. They don't think through the possible consequences, which might result in a hacked or compromised server. Maybe sensitive data gets stolen or encrypted with major consequences.
+Security of a system is often overlooked or not considered important enough. They don't think through the possible consequences, which might result in a hacked or compromis ed server. Maybe sensitive data gets stolen or encrypted with major consequences.
 
 A collection of tools, techniques and best pratices to reduce such vulnerabilities are called system hardening.
 
