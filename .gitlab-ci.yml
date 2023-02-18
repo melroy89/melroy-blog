@@ -33,6 +33,8 @@ build-and-deploy:
   stage: build
   rules:
     - if: '$CI_PROJECT_NAMESPACE == "melroy" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  variables:
+    HUGO_ENV: "production"
   script:
     - hugo -e production --minify
   environment:
