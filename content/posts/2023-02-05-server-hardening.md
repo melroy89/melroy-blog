@@ -2,10 +2,11 @@
 title: Server Hardening
 author: Melroy van den Berg
 type: post
-date: -001-11-30T00:00:00+00:00
+date: 2023-02-18T23:26:37+00:00
 toc: true
-url: /2023/server-hardening/
 draft: true
+url: /2023/server-hardening/
+featured_image: /images/2023/02/server-security.jpg
 categories:
   - Server
   - Hardening
@@ -30,13 +31,16 @@ A collection of tools, techniques and best pratices to reduce such vulnerabiliti
 
 With the recent hacks or data breaches over the past years across different big companies, including but not limited by: PayPal, LastPast, T-Mobile, MailChimp, Cash App, Netflix, Dropbox, OpenSea, Twitter...
 
-Maybe it's wise to also validate the security of your own Linux machine and/or server?
+Therefore it's wise to also validate the security of your Linux system / server. I will give some best pratices on the host OS level and later I will focus on several Docker security improvements.
+
+![LastPass hacked](/images/2023/02/lastpass-hacked.webp)
 
 ## Harding Host Tools
 
 There exists _many_ different hardening tools, which will help you identify best practices or other possible vulnerabilities that requires your attention.
 
-We will mainly focus on the two listed below. And since both tools will give a lot of feedback back, we can't tackle all items the tools will report back.
+We will mainly focus on the two listed below. And since both tools will give a lot of feedback back, we can't cover all suggestions the tools will report back.  
+However, this blog article should give you a head start.
 
 ### Docker Bench for Security {#docker-bench-security}
 
@@ -66,6 +70,8 @@ To perform a local security system scan, execute now:
 ```sh
 sudo ./lynis audit system
 ```
+
+![Lynis](/images/2023/02/lynis.png "Lynis audit run")
 
 ## Host Machine
 
@@ -465,3 +471,8 @@ services:
 ```
 
 Since everything is now read-only, you might to create volume mounts (or binds) to your host which will be writable. And/or create a tmpfs.
+
+## Conclusion
+
+I hope you have come to understand the importance of good security.  
+I also hope that I managed to get you excited to also delve into your own (server) security.
