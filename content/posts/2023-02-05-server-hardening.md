@@ -25,7 +25,7 @@ tags:
 
 ## Introduction
 
-Security of a system is often overlooked or not considered important enough. They don't think through the possible consequences, which might result in a hacked or compromis ed server. Maybe sensitive data gets stolen or encrypted with major consequences.
+Security of a system is often overlooked or not considered important enough. Some might think not about the possible consequences, which might result in a hacked or compromised server. Maybe sensitive data gets stolen or encrypted with major consequences.
 
 A collection of tools, techniques and best pratices to reduce such vulnerabilities are called system hardening.
 
@@ -33,7 +33,7 @@ With the recent hacks or data breaches over the past years across different big 
 
 Therefore it's wise to also validate the security of your Linux system / server. I will give some best pratices on the host OS level and later I will focus on several Docker security improvements.
 
-![LastPass hacked](/images/2023/02/lastpass-hacked.webp)
+![LastPass was hacked](/images/2023/02/lastpass-hacked.webp)
 
 ## Harding Host Tools
 
