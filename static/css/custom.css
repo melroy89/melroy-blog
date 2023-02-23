@@ -20,6 +20,7 @@ code,
 kbd,
 samp {
   word-break: break-word;
+  word-wrap: break-word;
 }
 .nested-list-small-indent ul ul,
 .nested-list-small-indent ol ol {
