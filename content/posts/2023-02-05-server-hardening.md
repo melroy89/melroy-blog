@@ -37,15 +37,18 @@ We have seen quote a lot of hacks and data breaches over the past years across d
 
 ---
 
-Security is important and it's wise to also validate the security of your Linux system or server.  
+As stated earlier, the consequences of a poorly secured system can be disastrous. Our system can be compromised, so it's wise to validate the security of your own Linux system and server.
+
 I split this article in three sections, first hardening tools, then some best pratices on the **host OS** level and next we focus on several **Docker** security improvements. Let's first start with some toolings:
 
 ## Hardening Tools
 
 There exists _many_ different hardening tools, which will help you identify best practices or other possible vulnerabilities that requires your attention.
 
-We will mainly focus on the two listed below. And since both tools will give a lot of feedback, we can't cover all suggestions the tool reports back.  
-However, this blog article should give you a head start.
+Those hardening tools will check your system on most common pitfalls or misconfigurations, which should help you to what needs to be changed.
+
+We will focus on the _two_ tools listed below. And since both tools will give a lot of improvement proposals, we can't cover all those suggestions the tool reports back in this article.  
+However, this article will definitely give you a head start.
 
 ### Docker Bench for Security {#docker-bench-security}
 
@@ -94,9 +97,9 @@ password requisite pam_cracklib.so retry=3 minlen=15 difok=3 ucredit=-1 lcredit=
 
 ### Disable su
 
-I also don't like the users who are part of the `sudo` group can run `su` command or `sudo -l` commands to become root.
+The `sudo` group under Linux group giving users access to execute commands as the `root` user. I don't like the fact that users who are part of the `sudo` group can run the `su` or `sudo -l` commands to actually become the `root` user.
 
-Let disable that by editing `/etc/pam.d/su`:
+Let disable that by editing `/etc/pam.d/su` file:
 
 ```conf
 # DISALLOW su command, my commenting this line below:
@@ -294,7 +297,7 @@ I love to go into details about each kernel option, but then this article would 
 
 ## Docker
 
-Now let's move to our Docker setup. The following sections are based on the audit results performed by the [Docker Bench for Security script](#docker-bench-security).
+Now let's move to our Docker setup. Docker Engine is used for running isolated containers, but unlike VMs Docker can reuse the OS kernel resources. The following sections are based on the audit results performed by the [Docker Bench for Security script](#docker-bench-security).
 
 ![Docker Engine Architecture](/images/2023/02/docker-engine-architecture.jpg)
 
@@ -488,6 +491,6 @@ Since everything is now read-only, you might to create volume mounts (or binds) 
 I hope you have come to understand the importance of good security.  
 I also hope that I managed to get you excited to also delve into your own (server) security.
 
-Don't forget to run the [security benchmarking tools](#hardening-tools) during hardening process to discover remaining vulnerability and validate that your hardening actions are indeed improving the benchmark scores.
+Don't forget to run the [security benchmarking tools](#hardening-tools) during hardening process to discover remaining vulnerability and validate that your hardening actions are indeed improving the benchmark scores. And execute a regular audit to ensure no new vulnerabilities are introduced.
 
-While we've covered quite a bit in this article, it shouldn't be the end. But rather the start of further hardening your server. Other topics might include: Automatically install security patches, enable firewall, securing DNS traffic, securing other services like Postfix, Nginx or rpcbind to name a few topics.
+While we've covered quite a bit in this article, it shouldn't be the end. But rather _the start_ of further hardening your server. Other topics might include: Automatically install security patches and keep your software up-to-date, enable a firewall and limit the incoming and outgoing network traffic, securing DNS traffic, creating alerting on Auditd or RSyslog, securing other services like Postfix, Nginx or rpcbind to name a few topics.
