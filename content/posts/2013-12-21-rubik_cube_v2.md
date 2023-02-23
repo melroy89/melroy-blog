@@ -2,7 +2,7 @@
 title: Rubik Cube gaat verder
 author: Melroy van den Berg
 type: post
-date: 2013-12-21T16:50:25+00:00
+date: 2013-12-21T16:50:25+01:00
 url: /2013/rubik_cube_v2/
 featured_image: /images/2013/10/rubik_cube_homepage.png
 categories:

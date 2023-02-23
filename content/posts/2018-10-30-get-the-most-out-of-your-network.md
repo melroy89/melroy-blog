@@ -2,7 +2,7 @@
 title: Get the most out of your network
 author: Melroy van den Berg
 type: post
-date: 2018-10-30T15:04:23+00:00
+date: 2018-10-30T15:04:23+01:00
 url: /2018/get-the-most-out-of-your-network/
 featured_image: /images/2018/10/speed-test-header.jpg
 categories:

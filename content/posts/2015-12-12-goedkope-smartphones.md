@@ -2,7 +2,7 @@
 title: Goedkope smartphones
 author: Melroy van den Berg
 type: post
-date: 2015-12-12T11:29:18+00:00
+date: 2015-12-12T11:29:18+01:00
 url: /2015/goedkope-smartphones/
 featured_image: /images/2015/11/elephone.jpeg
 categories:

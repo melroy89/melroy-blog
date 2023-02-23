@@ -2,7 +2,7 @@
 title: Cross-compiling Linux Driver (Raspberry Pi)
 author: Melroy van den Berg
 type: post
-date: 2014-12-28T14:55:28+00:00
+date: 2014-12-28T14:55:28+01:00
 url: /2014/cross-compiling-linux-driver-raspberry-pi/
 featured_image: /images/2014/07/GNU_Compiler_Collection_logo.svg-.png
 categories:

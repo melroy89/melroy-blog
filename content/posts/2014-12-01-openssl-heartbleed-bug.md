@@ -2,7 +2,7 @@
 title: Het grootste beveiligingslek in de geschiedenis – Heartbleed Bug
 author: Melroy van den Berg
 type: post
-date: 2014-12-01T15:51:26+00:00
+date: 2014-12-01T15:51:26+01:00
 modal: true
 url: /2014/openssl-heartbleed-bug/
 featured_image: /images/2014/04/Heartbleed-Symbol.gif

@@ -2,7 +2,7 @@
 title: Steam Machines
 author: Melroy van den Berg
 type: post
-date: 2014-12-16T09:21:00+00:00
+date: 2014-12-16T09:21:00+01:00
 url: /2014/steam-machines/
 featured_image: /images/2014/04/machines_livingroom.jpg
 categories:

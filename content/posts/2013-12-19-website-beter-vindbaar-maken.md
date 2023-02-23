@@ -2,7 +2,7 @@
 title: Website beter vindbaar maken
 author: Melroy van den Berg
 type: post
-date: 2013-12-19T16:15:21+00:00
+date: 2013-12-19T16:15:21+01:00
 modal: true
 url: /2013/website-beter-vindbaar-maken/
 featured_image: /images/2013/11/stats_homepage.jpg

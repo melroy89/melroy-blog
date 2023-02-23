@@ -2,7 +2,7 @@
 title: "Grand Threft Auto: San Andreas op Android"
 author: Melroy van den Berg
 type: post
-date: 2013-12-20T22:08:46+00:00
+date: 2013-12-20T22:08:46+01:00
 url: /2013/grand-threft-auto-san-andreas-op-android/
 featured_image: /images/2013/12/gta_andreas_wallpaper.jpg
 sharing_disabled:

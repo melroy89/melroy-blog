@@ -2,7 +2,7 @@
 title: "Ubuntu commando's & locaties"
 author: Melroy van den Berg
 type: post
-date: 2013-12-04T14:58:36+00:00
+date: 2013-12-04T14:58:36+01:00
 url: /2013/ubuntu-commandos-locaties/
 featured_image: /images/2013/10/terminal_commands_ubuntu_homepage.png
 categories:

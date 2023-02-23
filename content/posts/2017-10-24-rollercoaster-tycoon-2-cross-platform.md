@@ -2,7 +2,7 @@
 title: RollerCoaster Tycoon 2 – Cross-platform
 author: Melroy van den Berg
 type: post
-date: 2017-10-24T14:44:16+00:00
+date: 2017-10-24T14:44:16+01:00
 url: /2017/rollercoaster-tycoon-2-cross-platform/
 featured_image: /images/2017/10/openrct_frontcover.jpg
 enclosure:

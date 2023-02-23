@@ -2,7 +2,7 @@
 title: "Video, beeld & geluid onder Linux"
 author: Melroy van den Berg
 type: post
-date: 2014-12-09T16:32:29+00:00
+date: 2014-12-09T16:32:29+01:00
 url: /2014/video-geluidbewerking-software-onder-linux/
 featured_image: /images/2014/05/creative.jpg
 categories:

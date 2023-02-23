@@ -2,7 +2,7 @@
 title: "Antergos & Linux Mint"
 author: Melroy van den Berg
 type: post
-date: 2015-12-18T13:01:50+00:00
+date: 2015-12-18T13:01:50+01:00
 url: /2015/antergos-linux-mint/
 featured_image: /images/2015/11/antergos_wallpaper.png
 categories:

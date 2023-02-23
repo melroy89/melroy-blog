@@ -2,7 +2,7 @@
 title: "SSH tunneling: interne/externe poort doorsturing"
 author: Melroy van den Berg
 type: post
-date: 2015-12-03T11:23:39+00:00
+date: 2015-12-03T11:23:39+01:00
 url: /2015/ssh-tunneling/
 featured_image: /images/2015/10/cern_large_hadron_collider.jpg
 categories:

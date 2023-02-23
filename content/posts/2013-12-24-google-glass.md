@@ -2,7 +2,7 @@
 title: Google Glass
 author: Melroy van den Berg
 type: post
-date: 2013-12-24T15:11:03+00:00
+date: 2013-12-24T15:11:03+01:00
 url: /2013/google-glass/
 featured_image: /images/2013/10/glass_homepage.jpg
 categories:

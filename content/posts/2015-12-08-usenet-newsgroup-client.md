@@ -2,7 +2,7 @@
 title: Newsgroup Client
 author: Melroy van den Berg
 type: post
-date: 2015-12-08T13:45:22+00:00
+date: 2015-12-08T13:45:22+01:00
 url: /2015/usenet-newsgroup-client/
 featured_image: /images/2015/12/nzbget_header.png
 categories:

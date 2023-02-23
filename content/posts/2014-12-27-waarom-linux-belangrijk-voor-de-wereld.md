@@ -2,7 +2,7 @@
 title: Waarom Linux belangrijk is
 author: Melroy van den Berg
 type: post
-date: 2014-12-27T18:32:14+00:00
+date: 2014-12-27T18:32:14+01:00
 url: /2014/waarom-linux-belangrijk-voor-de-wereld/
 featured_image: /images/2014/10/gnu_linux_by_levhita.jpg
 enclosure:

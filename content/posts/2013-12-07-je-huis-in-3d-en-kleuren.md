@@ -2,7 +2,7 @@
 title: Je huis in 3D en kleuren
 author: Melroy van den Berg
 type: post
-date: 2013-12-07T17:35:16+00:00
+date: 2013-12-07T17:35:16+01:00
 url: /2013/je-huis-in-3d-en-kleuren/
 featured_image: /images/2013/10/autodesk_styler_homepage.jpg
 categories:

@@ -2,7 +2,7 @@
 title: Windows vs Linux (Ubuntu vs Linux Mint)
 author: Melroy van den Berg
 type: post
-date: 2014-12-10T16:57:17+00:00
+date: 2014-12-10T16:57:17+01:00
 toc: true
 modal: true
 url: /2014/windows-vs-ubuntu-vs-linux-mint/

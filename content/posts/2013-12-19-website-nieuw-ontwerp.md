@@ -2,7 +2,7 @@
 title: Nieuw website design
 author: Melroy van den Berg
 type: post
-date: 2013-12-19T22:57:39+00:00
+date: 2013-12-19T22:57:39+01:00
 url: /2013/website-nieuw-ontwerp/
 featured_image: /images/2013/12/responsive-web-design-layouts.jpg
 categories:

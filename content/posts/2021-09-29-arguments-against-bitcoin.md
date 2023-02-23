@@ -2,7 +2,7 @@
 title: Arguments against Bitcoin
 author: Melroy van den Berg
 type: post
-date: 2021-09-29T14:22:54+00:00
+date: 2021-09-29T14:22:54+01:00
 toc: true
 modal: true
 url: /2021/arguments-against-bitcoin/

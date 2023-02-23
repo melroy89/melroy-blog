@@ -2,7 +2,7 @@
 title: Debian 8 Jessie Server handleiding
 author: Melroy van den Berg
 type: post
-date: 2015-12-21T13:42:56+00:00
+date: 2015-12-21T13:42:56+01:00
 toc: true
 modal: true
 url: /2015/debian-8-server-handleiding/

@@ -2,7 +2,7 @@
 title: Starship Prompt
 author: Melroy van den Berg
 type: post
-date: 2021-12-24T23:26:37+00:00
+date: 2021-12-24T23:26:37+01:00
 url: /2021/starship-prompt/
 featured_image: /images/2021/12/starship.jpg
 categories:

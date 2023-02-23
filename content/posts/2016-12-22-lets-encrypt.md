@@ -2,7 +2,7 @@
 title: Let’s Encrypt – Is your website secure?
 author: Melroy van den Berg
 type: post
-date: 2016-12-22T12:46:22+00:00
+date: 2016-12-22T12:46:22+01:00
 toc: true
 url: /2016/lets-encrypt/
 featured_image: /images/2016/03/header.jpg

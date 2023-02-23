@@ -2,7 +2,7 @@
 title: Producten van nu uit de toekomst
 author: Melroy van den Berg
 type: post
-date: 2013-12-04T17:48:05+00:00
+date: 2013-12-04T17:48:05+01:00
 url: /2013/gave-producten/
 featured_image: /images/2013/11/future_homepage.jpg
 categories:

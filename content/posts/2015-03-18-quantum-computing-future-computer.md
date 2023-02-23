@@ -2,7 +2,7 @@
 title: The future of the computer
 author: Melroy van den Berg
 type: post
-date: 2015-03-18T17:12:20+00:00
+date: 2015-03-18T17:12:20+01:00
 draft: true
 url: /?p=1470
 categories:

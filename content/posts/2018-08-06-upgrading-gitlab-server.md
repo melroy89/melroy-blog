@@ -2,7 +2,7 @@
 title: Upgrading GitLab server
 author: Melroy van den Berg
 type: post
-date: 2018-08-06T15:30:44+00:00
+date: 2018-08-06T15:30:44+01:00
 url: /2018/upgrading-gitlab-server/
 featured_image: /images/2015/12/gitlab_header.png
 categories:

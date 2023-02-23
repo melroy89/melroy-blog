@@ -2,7 +2,7 @@
 title: Databases 2.0 – Cassandra
 author: Melroy van den Berg
 type: post
-date: 2015-12-18T17:24:13+00:00
+date: 2015-12-18T17:24:13+01:00
 url: /2015/databases-2-0-cassandra/
 featured_image: /images/2015/09/cassandra_eye.png
 categories:

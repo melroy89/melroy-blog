@@ -2,7 +2,7 @@
 title: "Bitcoins & Litecoins – Wat zijn het?"
 author: Melroy van den Berg
 type: post
-date: 2014-12-07T13:26:15+00:00
+date: 2014-12-07T13:26:15+01:00
 katex: true
 toc: true
 url: /2014/bitcoin-litecoin/

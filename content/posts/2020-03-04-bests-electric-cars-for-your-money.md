@@ -2,7 +2,7 @@
 title: Bests electric cars for your money
 author: Melroy van den Berg
 type: post
-date: 2020-03-03T23:17:07+00:00
+date: 2020-03-03T23:17:07+01:00
 modal: true
 url: /2020/bests-electric-cars-for-your-money/
 featured_image: /images/2020/03/honda_e.jpg

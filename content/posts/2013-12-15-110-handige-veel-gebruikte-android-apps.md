@@ -2,7 +2,7 @@
 title: "110 Handige & veel gebruikte Android apps"
 author: Melroy van den Berg
 type: post
-date: 2013-12-15T13:30:58+00:00
+date: 2013-12-15T13:30:58+01:00
 url: /2013/110-handige-veel-gebruikte-android-apps/
 featured_image: /images/2013/10/android_market.png
 categories:

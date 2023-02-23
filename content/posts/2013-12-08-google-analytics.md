@@ -2,7 +2,7 @@
 title: Google Analytics, website verbeteringen en alternatieven
 author: Melroy van den Berg
 type: post
-date: 2013-12-08T15:05:17+00:00
+date: 2013-12-08T15:05:17+01:00
 url: /2013/google-analytics/
 featured_image: /images/2013/11/google_analytics.jpg
 categories:

@@ -2,7 +2,7 @@
 title: "New Server: Buy & Assemble (Part I)"
 author: Melroy van den Berg
 type: post
-date: 2020-12-20T00:20:26+00:00
+date: 2020-12-20T00:20:26+01:00
 toc: true
 modal: true
 url: /2020/new-server-buy-assemble-part-1/

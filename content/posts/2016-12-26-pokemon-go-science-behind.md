@@ -2,7 +2,7 @@
 title: Pokémon GO – The science behind it
 author: Melroy van den Berg
 type: post
-date: 2016-12-26T12:40:30+00:00
+date: 2016-12-26T12:40:30+01:00
 url: /2016/pokemon-go-science-behind/
 featured_image: /images/2016/07/pokemon_go.jpg
 categories:

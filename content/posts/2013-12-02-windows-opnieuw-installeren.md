@@ -2,7 +2,7 @@
 title: Windows opnieuw installeren
 author: Melroy van den Berg
 type: post
-date: 2013-12-02T17:02:48+00:00
+date: 2013-12-02T17:02:48+01:00
 modal: true
 url: /2013/windows-opnieuw-installeren/
 featured_image: /images/2013/10/Windows7Logo_homepage.png

@@ -2,7 +2,7 @@
 title: Why should you upgrade to PHP7?
 author: Melroy van den Berg
 type: post
-date: 2016-12-10T13:49:41+00:00
+date: 2016-12-10T13:49:41+01:00
 url: /2016/why-should-you-upgrade-to-php7/
 featured_image: /images/2016/06/php7_logo.png
 categories:

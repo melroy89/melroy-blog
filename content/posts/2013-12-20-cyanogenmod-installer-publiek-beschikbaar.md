@@ -2,7 +2,7 @@
 title: CyanogenMod Installer – Publiek beschikbaar
 author: Melroy van den Berg
 type: post
-date: 2013-12-20T02:07:13+00:00
+date: 2013-12-20T02:07:13+01:00
 url: /2013/cyanogenmod-installer-publiek-beschikbaar/
 featured_image: /images/2013/12/CyanogenMod_installer.jpg
 categories:

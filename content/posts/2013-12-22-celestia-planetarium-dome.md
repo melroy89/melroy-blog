@@ -2,7 +2,7 @@
 title: "Celestia & Planetarium Dome"
 author: Melroy van den Berg
 type: post
-date: 2013-12-22T15:42:00+00:00
+date: 2013-12-22T15:42:00+01:00
 url: /2013/celestia-planetarium-dome/
 featured_image: /images/2013/11/heelal_homepage.jpg
 categories:

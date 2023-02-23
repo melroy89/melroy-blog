@@ -2,7 +2,7 @@
 title: "New server: Install & configuration of services (Part III)"
 author: Melroy van den Berg
 type: post
-date: 2021-01-16T15:12:32+00:00
+date: 2021-01-16T15:12:32+01:00
 toc: true
 modal: true
 url: /2021/new-server-install-config-services-part-3/

@@ -2,7 +2,7 @@
 title: "SteamBox & SteamOS"
 author: Melroy van den Berg
 type: post
-date: 2013-12-20T18:46:36+00:00
+date: 2013-12-20T18:46:36+01:00
 modal: true
 url: /2013/steambox-en-steamos/
 featured_image: /images/2013/12/steambox_met_controller.jpg

@@ -2,7 +2,7 @@
 title: Raspberry Pi – Camera Module + Motion
 author: Melroy van den Berg
 type: post
-date: 2014-12-16T15:21:13+00:00
+date: 2014-12-16T15:21:13+01:00
 toc: true
 modal: true
 url: /2014/raspberry-pi-camera-module-motion/

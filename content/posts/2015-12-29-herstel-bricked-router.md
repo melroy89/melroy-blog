@@ -2,7 +2,7 @@
 title: Herstel bricked Router
 author: Melroy van den Berg
 type: post
-date: 2015-12-29T14:54:15+00:00
+date: 2015-12-29T14:54:15+01:00
 url: /2015/herstel-bricked-router/
 featured_image: /images/2015/07/netgear_front.jpg
 categories:

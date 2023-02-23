@@ -2,7 +2,7 @@
 title: Facebook Topverslagen
 author: Melroy van den Berg
 type: post
-date: 2014-12-25T16:26:14+00:00
+date: 2014-12-25T16:26:14+01:00
 url: /2014/facebook-topverslagen/
 featured_image: /images/2014/04/facebook_logo.png
 categories:

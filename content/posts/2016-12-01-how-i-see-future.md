@@ -2,7 +2,7 @@
 title: How do I see the future of Technology?
 author: Melroy van den Berg
 type: post
-date: 2016-12-01T16:47:22+00:00
+date: 2016-12-01T16:47:22+01:00
 url: /2016/how-i-see-future/
 featured_image: /images/2016/07/dwave.jpg
 categories:
