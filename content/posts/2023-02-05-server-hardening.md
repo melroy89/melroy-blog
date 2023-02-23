@@ -37,7 +37,7 @@ We have seen quote a lot of hacks and data breaches over the past years across d
 
 ---
 
-As stated earlier, the consequences of a poorly secured system can be disastrous. Our system can be compromised, so it's wise to validate the security of your own Linux system and server.
+As stated earlier, the consequences of a poorly secured system can be disastrous. You system can be compromised, so how secure is your Linux system? It's wise to audit the security of your own Linux system.
 
 I split this article in three sections, first hardening tools, then some best pratices on the **host OS** level and next we focus on several **Docker** security improvements. Let's first start with some toolings:
 
