@@ -16,9 +16,12 @@ categories:
 tags:
   - hardening
   - security
+  - benchmark
+  - Docker Compose
+  - RSyslog
   - Linux
   - GNU
-  - bash
+  - Bash
   - terminal
   - Docker
 ---
@@ -27,19 +30,22 @@ tags:
 
 Security of a system is often overlooked or not considered important enough. Some might think not about the possible consequences, which might result in a hacked or compromised server. Maybe sensitive data gets stolen or encrypted with major consequences.
 
-A collection of tools, techniques and best pratices to reduce such vulnerabilities are called system hardening.
+A collection of _tools, techniques and best pratices_ can help to reduce such vulnerabilities. This process is called **system hardening**.
 
-With the recent hacks or data breaches over the past years across different big companies, including but not limited by: PayPal, LastPast, T-Mobile, MailChimp, Cash App, Netflix, Dropbox, OpenSea, Twitter...
-
-Therefore it's wise to also validate the security of your Linux system / server. I will give some best pratices on the host OS level and later I will focus on several Docker security improvements.
+We have seen quote a lot of hacks and data breaches over the past years across different big companies, including but not limited to: PayPal, LastPast, T-Mobile, MailChimp, Netflix, Dropbox, OpenSea, Twitter...
 
 ![LastPass was hacked](/images/2023/02/lastpass-hacked.webp)
 
-## Harding Host Tools
+---
+
+Security is important and it's wise to also validate the security of your Linux system or server.  
+I split this article in three sections, first hardening tools, then some best pratices on the **host OS** level and next we focus on several **Docker** security improvements. Let's first start with some toolings:
+
+## Hardening Tools
 
 There exists _many_ different hardening tools, which will help you identify best practices or other possible vulnerabilities that requires your attention.
 
-We will mainly focus on the two listed below. And since both tools will give a lot of feedback back, we can't cover all suggestions the tools will report back.  
+We will mainly focus on the two listed below. And since both tools will give a lot of feedback, we can't cover all suggestions the tool reports back.  
 However, this blog article should give you a head start.
 
 ### Docker Bench for Security {#docker-bench-security}
@@ -108,9 +114,9 @@ auth  sufficient                 pam_succeed_if.so use_uid user = melroy
 
 ### Sudoers file
 
-I just would like to share an alternative approach as well...
+I just would like to share an alternative approach for the `sudo` / `su` groups as well.
 
-Let's say you wish to give a user "apt" execution rights but nothing else that requires `sudo` command.
+Let's say you want to give a user "apt" execution rights but nothing else that requires the `sudo` command.
 
 You can edit the `/etc/sudoers` file and add the following line for a user "demo":
 
@@ -118,33 +124,35 @@ You can edit the `/etc/sudoers` file and add the following line for a user "demo
 demo ALL=(root) /usr/bin/apt update, /usr/bin/apt install *, /usr/bin/apt upgrade, /usr/bin/apt-get update, /usr/bin/apt-get install *, /usr/bin/apt-get upgrade
 ```
 
-Then you do **NOT** need to add the user to the `sudo` group. While this `demo` user is allowed to execute `apt` commands.
+Then you do **NOT** need to add the demo user to the `sudo` group. While this `demo` user is allowed to execute `apt` commands.
 
 ### Create separate user
 
-Create a new user: `useradd -m <user> -s /bin/bash`  
+If you didn't already, let's create a separate user on our server, which will be the replacement of the `root` user.
+
+Creating a new user, via: `useradd -m <user> -s /bin/bash`  
 Set password for user: `passwd <user>`  
 Add user to sudo group: `usermod -aG sudo <user>`
 
-And maybe you want to add the `docker` group to the user? Only when you need it: `usermod -aG docker <user>`
+And maybe you want to add the `docker` group to the user? If so, execute: `usermod -aG docker <user>`
 
 ### Disable root user
 
-Disable root shell login: `sudo chsh -s /usr/sbin/nologin root`
+Now we can disable the root shell login: `sudo chsh -s /usr/sbin/nologin root`
 
-And disable root user on the machine (remove password and lock user):  
+And disable root user on the machine (remove password and lock the user):  
 `sudo passwd --delete --lock root`
 
 ### SSH Daemon
 
-The default sshd configuration is rather unsafe. Let's **not** use password authentication for example.
+The default [OpenSSH daemon](https://linux.die.net/man/8/sshd), also known as sshd, configuration is rather unsafe. Let's **not** use password authentication for example.
 Instead we will use our local SSH key pair for authorization towards the SSH serer.
 
 First, we generate new SSH key on your **local machine**, if you didn't have this already: `ssh-keygen`
 
 Next, we will copy the SSH _public key_ to your server using the following command: `ssh-copy-id <user>@<server-ip>`
 
-We are now ready to change the server SSH Daemon config. We will edit the config file `/etc/ssh/sshd_config`:
+We are now ready to change the server SSH daemon config. We will edit the config file `/etc/ssh/sshd_config`:
 
 ```ssh-config
 LoginGraceTime 2m
@@ -160,15 +168,15 @@ ClientAliveCountMax 2
 
 This snippet will not only disable password authentication and enable public key authentication.
 
-This configuration will also disable root login (very important!). And we will disable forwarding, lower the amount of retries and alive connections. As well as disabling any banner message (for Debian based systems).
+But also disable root login (very important!). And we will [disable TCP and X11 forwarding](https://man.openbsd.org/sshd_config#DisableForwarding) as well as lower the amount of retries and alive connections. Last but not least disabling any banner message (for Debian based systems).
 
 Now let's restart the daemon: `sudo systemctl restart sshd`
 
 ### Allow / Deny
 
-We can leverage the [allow and deny hosts files](https://linux.die.net/man/5/hosts.allow) under Linux to even block all access to the sshd service and only allow incoming connections from your local IP network.
+We can leverage the [allow and deny hosts files](https://linux.die.net/man/5/hosts.allow) under Linux to even block all access to the sshd service and only allow incoming connections from your local IP network. The example below is only about sshd, but other services can be restricted as well in similar fashion.
 
-For that, we will edit `/etc/hosts.allow` and add the following:
+To allow SSH on the local network only, edit the `/etc/hosts.allow` and add the following:
 
 ```txt
 sshd: 192.168.1.\*
@@ -287,11 +295,13 @@ I love to go into details about each kernel option, but then this article would 
 
 ## Docker
 
-Now let's move to our Docker setup. The following sections are based on the audit results performed by the Docker Bench for Security script, [I described earlier](#docker-bench-security).
+Now let's move to our Docker setup. The following sections are based on the audit results performed by the [Docker Bench for Security script](#docker-bench-security).
+
+![Docker Engine Architecture](/images/2023/02/docker-engine-architecture.jpg)
 
 ### Introducing Docker daemon config {#docker-daemon}
 
-We will create or edit the default Docker daemon configuration file `/etc/docker/daemon.json`:
+We will create or edit the default Docker daemon configuration file `/etc/docker/daemon.json`, with the following content:
 
 ```json
 {
@@ -317,7 +327,7 @@ We will create or edit the default Docker daemon configuration file `/etc/docker
 
 _**Note:** We will use the [rsyslogd configuration above](#rsyslogd) for logging._
 
-Furthermore, I want to disable experimental features so I set `experimental` option to `false`.
+Let's explain that is happening. I disable experimental features, so I set `experimental` option to `false`.
 The `icc` option to `false` will disable inter-container communication (on the default bridge network). `userns-remap` option will use Linux namespaces to map to separate user (the `dockremap` user and group is created and used for this purpose).
 
 We set the default `storage-driver` option to `overlay2` (which should be the default).
@@ -335,7 +345,7 @@ We don't want to use the default userland proxy, we want to use hairpin NAT for 
 
 Next, we want to **prevent** a Docker container processes from gaining additional privileges, so we set `no-new-privileges` option to `true`.
 
-More info about: [the Docker Daemon configuration](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file)
+Read more about: [the Docker Daemon config](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file).
 
 **Did you know?**
 
@@ -349,7 +359,7 @@ More info about: [the Docker Daemon configuration](https://docs.docker.com/engin
 
 ### Docker containers not running as root-user
 
-When you are leveraging the `Dockerfile`, you are able to create a **new** user and then switch to this new user by using the `USER` option. If you want to have write access to the files, you can copy the files via `--chown=` flag as well. Here is an example:
+Next, we want to prevent running a container as a root user. We can leverage the **`Dockerfile`** you will be able to create a **new** user and then switch to this new user by using the `USER` option. If you want to have write access to the files, you can copy the files via `--chown=` flag as well. Here is an example:
 
 ```Dockerfile
 RUN useradd -ms /bin/bash worker
@@ -364,7 +374,7 @@ COPY --chown=worker:worker . .
 USER worker
 ```
 
-Do don't need to copy the files with `--chown`, if the user does not need to have write access to the files, as long as you place `USER <username>` in this case at the bottom of the Dockerfile.
+Do don't need to copy the files with `--chown`, if the user does not need to have write access to the files, as long as you place `USER <username>` in this case at the bottom of the `Dockerfile`.
 
 **Did you know?**
 
@@ -376,7 +386,7 @@ Do don't need to copy the files with `--chown`, if the user does not need to hav
 
 ---
 
-In the case you don't want to change or adapt a Dockerfile, you can also specify a user or user id (UID) in a Docker compose file. Using the YAML format: `user: <username | user-id>`, like below:
+In the case you don't want to change or adapt a Dockerfile, you can also specify a user or user id (UID) in a **[Docker compose file](https://docs.docker.com/compose/compose-file/)**. Using the YAML format: `user: <username | user-id>`, like below:
 
 ```yml
 services:
@@ -390,7 +400,7 @@ services:
 
 By default Docker port mapping will be mapped to all interfaces (`0.0.0.0`). However, it's a good practice to add Nginx in front of the service, which allows you to add a SSL/TLS certificate as well as load balancing.
 
-In the case you have a reverse proxy like Nginx in front of your Docker containers, you only want to map the Docker ports to localhost (`127.0.0.1`). This can be done by changing your Docker compose file (or `docker run` command line). An example of Docker compose, change from:
+In the case you have a reverse proxy, like Nginx, in front of your Docker containers, you only want to map the Docker ports to localhost (`127.0.0.1`). This can easily done by changing your Docker compose file (or `docker run` command line). An example of Docker compose, change from:
 
 ```yaml
 ports:
@@ -412,7 +422,7 @@ location / {
 }
 ```
 
-Of course these are just examples, your actually configuration will differ.
+Of course these are just examples, your actually Nginx config might differ.
 
 ### Set Docker container Limits
 
@@ -431,6 +441,8 @@ services:
 ```
 
 I use the `docker stats` command to see what the current memory usage is, and estimate what the maximum might be for each container.
+
+![Docker stats terminal output](/images/2023/02/docker_stats.jpg "Docker stats output")
 
 If you do **NOT** want to use [Docker swarm](https://docs.docker.com/engine/swarm/) that comes with Compose v3, use the `--compatibility` flag to start the container: `docker compose --compatibility up -d`.
 
@@ -451,7 +463,7 @@ services:
         window: 120s
 ```
 
-Of course you can now combine the `deploy.resources`, from the previous paragraph, together with this `deploy.restart_policy` section in YAML.
+You are now free to combine the `deploy.resources`, from the previous paragraph, together with this `deploy.restart_policy` section in YAML.
 
 ### Docker write only file system
 
@@ -476,3 +488,7 @@ Since everything is now read-only, you might to create volume mounts (or binds) 
 
 I hope you have come to understand the importance of good security.  
 I also hope that I managed to get you excited to also delve into your own (server) security.
+
+Don't forget to run the [security benchmarking tools](#hardening-tools) during hardening process to discover remaining vulnerability and validate that your hardening actions are indeed improving the benchmark scores.
+
+While we've covered quite a bit in this article, it shouldn't be the end. But rather the start of further hardening your server. Other topics might include: Automatically install security patches, enable firewall, securing DNS traffic, securing other services like Postfix, Nginx or rpcbind to name a few topics.

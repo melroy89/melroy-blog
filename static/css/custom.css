@@ -6,6 +6,9 @@ pre,
 aside div {
   border-radius: 5px;
 }
+figure {
+  margin: auto;
+}
 h1,
 h2,
 h3,
