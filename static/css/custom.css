@@ -15,12 +15,15 @@ h3,
 h4,
 h5,
 h6,
-.code,
 code,
 kbd,
 samp {
   word-break: break-word;
   word-wrap: break-word;
+}
+pre code {
+  word-break: keep-all;
+  word-wrap: normal;
 }
 .nested-list-small-indent ul ul,
 .nested-list-small-indent ol ol {
@@ -29,11 +32,13 @@ samp {
 #TableOfContents ul li {
   margin-bottom: 0.6em;
 }
-.code,
-code,
-kbd,
-samp {
-  font-size: 0.9em;
+@media screen and (max-width: 30em) {
+  .code,
+  pre code,
+  kbd,
+  samp {
+    font-size: 0.6em;
+  }
 }
 .image {
   display: block;
