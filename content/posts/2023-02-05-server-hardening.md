@@ -83,9 +83,11 @@ sudo ./lynis audit system
 
 ## Host Machine
 
+We will first cover the best practices about hardening the Linux host machine.
+
 ### Enforce secure passwords
 
-We want to enforce secure passwords to users. For that, we first need to install: `sudo apt install libpam-cracklib`
+We want to enforce secure passwords to users, so it's harder to brute force passwords. For that, we first need to install: `sudo apt install libpam-cracklib`
 
 Under Debian based systems we edit the file: `/etc/pam.d/common-password`.
 
@@ -126,7 +128,7 @@ You can edit the `/etc/sudoers` file and add the following line for a user "demo
 demo ALL=(root) /usr/bin/apt update, /usr/bin/apt install *, /usr/bin/apt upgrade, /usr/bin/apt-get update, /usr/bin/apt-get install *, /usr/bin/apt-get upgrade
 ```
 
-Then you do **NOT** need to add the demo user to the `sudo` group. While this `demo` user is allowed to execute `apt` commands.
+Then you do **NOT** need to add the demo user to the `sudo` group. While this `demo` user is allowed to execute `apt` commands and nothing else.
 
 ### Create separate user
 
@@ -140,9 +142,11 @@ And maybe you want to add the `docker` group to the user? If so, execute: `userm
 
 ### Disable root user
 
-Now we can disable the root shell login: `sudo chsh -s /usr/sbin/nologin root`
+Disabling the `root` user prevents unauthorized access with unlimited privileges.
 
-And disable root user on the machine (remove password and lock the user):  
+Disabling the root shell login: `sudo chsh -s /usr/sbin/nologin root`
+
+Next, we disable root user on the machine (remove password and lock the user):  
 `sudo passwd --delete --lock root`
 
 ### SSH Daemon
