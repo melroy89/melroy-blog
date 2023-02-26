@@ -6,6 +6,8 @@ date: 2023-02-23T16:14:37+01:00
 toc: true
 url: /2023/server-hardening/
 featured_image: /images/2023/02/server-security.jpg
+images:
+  - /images/2023/02/server-security.jpg
 categories:
   - Server
   - Hardening
