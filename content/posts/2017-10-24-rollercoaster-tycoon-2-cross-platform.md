@@ -5,6 +5,8 @@ type: post
 date: 2017-10-24T14:44:16+01:00
 url: /2017/rollercoaster-tycoon-2-cross-platform/
 featured_image: /images/2017/10/openrct_frontcover.jpg
+images:
+  - /images/2017/10/openrct_frontcover.jpg
 enclosure:
   - |
     /images/2017/10/C2fMnts.mp4

@@ -6,6 +6,8 @@ date: 2019-05-28T10:43:16+01:00
 modal: true
 url: /2019/air-quality-meter/
 featured_image: /images/2019/05/aircraft_pollution.jpg
+images:
+  - /images/2019/05/aircraft_pollution.jpg
 categories:
   - Advanced
   - Hardware

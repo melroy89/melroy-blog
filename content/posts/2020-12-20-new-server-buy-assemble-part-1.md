@@ -7,6 +7,8 @@ toc: true
 modal: true
 url: /2020/new-server-buy-assemble-part-1/
 featured_image: /images/2020/12/cooler.jpeg
+images:
+  - /images/2020/12/cooler.jpeg
 categories:
   - Beginner
   - GNU/Linux OS

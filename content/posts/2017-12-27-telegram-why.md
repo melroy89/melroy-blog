@@ -5,6 +5,8 @@ type: post
 date: 2017-12-27T15:00:49+01:00
 url: /2017/telegram-why/
 featured_image: /images/2017/12/why_telegram.png
+images:
+  - /images/2017/12/why_telegram.png
 categories:
   - Beginner
   - GNU/Linux OS

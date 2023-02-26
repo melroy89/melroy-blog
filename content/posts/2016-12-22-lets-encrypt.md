@@ -6,6 +6,8 @@ date: 2016-12-22T12:46:22+01:00
 toc: true
 url: /2016/lets-encrypt/
 featured_image: /images/2016/03/header.jpg
+images:
+  - /images/2016/03/header.jpg
 categories:
   - GNU/Linux OS
   - Handy Tools

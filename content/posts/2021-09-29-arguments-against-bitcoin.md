@@ -7,6 +7,8 @@ toc: true
 modal: true
 url: /2021/arguments-against-bitcoin/
 featured_image: /images/2021/09/crack.jpg
+images:
+  - /images/2021/09/crack.jpg
 categories:
   - Beginner
   - Digital currencies

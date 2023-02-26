@@ -5,6 +5,8 @@ type: post
 date: 2020-10-30T21:46:18+01:00
 url: /2020/gpt-3-we-are-doomed/
 featured_image: /images/2020/10/logo.png
+images:
+  - /images/2020/10/logo.png
 categories:
   - Advanced
   - Big Data

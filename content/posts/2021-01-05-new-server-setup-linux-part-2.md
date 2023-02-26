@@ -6,6 +6,8 @@ date: 2021-01-05T16:49:11+01:00
 toc: true
 url: /2021/new-server-setup-linux-part-2/
 featured_image: /images/2021/01/ubuntu_logo.jpg
+images:
+  - /images/2021/01/ubuntu_logo.jpg
 categories:
   - GNU/Linux OS
   - Hardware

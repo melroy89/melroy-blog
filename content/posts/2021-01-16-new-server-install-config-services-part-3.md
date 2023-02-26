@@ -7,6 +7,8 @@ toc: true
 modal: true
 url: /2021/new-server-install-config-services-part-3/
 featured_image: /images/2021/01/banner.png
+images:
+  - /images/2021/01/banner.png
 categories:
   - Advanced
   - GNU/Linux OS

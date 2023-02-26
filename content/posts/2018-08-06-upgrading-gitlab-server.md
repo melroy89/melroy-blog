@@ -5,6 +5,8 @@ type: post
 date: 2018-08-06T15:30:44+01:00
 url: /2018/upgrading-gitlab-server/
 featured_image: /images/2015/12/gitlab_header.png
+images:
+  - /images/2015/12/gitlab_header.png
 categories:
   - Advanced
   - GNU/Linux OS

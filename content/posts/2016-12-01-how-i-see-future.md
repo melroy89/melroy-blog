@@ -5,6 +5,8 @@ type: post
 date: 2016-12-01T16:47:22+01:00
 url: /2016/how-i-see-future/
 featured_image: /images/2016/07/dwave.jpg
+images:
+  - /images/2016/07/dwave.jpg
 categories:
   - Beginner
   - Gadgets

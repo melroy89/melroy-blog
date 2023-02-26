@@ -5,6 +5,8 @@ type: post
 date: 2021-12-15T20:36:51+01:00
 url: /2021/gitlab-pull-from-remote-repo/
 featured_image: /images/2021/12/feature-1.jpg
+images:
+  - /images/2021/12/feature-1.jpg
 categories:
   - Beginner
   - Handy Tools
