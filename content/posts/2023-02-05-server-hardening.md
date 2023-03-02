@@ -497,6 +497,6 @@ Since everything is now read-only, you might to create volume mounts (or binds) 
 I hope you have come to understand the importance of good security.  
 I also hope that I managed to get you excited to also delve into your own (server) security.
 
-Don't forget to run the [security benchmarking tools](#hardening-tools) during hardening process to discover remaining vulnerability and validate that your hardening actions are indeed improving the benchmark scores. And execute a regular audit to ensure no new vulnerabilities are introduced.
+Don't forget to run the [security benchmarking tools](#hardening-tools) during hardening process to discover remaining vulnerabilities and validate that your hardening actions are indeed improving the benchmark scores. Also execute a regular audit to ensure no new vulnerabilities are introduced.
 
 While we've covered quite a bit in this article, it shouldn't be the end. But rather _the start_ of further hardening your server. Other topics might include: Automatically install security patches and keep your software up-to-date, enable a firewall and limit the incoming and outgoing network traffic, securing DNS traffic, creating alerting on Auditd or RSyslog, securing other services like Postfix, Nginx or rpcbind to name a few topics.
