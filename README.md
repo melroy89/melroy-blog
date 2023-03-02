@@ -2,13 +2,20 @@
 
 My blog using Hugo. Which is leveraging markdown as it's default format for the [content](content).
 
+## Live
+
 **Live at:** [blog.melroy.org](https://blog.melroy.org)  
 **Fallback URL:** [melroy89.github.io/melroy-blog](https://melroy89.github.io/melroy-blog/) (In case of emergency)
 
-So you need to [install](https://gohugo.io/installation/) the `hugo` command first.
+## Local build
 
-## Run local server
+### Requirements
 
-Execute: `hugo server`
+If you want to build the website yourself.  
+You'll need to [install](https://gohugo.io/installation/) the `hugo` command first.
+
+### Run local server
+
+Then execute: `hugo server`
 
 If you also want to build _draft_ blog articles, run: `hugo server -D`
