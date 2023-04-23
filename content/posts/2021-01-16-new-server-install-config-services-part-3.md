@@ -318,7 +318,7 @@ add_header X-Content-Type-Options "nosniff" always;
 add_header Referrer-Policy "no-referrer" always;
 # Disable the option to open a file directly on download
 add_header X-Download-Options "noopen" always;
-# Don't allow cross domain of Falsh & PDF documents
+# Don't allow cross domain of Flash & PDF documents
 add_header X-Permitted-Cross-Domain-Policies "none" always;
 #  Feature to support on your site and strengthens your implementation of TLS by getting the User Agent to enforce the use of HTTPS
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
