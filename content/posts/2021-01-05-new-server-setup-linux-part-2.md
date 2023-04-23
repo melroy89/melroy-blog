@@ -130,18 +130,6 @@ sudo dpkg-reconfigure -plow unattended-upgrades
 
 ![unattended-upgrades package reconfigure](/images/2021/01/image-1.png)
 
-## Updating Kernel
-
-Install [kernel v5.8 package](https://packages.ubuntu.com/search?keywords=linux-generic-hwe-20.04-edge) on Ubuntu 20.04:
-
-```sh
-sudo apt install linux-generic-hwe-20.04-edge
-sudo reboot
-
-uname -sr
-Linux 5.8.0-33-generic
-```
-
 **Important:** To avoid the [regression issues](https://www.phoronix.com/scan.php?page=article&item=linux511-amd-schedutil&num=1) with the **schedutil** setting on AMD CPUs with newer Linux kernels, be sure to set your frequency scaling to **ondemand** for the best performance. If that was not already the case. See your current scaling setting via: `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor`
 
 _**Update:** Issue with the default schedutil [seems fixed in kernel 5.11 or higher](https://www.phoronix.com/review/amd-linux511-perfgov)._
