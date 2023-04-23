@@ -159,11 +159,14 @@ net.ipv6.conf.lo.disable_ipv6 = 1
 # This control is used to define how aggressive the kernel will swap memory pages.
 # We will lower the number to decrease the amount of swap.
 vm.swappiness = 10
-
 # This percentage value controls the tendency of the kernel to reclaim the memory which is used for caching of directory and inode objects.
 vm.vfs_cache_pressure = 50
 
+# Let's not overcommit memory when using VMs (used to be for GitLab Redis)
+#vm.overcommit_memory = 1
+
 # Network tuning
+
 # This value influences the timeout of a locally closed TCP connection.
 net.ipv4.tcp_orphan_retries = 1
 
@@ -175,12 +178,21 @@ net.ipv4.tcp_moderate_rcvbuf = 1
 
 # Contains three values that represent the minimum, default and maximum size of the TCP socket receive buffer.
 # Increase default and max. values for both read & write buffers for 10 Gigabit adapters.
-net.ipv4.tcp_rmem = 4096 25165824 25165824
-net.ipv4.tcp_wmem = 4096 65536 25165824
+
+# Buffer up to 64Mb for 10 GbE
+net.core.rmem_max = 67108864
+net.core.wmem_max = 67108864
+net.core.rmem_default = 4194304
+net.core.wmem_default = 1048576
+# Increase autotuning TCP limit to 32MB
+net.ipv4.tcp_rmem = 4096 87380 33554432
+net.ipv4.tcp_wmem = 4096 65536 33554432
+
+# Application buffer is 1/..th of the total buffer space specified in the tcp_rmem variable.
+net.ipv4.tcp_adv_win_scale = -2
 
 # Minimal size of receive buffer used by UDP sockets in moderation.
 net.ipv4.udp_rmem_min = 8192
-
 # Minimal size of send buffer used by UDP sockets in moderation.
 net.ipv4.udp_wmem_min = 8192
 
@@ -190,14 +202,19 @@ net.core.optmem_max = 25165824
 # recommended default congestion control is htcp
 net.ipv4.tcp_congestion_control = htcp
 
+# recommended default for hosts with jumbo frames enabled
+# will prevent block hole, and have no impact on other TCP connections.
+# We will not use jumbo frames for now
+#net.ipv4.tcp_mtu_probing=1
+
 # The default queuing discipline to use for network devices.
 net.core.default_qdisc = fq
 
 # The maximum number of packets queued in received state
 net.core.netdev_max_backlog = 30000
 
-# Timeout closing of TCP connections after 7 seconds.
-net.ipv4.tcp_fin_timeout = 7
+# Timeout closing of TCP connections after 30 seconds.
+net.ipv4.tcp_fin_timeout = 30
 
 # Avoid falling back to slow start after a connection goes idle.
 net.ipv4.tcp_slow_start_after_idle = 0
@@ -217,6 +234,8 @@ net.ipv4.tcp_synack_retries = 2
 # Maximal number of remembered connection requests, which have not received an acknowledgment from connecting client.
 net.ipv4.tcp_max_syn_backlog = 4096
 ```
+
+_Update:_ Updated kernel configs for improved 10GbE speeds _without_ jumbo frames (if you want to enable jumbo frames, be sure all your hardware will support it). Also we no longer run bare metal but a VM instead, so do _NOT_ overcommit memory anymore.
 
 ![Network monitoring via bmon](/images/2021/01/speedtest.gif "Network monitoring via bmon")
 
