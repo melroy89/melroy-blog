@@ -37,6 +37,7 @@ tags:
   - Telegraf
   - Tor
   - Wekan
+  - Mumble
 ---
 
 Welcome back, this will be the 3{{< super rd >}} part of new server series. In the previous parts I assembled the server and prepared the machine with Ubuntu Server. I configured the basics things like; networking, RAID setup, E-Mail and more. In case you missed that: [read Part I](/2020/new-server-buy-assemble-part-1/) and [Part II](/2021/new-server-setup-linux-part-2/).
@@ -84,7 +85,7 @@ sudo openssl dhparam -dsaparam -out dhparam.pem 4096
 
 Assuming you know how-to setup a new [Nginx Server block](https://www.nginx.com/resources/wiki/start/topics/examples/server_blocks/) and generate Let's Encrypt certificates via Certbot (`sudo certbot --nginx`), we will now look into the Nginx generic configurations.
 
-Important collection of changes to `/etc/nginx/nginx.conf`:
+My `/etc/nginx/nginx.conf` file:
 
 ```conf
 user www-data;
@@ -136,7 +137,7 @@ http {
 	client_max_body_size 1G;
 	# If the request body size is more than the buffer size, then the entire (or partial)
 	# request body is written into a temporary file
-	client_body_buffer_size 250M;
+	client_body_buffer_size 512k;
 	# Request timed out
 	client_body_timeout 300s;
 	# Allow the server to close connection on non responding client, this will free up memory
@@ -170,7 +171,6 @@ http {
 	ssl_stapling_verify on;
 	ssl_ecdh_curve secp521r1:secp384r1:secp256k1;
 
-  # If you wish you can specify any DNS you want here
 	resolver 8.8.8.8 8.8.4.4 208.67.222.222 208.67.220.220 valid=60s ipv6=off;
 	resolver_timeout 4s;
 
@@ -180,7 +180,7 @@ http {
 	# Whitelist of rate limit
 	geo $limit {
 	    default 1;
-            127.0.0.1 0;
+      127.0.0.1 0;
 	    192.168.1.0/24 0;
 	}
 	map $limit $limit_key {
@@ -189,13 +189,13 @@ http {
 	}
 	# Two stage rate limit (10 MB zone): 2 requests/sec limit (=second stage)
 	limit_req_zone $limit_key zone=ip:10m rate=2r/s;
-        # First stage (burst) can be found in the individual virtual server configs
+  # First stage (burst) can be found in the individual virtual server configs
 
 	##
 	# Logging Settings
-	#
+	##
 	# Discard 2xx or 3xx responses from logging
-  # Fail2Ban rate limit filter still works, because it checks on Nginx error log
+        # Fail2Ban rate limit filter still works, because it checks on Nginx error log
 	map $status $loggable {
 	    ~^[23] 0;
 	    default 1;
@@ -283,6 +283,12 @@ fastcgi_intercept_errors on;
 # Disable buffering (for uploading files)
 fastcgi_request_buffering off;
 
+# Increase memory size of the buffer segments (used for the payload of the response)
+# 32 x 16k
+fastcgi_buffers 32 16K;
+# Increase memory buffer for HTTP response header
+fastcgi_buffer_size 32k;
+
 # fastcgi params
 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 fastcgi_param PATH_INFO $path_info;
@@ -311,14 +317,13 @@ add_header X-Content-Type-Options "nosniff" always;
 # Referrer Policy will allow a site to control the value of the referer header in links away from their pages.
 add_header Referrer-Policy "no-referrer" always;
 # Disable the option to open a file directly on download
-add_header X-Download-Options                   "noopen"        always;
-# Don't allow cross domain of Flash & PDF documents
-add_header X-Permitted-Cross-Domain-Policies    "none"          always;
+add_header X-Download-Options "noopen" always;
+# Don't allow cross domain of Falsh & PDF documents
+add_header X-Permitted-Cross-Domain-Policies "none" always;
 #  Feature to support on your site and strengthens your implementation of TLS by getting the User Agent to enforce the use of HTTPS
 add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
-# Set a CSP if you like as well
-#add_header Content-Security-Policy ...
 
+# Restore IP behind proxy
 real_ip_header X-Real-IP; ## X-Real-IP or X-Forwarded-For or proxy_protocol
 real_ip_recursive off;    ## If you enable 'on'
 ```
@@ -327,10 +332,10 @@ And finally, `/etc/nginx/snippets/general.conf`:
 
 ```conf
 location = /robots.txt {
+    allow all;
     log_not_found off;
     access_log    off;
 }
-
 
 location = /favicon.ico {
     log_not_found off;
@@ -341,6 +346,7 @@ location = /favicon.ico {
 location ~* \.(?:css(\.map)?|js(\.map)?|jpe?g|png|gif|ico|cur|heic|webp|tiff?|mp3|m4a|aac|ogg|midi?|wav|mp4|mov|webm|mpe?g|avi|ogv|flv|wmv)$ {
     expires    18d;
     add_header Access-Control-Allow-Origin "*";
+    add_header Cache-Control "public, no-transform";
     access_log off;
 }
 
@@ -348,7 +354,7 @@ location ~* \.(?:css(\.map)?|js(\.map)?|jpe?g|png|gif|ico|cur|heic|webp|tiff?|mp
 location ~* \.(?:svgz?|ttf|ttc|otf|eot|woff2?)$ {
     expires    18d;
     add_header Access-Control-Allow-Origin "*";
-    add_header Cache-Control "public";
+    add_header Cache-Control "public, no-transform";
     access_log off;
 }
 
@@ -368,7 +374,9 @@ server {
     listen 80;
     server_name yourhomesite.com;
     # Redirect to HTTPS
-    return 301 https://$host$request_uri;
+    if ($host = yourhomesite.com) {
+      return 301 https://$host$request_uri;
+    }
 }
 
 server {
@@ -377,6 +385,10 @@ server {
 
     root /var/www/html;
     index index.html index.php;
+
+    # Allow up to burst 80 requests, first 50 are processed without delay.
+    # After 50 excessive requests we enforce our 2 r/s zone limit. After 80 excessive requests (burst) we reject the requests.
+    limit_req zone=ip burst=80 delay=50;
 
     ssl_certificate /etc/letsencrypt/live/yourhomesite.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/yourhomesite.com/privkey.pem;
@@ -389,9 +401,12 @@ server {
     location ~ \.php(?:$|/) {
         include snippets/fastcgi-php.conf;
     }
+
     include snippets/general.conf;
 }
 ```
+
+_Update:_ Nginx server section also include a rate limiting configuration (`limit_req`).
 
 Read more: [Nginx Docs](https://nginx.org/en/docs/), [Mozilla SSL Configuration Tool](https://ssl-config.mozilla.org/) and [SSL Labs Server Tester](https://www.ssllabs.com/ssltest/).
 
@@ -400,6 +415,8 @@ Read more: [Nginx Docs](https://nginx.org/en/docs/), [Mozilla SSL Configuration 
 Since we are using Nginx, we will use the PHP **FPM** (**F**astCGI **P**rocess **M**anager) together with Nginx for PHP scripts.
 
 ### Install PHP-FPM + Modules
+
+**Important:** It's now (in the year 2023) advised to upgrade to php8.1.
 
 ```sh
 sudo apt install -y \
@@ -422,9 +439,9 @@ Changes to `/etc/php/7.4/fpm/pool.d/www.conf`:
 ```conf
 pm = dynamic
 pm.max_children = 120
-pm.start_servers = 12
-pm.min_spare_servers = 6
-pm.max_spare_servers = 18
+pm.start_servers = 20
+pm.min_spare_servers = 10
+pm.max_spare_servers = 60
 clear_env = no
 # Uncommenting all env lines in www.conf
 ```
@@ -432,13 +449,29 @@ clear_env = no
 Changes to `/etc/php/7.4/fpm/php.ini`:
 
 ```ini
+[PHP]
 output_buffering = 0
-max_execution_time = 600
-memory_limit = 512M
-post_max_size = 20G
-upload_max_filesize = 20G
+max_execution_time = 900
+max_input_time = 900
+max_input_vars = 5800
+memory_limit = 1G
+display_errors = Off
+log_errors = Off
+post_max_size = 15G
+upload_max_filesize = 15G
 max_file_uploads = 200
+
+[opcache]
+opcache.enable=1
+opcache.memory_consumption=512
+opcache.interned_strings_buffer=128
+opcache.max_accelerated_files=50000
+opcache.validate_timestamps=1
+opcache.revalidate_freq=120
+opcache.save_comments=1
 ```
+
+_Update:_ Added opcache configs.
 
 Restart the PHP FPM service to apply the changes: `sudo systemctl restart php7.4-fpm`
 
@@ -827,27 +860,31 @@ Installation is just as easy as MariaDB: `sudo apt install postgresql`
 
 #### Configure PostgreSQL
 
+**Important:** It's now (the year is 2023) advised to upgrade to PostgreSQL v14 or v15.
+
 Changes to `/etc/postgresql/12/main/postgresql.conf` file (optimized for lot of read/write and SSD):
 
 ```conf
 max_connections = 300
 shared_buffers = 8GB
-work_mem = 6990kB
-maintenance_work_mem = 2GB
+work_mem = 2MB
+maintenance_work_mem = 1GB
 effective_io_concurrency = 200
+dynamic_shared_memory_type = posix
 max_worker_processes = 16
-max_parallel_maintenance_workers = 4
 max_parallel_workers_per_gather = 4
+max_parallel_maintenance_workers = 4
 max_parallel_workers = 16
 wal_buffers = 16MB
 max_wal_size = 8GB
-min_wal_size = 2GB
-checkpoint_completion_target = 0.9
+min_wal_size = 1GB
+# Decrease to 1.1 when on SSD
 random_page_cost = 1.1
-effective_cache_size = 24GB
+# effective_cache_size = 0.5 * RAM
+effective_cache_size = 16GB
 ```
 
-Read more: [PostgreSQL Docs](https://www.postgresql.org/docs/12/index.html) and a very useful [PGTune](https://pgtune.leopard.in.ua) tool.
+Read more: [PostgreSQL Docs](https://www.postgresql.org/docs/14/index.html) and a very useful [PGTune](https://pgtune.leopard.in.ua) tool.
 
 ### Redis
 
@@ -888,30 +925,35 @@ As a client user, you can use [Element](https://element.io/get-started) for your
 
 #### Synapse Compose
 
-Since I'm using the PostgreSQL database on my _bare metal_ machine, therefore **NOT** running another database instance in Docker:
+Since I'm using the PostgreSQL database on my _bare metal_ machine (now I'm using a VM), therefore **NOT** running another database instance in Docker. Instead I will map the PostgreSQL socket inside the Docker context of the container:
 
 ```yaml
-version: '3.3'
- services:
-   synapse:
-     image: matrixdotorg/synapse
-     restart: always
-     container_name: synapse
-     user: 1000:1000
-     volumes:
-       - /media/Data/synapse:/data
-     ports:
-       - "8008:8008"
-     environment:
-       - UID=1000
-       - GID=1000
-     healthcheck:
-       test: ["CMD", "curl", "-fSs", "http://localhost:8008/health"]
-       interval: 1m
-       timeout: 10s
-       retries: 3
-     network_mode: "host"
+version: "3.3"
+services:
+  synapse:
+    image: matrixdotorg/synapse
+    restart: always
+    environment:
+      SYNAPSE_CONFIG_DIR: /data
+      SYNAPSE_CONFIG_PATH: /data/homeserver.yaml
+    container_name: synapse
+    user: 1000:1000
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fSs http://localhost:8008/health || exit 1"]
+      start_period: "5s"
+      interval: "30s"
+      timeout: "5s"
+      retries: 2
+    volumes:
+      - /media/data/synapse:/data
+      - /var/run/postgresql/.s.PGSQL.5432:/var/run/postgresql/.s.PGSQL.5432
+    ports:
+      - "127.0.0.1:8008:8008"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 ```
+
+_Update:_ Update Docker compose with extra host and mapping the Postgresql socket file.
 
 Main configuration file `/media/Data/synapse/homeserver.yaml`:
 
@@ -974,26 +1016,34 @@ Also Gitea is using the PostgreSQL database on the bare metal server.
 version: "3"
 services:
   gitea:
-    image: gitea/gitea:1.13
+    image: gitea/gitea:latest-rootless
     container_name: gitea
     restart: always
+    networks:
+      - gitea_external_network
     environment:
-      - USER_UID=1000
-      - USER_GID=1000
-      - ROOT_URL=https://yourserver.com
-      - SSH_DOMAIN=yourserver.com
-      - SSH_PORT=222
+      - ROOT_URL=https://yourdomain.com
+      - SSH_PORT=22
       - DB_TYPE=postgres
-      - DB_HOST=127.0.0.1:5432
+      - DB_HOST=/var/run/postgresql/
       - DB_NAME=giteadb
       - DB_USER=gitea
-      - DB_PASSWD=secret_password
+      - DB_PASSWD=secret
     volumes:
-      - /media/Data/gitea:/data
+      - /media/data/gitea/data:/var/lib/gitea
+      - /media/data/gitea/config:/etc/gitea
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-    network_mode: "host"
+      - /var/run/postgresql/.s.PGSQL.5432:/var/run/postgresql/.s.PGSQL.5432
+    ports:
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:2222:22"
+
+networks:
+  gitea_external_network:
 ```
+
+_Update:_ Using Docker **rootless** image of Gitea.
 
 ### Wekan
 
@@ -1008,50 +1058,73 @@ Wekan is a to-do web application, very powerful to keep yourself organized.
 For Wekan I will use a Docker MongoDB instance as database storage.
 
 ```yaml
-version: "2"
+version: "3"
 services:
   wekan:
-    image: quay.io/wekan/wekan:master
+    image: quay.io/wekan/wekan:latest
     container_name: wekan-app
-    user: 1000:1000
     restart: always
+    user: 1000:1000
     networks:
       - wekan-tier
     environment:
       - MONGO_URL=mongodb://wekandb:27017/wekan
-      - ROOT_URL=https://todo.melroy.org
-      - MAIL_URL=smtp://mailserver
-      - MAIL_FROM=melroy@melroy.org
+      - ROOT_URL=https://yourdomain.com
+      - MAIL_FROM=noreply@melroy.org
       - WITH_API=true
       - BROWSER_POLICY_ENABLED=true
-    extra_hosts:
-      - "mailserver:192.168.2.20"
+      - WRITABLE_PATH=/data
     ports:
-      - 3001:8080
+      - "127.0.0.1:8185:8080"
     depends_on:
       - wekandb
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /media/data/wekan/data_files:/data:rw
 
   wekandb:
-    image: mongo:3.2.21
+    image: mongo:6
     user: 1000:1000
     container_name: wekan-db
     restart: always
-    command: mongod --smallfiles --oplogSize 128
+    command: mongod --logpath /dev/null --oplogSize 128 --quiet
     networks:
       - wekan-tier
     expose:
       - 27017
     volumes:
-      - /media/Data/wekan/db:/data/db
-      - /media/Data/wekan/dump:/dump
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /media/data/wekan/db:/data/db
+      - /media/data/wekan/dump:/dump
 
 networks:
   wekan-tier:
     driver: bridge
 ```
 
-### TeamSpeak --> Mumble
+### Mumble
 
-We don't use TeamSpeak anymore, we moved to Mumble!
+```yaml
+version: "3.3"
+
+services:
+  mumble:
+    image: phlak/mumble
+    restart: always
+    container_name: mumble
+    environment:
+      - TZ=Europe/Amsterdam
+    networks:
+      - mumble_external_network
+    volumes:
+      - /media/data/mumble:/etc/mumble
+    ports:
+      - "64738:64738"
+      - "64738:64738/udp"
+
+networks:
+  mumble_external_network:
+```
 
 **Public Address:** server.melroy.org (default Mumble port)
