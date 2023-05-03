@@ -49,10 +49,6 @@ disqusShortname = "melroysblog"
   show_reading_time = true
 
 [[params.ananke_socials]]
-name = "twitter"
-url = "https://twitter.com/RealMelroy"
-
-[[params.ananke_socials]]
 name = "linkedin"
 url = "https://www.linkedin.com/in/melroyvandenberg/"
 
