@@ -53,10 +53,6 @@ name = "linkedin"
 url = "https://www.linkedin.com/in/melroyvandenberg/"
 
 [[params.ananke_socials]]
-name = "reddit"
-url = "https://reddit.com/r/MelroysBlog/"
-
-[[params.ananke_socials]]
 name = "mastodon"
 url = "https://mastodon.melroy.org/@melroy"
 
