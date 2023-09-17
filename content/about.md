@@ -1,9 +1,8 @@
 ---
 title: About me
 type: page
-featured_image: ""
-description: About Melroy van den Berg, the author of this blog
-omit_header_text: true
+featured_image: "images/melroy-header.webp"
+description: The more you know, the more you realize you don't know. - Aristotle
 ---
 
 Hi 👋, My name is Melroy van den Berg.  
