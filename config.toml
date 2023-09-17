@@ -53,7 +53,13 @@ name = "linkedin"
 url = "https://www.linkedin.com/in/melroyvandenberg/"
 
 [[params.ananke_socials]]
+name = "twitter"
+share = true
+follow = false
+
+[[params.ananke_socials]]
 name = "mastodon"
+share = true
 url = "https://mastodon.melroy.org/@melroy"
 
 [[params.ananke_socials]]
