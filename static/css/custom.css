@@ -28,7 +28,7 @@ pre code {
 code,
 kbd,
 samp {
-  font-size:1rem;
+  font-size:1.05rem;
 }
 .nested-list-small-indent ul ul,
 .nested-list-small-indent ol ol {
