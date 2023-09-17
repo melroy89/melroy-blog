@@ -19,3 +19,7 @@ You'll need to [install](https://gohugo.io/installation/) the `hugo` command fir
 Then execute: `hugo server`
 
 If you also want to build _draft_ blog articles, run: `hugo server -D`
+
+## Other
+
+_Hint:_ Execute `date +%Y-%m-%dT%H:%M:%S+01:00` which generate the correct date string for the posts.

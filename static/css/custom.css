@@ -25,6 +25,11 @@ pre code {
   word-break: keep-all;
   word-wrap: normal;
 }
+code,
+kbd,
+samp {
+  font-size:1rem;
+}
 .nested-list-small-indent ul ul,
 .nested-list-small-indent ol ol {
   padding-left: 20px;
