@@ -187,14 +187,14 @@ Ethtool can be useful to see the speed connection of your Ethernet device and ot
 Then display the statistics output via: `ethtool -S eth0`
 
 ```sh
-tx_packets:           Trasmitted packets
+tx_packets:           Transmitted packets
 rx_packets:           Received packets
 tx_errors:            Transmission errors
 rx_errors:            Received errors
 rx_missed:            Received misses
 align_errors:         Received alignment errors
-tx_single_collisions: Trasmitted singular collisions
-tx_multi_collisions:  Trasmitted multiple collisions
+tx_single_collisions: Transmitted singular collisions
+tx_multi_collisions:  Transmitted multiple collisions
 unicast:              Received unicast
 broadcast:            Received broadcast
 multicast:            Received multicast

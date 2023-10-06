@@ -18,7 +18,7 @@ tags:
   - battery
   - car
   - cars
-  - eletric
+  - electric
   - euro
   - gigabyte
   - Honda

@@ -456,7 +456,7 @@ If you do **NOT** want to use [Docker swarm](https://docs.docker.com/engine/swar
 
 ### Docker Restart Policy
 
-You actually do not want to use the obsolete `restart` statement anymore. So let's move to `restart_policy` with a max attepts of 5 with the `on-failure` condition.
+You actually do not want to use the obsolete `restart` statement anymore. So let's move to `restart_policy` with a max attempts of 5 with the `on-failure` condition.
 
 ```yaml
 version: "3.8"

@@ -412,7 +412,7 @@ Read more: [Nginx Docs](https://nginx.org/en/docs/), [Mozilla SSL Configuration 
 
 ## PHP FPM
 
-Since we are using Nginx, we will use the PHP **FPM** (**F**astCGI **P**rocess **M**anager) together with Nginx for PHP scripts.
+Since we are using Nginx, we will use the PHP **FPM** (FastCGI Process Manager) together with Nginx for PHP scripts.
 
 ### Install PHP-FPM + Modules
 
