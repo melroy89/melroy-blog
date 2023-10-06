@@ -33,6 +33,7 @@ Some of those services are:
 - [GitLab](https://gitlab.melroy.org): open-source git server + DevOps tools
 - [Nextcloud](https://cloud.melroy.org): open-source + free file hosting service ([plus so much more!](https://apps.nextcloud.com/))
 - [Mastodon](https://mastodon.melroy.org): Federated social media, using ActivityPub
+- [Kbin](https://kbin.melroy.org): ActivityPub Reddit alternative
 - [Wekan](https://todo.melroy.org): Todo list site
 - [Synapse](https://matrix.melroy.org): [Matrix](https://matrix.org) server for chat
 - [PlantUML](plantuml.melroy.org/): server for generating [UML diagrams](https://plantuml.com/)
