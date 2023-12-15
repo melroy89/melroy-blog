@@ -81,7 +81,7 @@ I use the place with the fuse box ("meterkast") in my house, the area where I al
 
 Long story short; below my network design at home:
 
-![](/images/2018/10/my_lan_network.svg "_Note:_ this design is created using open-source app [yEd](https://www.yworks.com/products/yed) together with my [Cisco icon set](https://github.com/danger89/yEd_cisco_icons)")
+![](/images/2018/10/my_lan_network.svg "_Note:_ this design is created using open-source app [yEd](https://www.yworks.com/products/yed) together with my [Cisco icon set](https://github.com/melroy89/yEd_cisco_icons)")
 
 Between the gigabit switch and the computers I use the patch panel. Meaning the CAT6 cables that go through the house are connected from the Ethernet wall-outlet to the patch panel.
 
