@@ -9,7 +9,6 @@ Paginate = 12
 enableRobotsTXT = false
 disqusShortname = "melroysblog"
 
-
 [sitemap]
   changefreq = "monthly"
   priority = 0.5
