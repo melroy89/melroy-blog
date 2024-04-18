@@ -36,7 +36,7 @@ Some of those services are:
 - [Mbin](https://kbin.melroy.org): ActivityPub Reddit alternative (Mbin is the fork I created from Kbin)
 - [Wekan](https://todo.melroy.org): Todo list site
 - [Synapse](https://matrix.melroy.org): [Matrix](https://matrix.org) server for chat + [sliding-sync](https://github.com/matrix-org/sliding-sync) support
-- [PlantUML](plantuml.melroy.org/): server for generating [UML diagrams](https://plantuml.com/)
+- [PlantUML](https://plantuml.melroy.org/): server for generating [UML diagrams](https://plantuml.com/)
 - [Mumble](https://www.mumble.info/downloads/): VoIP server, use address: `server.melroy.org`
 
 See also my [dedicated server website](https://server.melroy.org).
