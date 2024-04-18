@@ -33,9 +33,9 @@ Some of those services are:
 - [GitLab](https://gitlab.melroy.org): open-source git server + DevOps tools
 - [Nextcloud](https://cloud.melroy.org): open-source + free file hosting service ([plus so much more!](https://apps.nextcloud.com/))
 - [Mastodon](https://mastodon.melroy.org): Federated social media, using ActivityPub
-- [Kbin](https://kbin.melroy.org): ActivityPub Reddit alternative
+- [Mbin](https://kbin.melroy.org): ActivityPub Reddit alternative (Mbin is the fork I created from Kbin)
 - [Wekan](https://todo.melroy.org): Todo list site
-- [Synapse](https://matrix.melroy.org): [Matrix](https://matrix.org) server for chat
+- [Synapse](https://matrix.melroy.org): [Matrix](https://matrix.org) server for chat + [sliding-sync](https://github.com/matrix-org/sliding-sync) support
 - [PlantUML](plantuml.melroy.org/): server for generating [UML diagrams](https://plantuml.com/)
 - [Mumble](https://www.mumble.info/downloads/): VoIP server, use address: `server.melroy.org`
 
