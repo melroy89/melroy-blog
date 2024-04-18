@@ -153,6 +153,6 @@ Wist je dat...
 
     Zie hier het filmpje waarbij _**Microsoft**_ en **_Apple_** partners worden en **samen gaan werken** in 1997 (vanwege octrooigeschil). Vergeet ook zeker niet _door te kijken_ tot en met **het einde:**
 
-{{< youtube "PEHNrqPkefI?t=26m25s" >}}
+{{< youtube "WxOp5mBY9IY" >}}
 
 ![](/images/2014/10/internet_explorer_mac_os_x.jpg "Microsoft Internet Explorer voor Mac")
