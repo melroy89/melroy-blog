@@ -42,3 +42,4 @@ Disallow: /
 
 User-agent: *
 Disallow: 
+Request-rate: 1/1s
