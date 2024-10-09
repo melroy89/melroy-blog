@@ -36,6 +36,7 @@ build-and-deploy:
   variables:
     HUGO_ENV: "production"
   script:
+    - rm -rf public/
     - hugo -e production --minify
   environment:
     name: production
