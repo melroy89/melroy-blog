@@ -17,6 +17,7 @@ categories:
   - Internet/SEO/Websites
   - Networking
   - Server
+  - Software
 tags:
   - Docker
   - Gitea

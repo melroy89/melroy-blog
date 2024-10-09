@@ -12,6 +12,7 @@ categories:
   - GNU/Linux OS
   - Handy Tools
   - Server
+  - Software
 tags:
   - archive
   - CI/CD

@@ -15,6 +15,7 @@ categories:
   - Intermediate
   - Internet/SEO/Websites
   - Server
+  - Software
 tags:
   - AMD
   - firmware

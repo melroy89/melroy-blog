@@ -15,6 +15,7 @@ categories:
   - Internet/SEO/Websites
   - Networking
   - Server
+  - Software
 tags:
   - firmware
   - Linux

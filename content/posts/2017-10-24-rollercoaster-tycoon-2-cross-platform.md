@@ -18,6 +18,7 @@ categories:
   - Intermediate
   - Networking
   - Windows OS
+  - Software
 tags:
   - assembly
   - cheats

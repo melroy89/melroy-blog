@@ -14,6 +14,7 @@ categories:
   - Programming
   - Security
   - Server
+  - Software
 tags:
   - PHP
   - CMS

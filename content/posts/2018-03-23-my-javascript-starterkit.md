@@ -7,6 +7,7 @@ draft: true
 url: /?p=3358
 categories:
   - Windows OS
+  - Software
 ---
 
 StarterKit setup .. Template repo? use plugins on VSCode, etc etc.

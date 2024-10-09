@@ -7,6 +7,7 @@ draft: true
 url: /?p=3367
 categories:
   - Windows OS
+  - Software
 ---
 
 What is screen?

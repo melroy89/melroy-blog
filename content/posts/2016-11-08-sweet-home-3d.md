@@ -7,4 +7,5 @@ draft: true
 url: /?p=2904
 categories:
   - Windows OS
+  - Software
 ---
