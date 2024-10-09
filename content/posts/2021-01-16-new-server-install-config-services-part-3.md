@@ -39,6 +39,7 @@ tags:
   - Tor
   - Wekan
   - Mumble
+  - terminal
 ---
 
 Welcome back, this will be the 3{{< super rd >}} part of new server series. In the previous parts I assembled the server and prepared the machine with Ubuntu Server. I configured the basics things like; networking, RAID setup, E-Mail and more. In case you missed that: [read Part I](/2020/new-server-buy-assemble-part-1/) and [Part II](/2021/new-server-setup-linux-part-2/).

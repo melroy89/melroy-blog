@@ -26,6 +26,7 @@ tags:
   - SSD
   - update
   - upgrade
+  - terminal
 ---
 
 My [current server](https://server.melroy.org/) is 15 years old, and time for an upgrade! Finally! After all, adding additional memory is not good enough and we hitting the limits of the old hardware. We will replace the whole server from the ground-up.
