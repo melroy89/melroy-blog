@@ -59,9 +59,15 @@ share = true
 follow = false
 
 [[params.ananke_socials]]
+name = "facebook"
+share = true
+follow = false
+
+[[params.ananke_socials]]
 name = "mastodon"
 share = true
 url = "https://mastodon.melroy.org/@melroy"
+rel = "me noopener"
 
 [[params.ananke_socials]]
 name = "gitlab"
