@@ -4,8 +4,9 @@
 
 {{ $facebook_href := printf "https://www.facebook.com/sharer.php?u=%s" $url }}
 {{ $twitter_href := printf "https://x.com/intent/tweet?url=%s&text=%s" $url $title }}
-{{ with site.Social.twitter }}
-{{ $twitter_href = printf "%s&via=%s" $twitter_href . }}
+{{ $twitterSetup := first 1 (where site.Params.ananke_socials "name" "twitter") }}
+{{ with index $twitterSetup 0 }}
+  {{ $twitter_href = printf "%s&via=%s" $twitter_href .username }}
 {{ end }}
 {{ $linkedin_href := printf "https://www.linkedin.com/shareArticle?mini=true&url=%s&title=%s" $url $title }}
 {{ $mastodon_href := printf "https://mastodon.melroy.org/share?text=%s" $text }}
