@@ -31,7 +31,7 @@ tags:
 
 Security of a system is often overlooked or not considered important enough. Some might think not about the possible consequences, which might result in a hacked or compromised server. Maybe sensitive data gets stolen or encrypted with major consequences.
 
-A collection of _tools, techniques and best pratices_ can help to reduce such vulnerabilities. This process is called **system hardening**.
+A collection of _tools, techniques and best practices_ can help to reduce such vulnerabilities. This process is called **system hardening**.
 
 We have seen quote a lot of hacks and data breaches over the past years across different big companies, including but not limited to: PayPal, LastPast, T-Mobile, MailChimp, Netflix, Dropbox, OpenSea, Twitter...
 
