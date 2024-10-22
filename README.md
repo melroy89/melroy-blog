@@ -14,6 +14,10 @@ My blog using Hugo. Which is leveraging markdown as it's default format for the 
 If you want to build the website yourself.  
 You'll need to [install](https://gohugo.io/installation/) the `hugo` command first.
 
+Or download the **latest Hugo extended** deb file from: https://github.com/gohugoio/hugo/releases (eg. `hugo_extended_0.136.3_linux-amd64.deb`)
+
+Minimal Hugo extended version: `0.128.0`.
+
 ### Run local server
 
 Then execute: `hugo server`

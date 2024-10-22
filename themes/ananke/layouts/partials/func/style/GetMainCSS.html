@@ -22,26 +22,28 @@
   {{ end }}
 {{ end }}
 
-{{ with partialCached "func/socials/Get" "socials/Get" }}
+{{- $config := site.Params.ananke.social -}}
+{{- $networks := $config.follow.networks -}}
+{{- $setups := (collections.Where $config.networks  "slug" "in" $networks) }}
+{{ with $setups }}
   {{ $socials_rules := slice }}
   {{ range $service := . }}
     {{ with .color }}
       {{ $rule := printf `
         .ananke-socials a.%s:hover {
-          color: %s
-        }` $service.name $service.color }}
+          color: %s !important;
+        }` $service.slug . }}
       {{ $socials_rules = $socials_rules | append $rule }}
     {{ end }}
   {{ end }}
   {{ with $socials_rules }}
-    {{ $socials_rules = delimit . "" }}
+    {{ $socials_rules = delimit . " " }}
     {{ $socials_css := $socials_rules | resources.FromString "ananke/css/generated_socials.css" }}
     {{ $assets_to_concat = $assets_to_concat | append $socials_css }}
   {{ end }}
-
 {{ end }}
 
-{{/* We look for any custom css files registered by the user under `site.params.custom_css and if found in the theme's 
+{{/* We look for any custom css files registered by the user under `site.params.custom_css and if found in the theme's
 css asset directory we (unless condition below) add to aforementioned slice */}}
 {{ with site.Params.custom_css }}
   {{ range . }}
@@ -49,7 +51,7 @@ css asset directory we (unless condition below) add to aforementioned slice */}}
       {{ if eq .MediaType.SubType "x-scss" "x-sass" "scss" "sass" }}
         {{ if hugo.IsExtended }}
           {{/* as we cannot concatenate styles of different types, we sass/scss to be transformed to css beforehand */}}
-          {{ $assets_to_concat = $assets_to_concat | append (. | resources.ToCSS) }}
+          {{ $assets_to_concat = $assets_to_concat | append (. | css.Sass) }}
         {{ else }}
           {{ partial "func/warn" (printf "Processing of stylesheet %s of type %s has been skipped. You need Hugo Extended to process such files." .Name .MediaType.SubType) }}
         {{ end }}
@@ -66,9 +68,9 @@ css asset directory we (unless condition below) add to aforementioned slice */}}
 
   {{/* We then use toCSS to add sourceMap and minify */}}
   {{ $options := dict "enableSourceMap" true "precision" 6 }}
-  {{ $style = $style | resources.ToCSS $options | minify }}
+  {{ $style = $style | css.Sass $options | minify }}
   {{/* We fingerprint in production for cache busting purposes */}}
-  {{ if eq (getenv "HUGO_ENV") "production" }}
+  {{ if hugo.IsProduction }}
     {{ $style = $style | fingerprint }}
   {{ end }}
   {{/* We're ready to set returning variable with resulting resource */}}

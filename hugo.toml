@@ -1,0 +1,95 @@
+baseURL = 'https://blog.melroy.org'
+languageCode = 'en-us'
+title = "Melroy's Blog"
+theme = 'ananke'
+copyright = "Copyright Melroy van den Berg, created with 💖 and 🔨 with Hugo"
+DefaultContentLanguage = "en"
+#SectionPagesMenu = "main"
+enableRobotsTXT = false
+
+[pagination]
+pagerSize = 12
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[menu]
+[[menu.main]]
+  name = 'Posts'
+  url = '/posts/'
+  weight = 10
+[[menu.main]]
+  name = 'Categories'
+  url = '/categories/'
+  weight = 20
+[[menu.main]]
+  name = 'Tags'
+  url = '/tags/'
+  weight = 30
+[[menu.main]]
+  name = 'About me'
+  url = '/about/'
+  weight = 40
+
+[services.disqus]
+  shortname = 'melroysblog'
+
+[params]
+  text_color = "black"
+  author = "Melroy van den Berg"
+  favicon = "favicon.ico"
+  date_format = "2 January 2006"
+  site_logo = "images/logo.png"
+  description = "Sharing IT Stories"
+  background_color_class = "bg-dark-blue"
+  cover_dimming_class = "bg-black-20"
+  body_classes = "sans-serif"
+  post_content_classes = "sans-serif"
+  recent_posts_number = 12
+  read_more_copy = "View full post"
+  show_reading_time = true
+
+[params.ananke.social.follow]
+new_window_icon = false
+networks = [
+  "linkedin",
+  "mastodon",
+  "github",
+  "gitlab",
+  "rss"
+]
+
+[params.ananke.social.share]
+icons = true
+sharetext = true
+networks = [
+  "email",
+  "facebook",
+  "twitter",
+  "linkedin",
+  "bluesky",
+  "mastodon"
+]
+
+[params.ananke.social]
+[params.ananke.social.rss]
+profilelink = "/index.xml"
+
+[params.ananke.social.linkedin]
+username = "melroyvandenberg"
+rel = "me"
+
+[params.ananke.social.mastodon]
+profilelink = "https://mastodon.melroy.org/@melroy"
+rel = "me noopener"
+
+#[params.ananke.social.bluesky]
+#username = "kollitsch.dev"
+
+[params.ananke.social.gitlab]
+profilelink = "https://gitlab.melroy.org/melroy"
+
+[params.ananke.social.github]
+profilelink = "https://github.com/melroy89"
