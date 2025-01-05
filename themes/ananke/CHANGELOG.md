@@ -1,4 +1,80 @@
 # Changelog
+## [2.11.2](https://github.com/thenewdynamic/gohugo-theme-ananke/compare/v2.11.1...v2.11.2) (2024-10-27)
+
+
+### Chore
+
+* **release:** v2.11.1 ([065de4e](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/065de4e1963100ab7c4241adab64d9e6647124a0))
+
+## [2.11.0](https://github.com/thenewdynamic/gohugo-theme-ananke/compare/v2.10.1-prerelease.6...v2.11.0) (2024-10-24)
+
+
+### Chore
+
+* **release:** v2.11.0 ([503fbc9](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/503fbc91019814a24d8b4506422638fea869714d))
+
+## [2.11.0](https://github.com/thenewdynamic/gohugo-theme-ananke/compare/v2.10.1-prerelease.6...v2.11.0) (2024-10-24)
+
+## [2.10.1-prerelease.6](https://github.com/thenewdynamic/gohugo-theme-ananke/compare/v2.10.1-prerelease.4...v2.10.1-prerelease.6) (2024-10-24)
+
+
+### Documentation
+
+* **fix:** update theme.toml with min version and authors ([ae14ccf](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/ae14ccf4072c13069e1f28e3c5f39bce4b917885))
+
+
+### Theme
+
+* **fix:** add transform.Plainify to the summary body content of the share links ([#758](https://github.com/thenewdynamic/gohugo-theme-ananke/issues/758)) ([2cfb09e](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/2cfb09e9a3aa720b902535a5bdf3641bcd8a903f))
+* **fix:** paths to social func partials ([1bcc471](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/1bcc471e003643c5b72a2fad6c1024b16e829233))
+* **fix:** remove caching of share links ([#757](https://github.com/thenewdynamic/gohugo-theme-ananke/issues/757)) ([473c7c1](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/473c7c14c68d3e5a97dee31138a2b176c7ac2302))
+
+
+### Chore
+
+* **release:** v2.10.1-prerelease.5 ([aced7bd](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/aced7bda5c3fea9afda93d0b87cf3337f2407d5b))
+
+
+### Configuration
+
+* **fix:** no default networks, move networks config to exampleSite ([396d013](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/396d0138ace7c53a6378711dcd5570099bfa0b95))
+
+## [2.10.1-prerelease.5](https://github.com/thenewdynamic/gohugo-theme-ananke/compare/v2.10.1-prerelease.4...v2.10.1-prerelease.5) (2024-10-24)
+
+
+### Documentation
+
+* **fix:** update theme.toml with min version and authors ([ae14ccf](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/ae14ccf4072c13069e1f28e3c5f39bce4b917885))
+
+
+### Theme
+
+* **fix:** add transform.Plainify to the summary body content of the share links ([#758](https://github.com/thenewdynamic/gohugo-theme-ananke/issues/758)) ([2cfb09e](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/2cfb09e9a3aa720b902535a5bdf3641bcd8a903f))
+* **fix:** paths to social func partials ([1bcc471](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/1bcc471e003643c5b72a2fad6c1024b16e829233))
+
+
+### Configuration
+
+* **fix:** no default networks, move networks config to exampleSite ([396d013](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/396d0138ace7c53a6378711dcd5570099bfa0b95))
+
+## [2.10.1-prerelease.4](https://github.com/thenewdynamic/gohugo-theme-ananke/compare/v2.10.1-prerelease.3...v2.10.1-prerelease.4) (2024-10-23)
+
+
+### Documentation
+
+* **fix:** add note about WIP on the README.md ([0a307d7](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/0a307d7521bfd1e41daa3567a692f036351324a1))
+* **fix:** update link to demo ([e22c428](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/e22c42896a9222d94de69fffa752954aa969f8df))
+
+
+### Chore
+
+* **deps:** update dependencies ([088c3e7](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/088c3e7a577c90c85080447341e4af962c3f4a53))
+
+
+### Build System
+
+* **fix:** revert to go 1.22 ([d544d76](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/d544d76af70ba83a5bdce2b58a1fc2fc79d03882))
+
 ## [2.10.1-prerelease.3](https://github.com/thenewdynamic/gohugo-theme-ananke/compare/v2.10.1-prerelease.0...v2.10.1-prerelease.3) (2024-10-21)
 
 

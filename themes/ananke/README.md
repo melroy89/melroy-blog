@@ -1,10 +1,13 @@
 # Ananke, A theme for [Hugo](https://gohugo.io/), a framework for building websites
 
+> [!WARNING]  
+> Parts of this documentation, such as the sections related to the production environment, are currently a work in progress. This is due to recent changes and updates in the theme. We are actively working on providing complete and up-to-date guidance. Thank you for your patience.
+
 The intent of this theme is to provide a solid starting place for Hugo sites with basic features and include best practices for performance, accessibility, and rapid development.
 
 ![screenshot](https://raw.githubusercontent.com/budparr/gohugo-theme-ananke/master/images/screenshot.png)
 
-[DEMO](https://gohugo-ananke-theme-demo.netlify.app/)
+[DEMO](https://ananke-theme.netlify.app/)
 
 Features
 
@@ -200,7 +203,7 @@ _n.b. in future versions we will likely separate the typeface and other body cla
 
 Ananke stylesheet is built with Hugo Pipes's [Asset Bundling](https://gohugo.io/hugo-pipes/bundling/#readout) alone to maximize compatibiliy. The theme simply bundles its several files into one minified and fingerprinted (in production) CSS file.
 
-Ananke uses [Tachyon.io](https://tachyons.io/) utility class library.
+Ananke uses [Tachyons.io](https://tachyons.io/) utility class library.
 
 #### Custom CSS
 

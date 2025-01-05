@@ -6,14 +6,14 @@
 {{/* This here is an ugly workaround for GoHugo's missing sortByArray feature.
    Let's cache it so it does not take away too much time.
    PS: It's also a couple of years old, so maybe there is a better solution by now. */}}
-{{- $setups = partials.IncludeCached "func/sortNetworks.html" (dict "networks" $networks "setups" $setups) "social-follow" -}}
+{{- $setups = partials.IncludeCached "func/social/sortNetworks.html" (dict "networks" $networks "setups" $setups) "social-follow" -}}
 
 <div class="ananke-socials">
   {{- range $setups -}}
     {{- $setup := . -}}
     {{- $network := $setup.slug -}}
     {{- $profile := index $config $network -}}
-    {{- $rel := $setup.rel | default "" -}}
+    {{- $rel := $profile.rel | default "" -}}
     {{- $label := $profile.label | default $setup.label -}}
 
     {{- $link := (printf $setup.profile $profile.username) -}}
@@ -44,29 +44,3 @@
     </a>
   {{- end -}}
 </div>
-
-{{ define "partials/func/sortNetworks.html" }}
-  {{- /*
-
-  Sorting a list of social networks defined by the order in `networks`.
-  Only networks present in both `networks` and `setups` will be included. Items missing from `networks` are ignored.
-  Use `networks` to setup the order of the networks and which network to enable.
-
-  Usage: {{ $setups = partials.IncludeCached "func/sortNetworks.html" (dict "networks" $networks "setups" $setups) }}
-
-  See also `config/_default/params.toml` > `ananke.social` for details.
-
-  */ -}}
-  {{- $networks := .networks -}}
-  {{- $setups := .setups -}}
-  {{- $output := collections.Slice -}}
-  {{- range $networks -}}
-    {{- $network := . -}}
-    {{- range $setups -}}
-      {{- if compare.Eq .slug $network -}}
-        {{- $output = $output | collections.Append . -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-  {{- return $output -}}
-{{- end -}}
