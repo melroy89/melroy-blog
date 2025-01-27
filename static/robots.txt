@@ -30,6 +30,14 @@ Disallow: /
 User-agent: PerplexityBot
 Disallow: /
 
+# https://mj12bot.com/
+User-agent: MJ12bot
+Disallow: /
+
+# https://ahrefs.com/nl/robot
+User-agent: AhrefsBot
+Disallow: /
+
 # Anthropic
 # https://darkvisitors.com/agents/anthropic-ai
 User-agent: anthropic-ai
