@@ -29,6 +29,8 @@ This is a getting started guide for Starship. I'm using Starship every day.
 
 [Starship Prompt](https://starship.rs/), _not to be confused with_ the Starship from SpaceX 😆, is a cross-shell prompt written in Rust. The prompt works in any common shell you may already use under GNU/Linux, like Bash.
 
+<!--more-->
+
 In fact, Starship prompt works under any shell under any operating system.
 
 ## Why?
