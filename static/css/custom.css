@@ -52,6 +52,7 @@ samp {
 }
 figcaption {
   text-align: center;
+  font-size: 0.8em;
 }
 table {
   border-collapse: collapse;
