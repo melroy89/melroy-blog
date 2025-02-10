@@ -37,7 +37,7 @@ A collection of _tools, techniques and best practices_ can help to reduce such v
 
 We have seen quote a lot of hacks and data breaches over the past years across different big companies, including but not limited to: PayPal, LastPast, T-Mobile, MailChimp, Netflix, Dropbox, OpenSea, Twitter...
 
-![LastPass was hacked](/images/2023/02/lastpass-hacked.webp)
+![LastPass was hacked](images/2023/02/lastpass-hacked.webp)
 
 ---
 
@@ -83,7 +83,7 @@ To perform a local security system scan, execute now:
 sudo ./lynis audit system
 ```
 
-![Lynis](/images/2023/02/lynis.png "Lynis audit run")
+![Lynis](images/2023/02/lynis.png "Lynis audit run")
 
 ## Host Machine
 
@@ -307,7 +307,7 @@ I love to go into details about each kernel option, but then this article would 
 
 Now let's move to our Docker setup. Docker Engine is used for running isolated containers, but unlike VMs Docker can reuse the OS kernel resources. The following sections are based on the audit results performed by the [Docker Bench for Security script](#docker-bench-security).
 
-![Docker Engine Architecture](/images/2023/02/docker-engine-architecture.jpg)
+![Docker Engine Architecture](images/2023/02/docker-engine-architecture.jpg)
 
 ### Introducing Docker daemon config {#docker-daemon}
 
@@ -452,7 +452,7 @@ services:
 
 I use the `docker stats` command to see what the current memory usage is, and estimate what the maximum might be for each container.
 
-![Docker stats terminal output](/images/2023/02/docker_stats.jpg "Docker stats output")
+![Docker stats terminal output](images/2023/02/docker_stats.jpg "Docker stats output")
 
 If you do **NOT** want to use [Docker swarm](https://docs.docker.com/engine/swarm/) that comes with Compose v3, use the `--compatibility` flag to start the container: `docker compose --compatibility up -d`.
 

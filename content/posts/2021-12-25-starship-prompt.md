@@ -22,7 +22,7 @@ tags:
   - terminal
 ---
 
-![](/images/2021/12/starship_logo.png)
+![](images/2021/12/starship_logo.png)
 
 I would like to share a nice 'secret'. I want to introduce you to the Starship prompt!
 This is a getting started guide for Starship. I'm using Starship every day.
@@ -44,7 +44,7 @@ For example Starship will show you information about when you enter a git reposi
 
 Starship shows you the _current_ **git branch** that is checked-out and the latest **git tag**. It also shows you in the terminal if you have any _uncommitted changes_ left to commit. As well as if there are git commits that _still_ need to be pushed, using the git status module.
 
-![](/images/2021/12/bracketed-segments-before.png "Starship in action")
+![](images/2021/12/bracketed-segments-before.png "Starship in action")
 
 ## Getting started
 
