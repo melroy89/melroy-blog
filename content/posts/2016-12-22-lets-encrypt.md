@@ -47,7 +47,7 @@ Another option is to create a so called S*elf-signed certificate*. On that momen
 
 ## Let's Encrypt
 
-On April 12, 2016 Let's Encypt left Beta. Let's Encrypt makes it possible to create a trusted certificate, which is trusted by all major web-browsers. The big pro is that Let's Encrypt is totally 100% **FREE** to use! Let's Encrypt is a fully automated and [open-source](https://github.com/letsencrypt) certificate authority. Free automated certificate authorities are the future of secure server connections.
+On April 12, 2016 Let's Encrypt left Beta. Let's Encrypt makes it possible to create a trusted certificate, which is trusted by all major web-browsers. The big pro is that Let's Encrypt is totally 100% **FREE** to use! Let's Encrypt is a fully automated and [open-source](https://github.com/letsencrypt) certificate authority. Free automated certificate authorities are the future of secure server connections.
 
 ![Let's Encrypt](/images/2016/03/letsencrypt.png "Let's Encrypt High-level overview")
 

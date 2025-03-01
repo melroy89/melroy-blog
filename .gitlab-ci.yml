@@ -16,7 +16,7 @@ codespell:
   before_script:
     - pip install codespell
   script:
-    - ./spell-check.sh
+    - ./scripts/spell-check.sh
 
 test-build:
   stage: build
