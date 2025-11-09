@@ -33,11 +33,17 @@ User-agent: AfD-Verbotsverfahren
 Disallow:/
 User-agent: AhrefsBot
 Disallow:/
+User-agent: Ai2Bot
+Disallow:/
 User-agent: AiHitBot
 Disallow:/
 User-agent: Aipbot
 Disallow:/
 User-agent: Alexibot
+Disallow:/
+User-agent: Aliyun
+Disallow:/
+User-agent: AliyunSecBot
 Disallow:/
 User-agent: AllSubmitter
 Disallow:/
@@ -338,6 +344,8 @@ Disallow:/
 User-agent: GT::WWW
 Disallow:/
 User-agent: GalaxyBot
+Disallow:/
+User-agent: GeedoProductSearch
 Disallow:/
 User-agent: Genieo
 Disallow:/
@@ -1187,6 +1195,8 @@ User-agent: ZyBorg
 Disallow:/
 User-agent: adscanner
 Disallow:/
+User-agent: allenai.org
+Disallow:/
 User-agent: anthropic-ai
 Disallow:/
 User-agent: archive.org_bot
@@ -1224,6 +1234,8 @@ Disallow:/
 User-agent: dataforseo.com
 Disallow:/
 User-agent: dataforseobot
+Disallow:/
+User-agent: dataprovider
 Disallow:/
 User-agent: demandbase-bot
 Disallow:/
@@ -1356,14 +1368,81 @@ Disallow:/
 # And more...    #
 ##################
 
-# Google AI (Gemini, etc)
-# https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers
-User-agent: Google-Extended
+# ChatGPT (ChatGPT-User is already in the list above)
+User-agent: ChatGPT Agent
+Disallow: /
+
+# Claude (ClaudeBot is already in the list above)
+User-agent: Claude-SearchBot
+Disallow: /
+
+User-agent: Claude-User
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Cloudflare
+User-agent: Cloudflare-AutoRAG
+Disallow: /
+
+# Google as well
+User-agent: CloudVertexBot
+Disallow: /
+
+# Cohere
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
 Disallow: /
 
 # Perplexity
 # https://docs.perplexity.ai/docs/perplexitybot
+User-agent: Perplexity-User
+Disallow: /
+
 User-agent: PerplexityBot
+Disallow: /
+
+# Google / Gemini
+# https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers
+User-agent: Gemini-Deep-Research
+Disallow: /
+
+User-agent: Google-CloudVertexBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Google-Firebase
+Disallow: /
+
+User-agent: Google-NotebookLM
+Disallow: /
+
+User-agent: GoogleAgent-Mariner
+Disallow: /
+
+User-agent: GoogleOther
+Disallow: /
+
+User-agent: GoogleOther-Image
+Disallow: /
+
+User-agent: GoogleOther-Video
+Disallow: /
+
+# Facebook Meta
+User-agent: meta-webindexer
+Disallow: /
+
+# Mistral
+User-agent: MistralAI-User
+Disallow: /
+
+User-agent: MistralAI-User/1.0
 Disallow: /
 
 User-agent: *
