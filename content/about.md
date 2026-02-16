@@ -22,7 +22,7 @@ I _love_ contributing to open-source projects and free software ([Free as in fre
 ## Projects
 
 As stated earlier, I'm actually both maintaining and contributing many different open-source projects as well as the creator or several open-source projects.  
-Including but not limited to: [WineGUI](https://gitlab.melroy.org/melroy/winegui), [Mbin](https://github.com/MbinOrg/mbin), [fake-useragent](https://github.com/fake-useragent/fake-useragent), [Automated-bots](https://github.com/automated-bots), [LibreWeb](https://libreweb.org), [BCH Explorer](https//explorer.melroy.org), [BCHN](https://gitlab.com/bitcoin-cash-node/bitcoin-cash-node) and so much more!
+Including but not limited to: [WineGUI](https://gitlab.melroy.org/melroy/winegui), [Mbin](https://github.com/MbinOrg/mbin), [BCH Explorer](https://bchexplorer.cash), [fake-useragent](https://github.com/fake-useragent/fake-useragent), [Automated-bots](https://github.com/automated-bots), [LibreWeb](https://libreweb.org), [BCHN](https://gitlab.com/bitcoin-cash-node/bitcoin-cash-node) and so much more!
 
 # Services
 
