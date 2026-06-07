@@ -52,6 +52,9 @@ pagerSize = 12
   read_more_copy = "View full post"
   show_reading_time = true
 
+[params.ananke.pages]
+  show_list_images = false
+
 [params.ananke.social.follow]
 new_window_icon = false
 networks = [
