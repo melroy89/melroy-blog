@@ -33,7 +33,7 @@ tags:
   - terminal
 ---
 
-Happy new year everyone! 😎 Let's install Ubuntu Server 20.04 as part of the blog series. And continue with setting-up the software part of the server. If you missed [Part I](/2020/new-server-buy-assemble-part-1/), read that first.</a>
+Happy new year everyone! 😎 Let's install Ubuntu Server 20.04 as part of the blog series. And continue with setting-up the software part of the server. If you missed [Part I](/2020/new-server-buy-assemble-part-1/), read that first.
 
 <!--more-->
 
