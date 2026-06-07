@@ -78,7 +78,7 @@ Bij GNU/Linux heb je de keuze uit vele zogenaamde **distributies** die vaak z'n 
 
 Vanwege het feit dat GNU/Linux gratis verkrijgbaar is, wordt het ook overal voor gebruikt terwijl je het vaak niet door hebt. Zo is de kans zeer groot dat Linux aantref in onder andere je **TV**, **DVD recorder, media center, navigatie systeem,** internet **router**, je **telefoon** (Android draait op Linux), ...
 
-Doordat Linux zo configureerbaar is, kun je ook een uitgeklede versie gebruiken met enkel de zaken die jij nodig hebt. Bijvoorbeeld zonder grafische interface, zonder grafische drivers en alle andere mikmak die je wellicht niet nodig als je een server wilt draaien. Daarom wordt Linux ook heel veel gebruikt in server parken / clustersystemen. En jawel ook de [top 500 ](http://www.top500.org/)supercomputers\*\*</a> op de wereld beschikken meestal over een Linux variant.
+Doordat Linux zo configureerbaar is, kun je ook een uitgeklede versie gebruiken met enkel de zaken die jij nodig hebt. Bijvoorbeeld zonder grafische interface, zonder grafische drivers en alle andere mikmak die je wellicht niet nodig als je een server wilt draaien. Daarom wordt Linux ook heel veel gebruikt in server parken / clustersystemen. En jawel ook de [top 500 supercomputers](http://www.top500.org/) op de wereld beschikken meestal over een Linux variant.
 
 ### Ontwikkelingslanden
 
@@ -93,7 +93,7 @@ Vergeet ook niet dat wij met zijn allen, Linux kunnen verbeteren, omdat het open
 
 Niemand alleen (Microsoft) kan ooit concurreren met wat iedereen samen kan produceren (Linux) los van het management gezien. Gemiddeld worden er per uur 7.14 veranderingen geaccepteerd in Linux kernel, dit komt neer op z'n 171 verbeteringen elke dag en meer dan **1200 fixes per week**.
 
-Tevens staat Linux bekent om hun **stabiele** omgeving, goede en snelle updates, veel **applicaties** die tevens gratis & open-source te verkrijgen zijn. Daarnaast staat er staat altijd een [grote ](http://www.linuxmint.com/contactus.php)community\*\*</a> voor je klaar om je (op weg) te helpen met Linux. Het zij via e-mail, IRC chat of fora.
+Tevens staat Linux bekent om hun **stabiele** omgeving, goede en snelle updates, veel **applicaties** die tevens gratis & open-source te verkrijgen zijn. Daarnaast staat er staat altijd een [grote community](http://www.linuxmint.com/contactus.php) voor je klaar om je (op weg) te helpen met Linux. Het zij via e-mail, IRC chat of fora.
 
 ![Linux veiligheids-lagen](/images/2014/10/high_level_picture_security-300x187.gif "Linux veiligheids-lagen")
 
@@ -132,8 +132,7 @@ Maak uw keuze:
 Wist je dat...
 
 - ![Steve Ballme](/images/2014/10/ballmer2.jpg "Steve Ballme")
-
-  Steve Ballme, CEO Microsoft-topman, omschreef Linux als "een **kankergezwel** dat zichzelf, qua intellectueel eigendom, bevestigt aan alles wat het aanraakt" in een interview met de Chicago Sun-Times?</li>
+  Steve Ballme, CEO Microsoft-topman, omschreef Linux als "een **kankergezwel** dat zichzelf, qua intellectueel eigendom, bevestigt aan alles wat het aanraakt" in een interview met de Chicago Sun-Times?
 
   - De CEO opvolger van Microsoft, Satya Nadella, nu zelfs een Linux fan is tijdens een Microsoft-CoreOS presentatie? (jaja)
   - Microsoft CEO Bill Gates heeft in 1997 **$150 miljoen** geïnvesteerd in Apple? Dit werd gepresenteerd tijdens MacWorld Boston. Steve Jobs zegt dat hij samen met Microsoft gaat werken aan Internet Explorer, Microsoft Office, Java en meer. Vandaar dat Office ook naar Apple is gekomen, maar vooralsnog niet naar Linux.

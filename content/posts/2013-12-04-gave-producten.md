@@ -66,7 +66,7 @@ De Scanadu Scout is een product wat je kan verbinden met je mobiele telefoon. En
 
 Dit product willen ze ook gebruiken bij NASA en wordt in 2014 verwacht.
 
-Website: [scanadu.com](http://www.scanadu.com/scout/) </a>
+Website: [scanadu.com](http://www.scanadu.com/scout/)
 
 ## Sony SmartWatch 2 SW2
 

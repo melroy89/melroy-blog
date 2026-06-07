@@ -6,15 +6,18 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
       day: friday
       time: "18:00"
       timezone: Asia/Bangkok
+    cooldown:
+      default-days: 14
+      semver-major-days: 14
+      semver-minor-days: 7
+      semver-patch-days: 4
     assignees:
       - davidsneighbour
-    reviewers:
-      - davidsneighbour
-    target-branch: main
+    target-branch: development
     open-pull-requests-limit: 999
     pull-request-branch-name:
       separator: /
@@ -24,15 +27,18 @@ updates:
   - package-ecosystem: gomod
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
       day: friday
       time: "18:00"
       timezone: Asia/Bangkok
+    cooldown:
+      default-days: 14
+      semver-major-days: 14
+      semver-minor-days: 7
+      semver-patch-days: 4
     assignees:
       - davidsneighbour
-    reviewers:
-      - davidsneighbour
-    target-branch: main
+    target-branch: development
     open-pull-requests-limit: 999
     pull-request-branch-name:
       separator: /
@@ -42,15 +48,15 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
       day: friday
       time: "18:00"
       timezone: Asia/Bangkok
+    cooldown:
+      default-days: 7
     assignees:
       - davidsneighbour
-    reviewers:
-      - davidsneighbour
-    target-branch: main
+    target-branch: development
     open-pull-requests-limit: 999
     pull-request-branch-name:
       separator: /

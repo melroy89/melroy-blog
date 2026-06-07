@@ -117,7 +117,7 @@ Mocht je problemen ondervinden, kun je de logging vinden via: `tail -f /var/log/
 
 ![DIY-project weerstation](/images/2015/09/photo60848717694085450.jpg "DIY-project weerstation")
 
-In mijn thuis project draait ik op dit moment Cassandra v2.2 Met [CQL specificatie versie 3.3.](http://docs.datastax.com/en/cql/3.3/cql/cqlIntro.html) </a>Je kunt dit eenvoudig controleren door het **cqlsh** commando uit te voeren op command-line, deze toont meteen de versie nummers.
+In mijn thuis project draait ik op dit moment Cassandra v2.2 Met [CQL specificatie versie 3.3.](http://docs.datastax.com/en/cql/3.3/cql/cqlIntro.html) Je kunt dit eenvoudig controleren door het **cqlsh** commando uit te voeren op command-line, deze toont meteen de versie nummers.
 
 Zoals eerder al uitgelegd was, staat CQL voor Cassandra Query Language, het is een query taal van de Cassandra database. Via deze manier kun je keyspaces en tabellen toevoegen, doorzoeken, verwijderen en veel meer.  
 Voor de mensen die SQL gewend zijn, dat is vergelijkbaar met SQL door rationele database systemen zoals MySQL.
