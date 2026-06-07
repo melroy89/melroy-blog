@@ -17,7 +17,7 @@
     <header class="mt4 w-100">
       {{- partials.Include "hook.html" ( dict "hook" "article/section-link"  "context" . ) -}}
       {{- partials.IncludeCached "social/share.html" . . -}}
-      <h1 class="f1 athelas mt3 mb1">
+      <h1 class="f1 avenir mt3 mb1">
         {{- .Title -}}
       </h1>
       {{ with .Params.author | compare.Default .Site.Params.author }}
